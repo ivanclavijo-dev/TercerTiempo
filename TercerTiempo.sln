@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "UI\Persistencia.csproj", "{79A47557-506D-4114-903E-2A9C31B083DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{365D29BA-636B-4A60-B6A4-A35E9496C8C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{6F44EDB6-EFFA-4717-8ADD-DCE4D916EC82}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79A47557-506D-4114-903E-2A9C31B083DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A47557-506D-4114-903E-2A9C31B083DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A47557-506D-4114-903E-2A9C31B083DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A47557-506D-4114-903E-2A9C31B083DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365D29BA-636B-4A60-B6A4-A35E9496C8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365D29BA-636B-4A60-B6A4-A35E9496C8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365D29BA-636B-4A60-B6A4-A35E9496C8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365D29BA-636B-4A60-B6A4-A35E9496C8C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F44EDB6-EFFA-4717-8ADD-DCE4D916EC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F44EDB6-EFFA-4717-8ADD-DCE4D916EC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F44EDB6-EFFA-4717-8ADD-DCE4D916EC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F44EDB6-EFFA-4717-8ADD-DCE4D916EC82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
