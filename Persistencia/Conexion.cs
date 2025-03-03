@@ -13,9 +13,9 @@ namespace TercerTiempo.Persistencia
         private readonly string _cadenaConexion;
 
         // Constructor
-        public Conexion(string servidor = "localhost", string baseDatos = "tercertiempo", string usuario = "root", string contraseña = "Kirayruffo2_", int puerto = 3306)
+        public Conexion(string servidor = "localhost", string baseDatos = "tercertiempo", string usuario = "root")
         {
-            _cadenaConexion = $"Server={servidor};Database={baseDatos};Uid={usuario};Pwd={contraseña};Port={puerto};";
+            _cadenaConexion = $"Server={servidor};Database={baseDatos};Uid={usuario};";
             _conexion = new MySqlConnection(_cadenaConexion);
         }
 
