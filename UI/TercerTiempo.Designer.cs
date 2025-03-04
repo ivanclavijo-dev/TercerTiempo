@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
             button4 = new Button();
@@ -37,15 +38,18 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
+            label2 = new Label();
+            label5 = new Label();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             panel5 = new Panel();
             pictureBox2 = new PictureBox();
-            label1 = new Label();
             panelProfile = new Panel();
+            label1 = new Label();
             cerrarSesion = new Button();
-            panel6 = new Panel();
+            contenedorVistas = new Panel();
             elipseComponent1 = new View.Components.ElipseComponent();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -56,7 +60,7 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelProfile.SuspendLayout();
-            panel6.SuspendLayout();
+            contenedorVistas.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -153,6 +157,7 @@
             button1.TabIndex = 1;
             button1.Text = "Home";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // panel2
             // 
@@ -177,14 +182,39 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(label5);
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(pictureBox3);
             panel4.Controls.Add(panel5);
             panel4.Dock = DockStyle.Top;
+            panel4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panel4.Location = new Point(180, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(1020, 55);
             panel4.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(21, 17);
+            label2.Name = "label2";
+            label2.Size = new Size(60, 22);
+            label2.TabIndex = 17;
+            label2.Text = "label2";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.FlatStyle = FlatStyle.Flat;
+            label5.Font = new Font("Montserrat Black", 18F, FontStyle.Bold);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(510, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 33);
+            label5.TabIndex = 16;
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox4
             // 
@@ -230,6 +260,16 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // panelProfile
+            // 
+            panelProfile.BackColor = Color.White;
+            panelProfile.Controls.Add(cerrarSesion);
+            panelProfile.Location = new Point(721, 0);
+            panelProfile.Name = "panelProfile";
+            panelProfile.Size = new Size(206, 51);
+            panelProfile.TabIndex = 0;
+            panelProfile.Visible = false;
+            // 
             // label1
             // 
             label1.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -241,16 +281,6 @@
             label1.TabIndex = 0;
             label1.Text = "Nacho Simois";
             label1.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // panelProfile
-            // 
-            panelProfile.BackColor = Color.White;
-            panelProfile.Controls.Add(cerrarSesion);
-            panelProfile.Location = new Point(721, 0);
-            panelProfile.Name = "panelProfile";
-            panelProfile.Size = new Size(206, 51);
-            panelProfile.TabIndex = 0;
-            panelProfile.Visible = false;
             // 
             // cerrarSesion
             // 
@@ -271,19 +301,24 @@
             cerrarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
             cerrarSesion.UseVisualStyleBackColor = false;
             // 
-            // panel6
+            // contenedorVistas
             // 
-            panel6.BackColor = SystemColors.ControlLight;
-            panel6.Controls.Add(panelProfile);
-            panel6.Location = new Point(180, 55);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1020, 645);
-            panel6.TabIndex = 2;
+            contenedorVistas.BackColor = SystemColors.ControlLight;
+            contenedorVistas.Controls.Add(panelProfile);
+            contenedorVistas.Location = new Point(180, 55);
+            contenedorVistas.Name = "contenedorVistas";
+            contenedorVistas.Size = new Size(1020, 645);
+            contenedorVistas.TabIndex = 2;
             // 
             // elipseComponent1
             // 
             elipseComponent1.CornerRadius = 30;
             elipseComponent1.TargetControl = this;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
             // 
             // TercerTiempo
             // 
@@ -291,13 +326,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1200, 700);
-            Controls.Add(panel6);
+            Controls.Add(contenedorVistas);
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "TercerTiempo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
+            Load += TercerTiempo_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -309,7 +345,7 @@
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelProfile.ResumeLayout(false);
-            panel6.ResumeLayout(false);
+            contenedorVistas.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -331,7 +367,10 @@
         private PictureBox pictureBox4;
         private Panel panelProfile;
         private Button cerrarSesion;
-        private Panel panel6;
+        private Panel contenedorVistas;
         private View.Components.ElipseComponent elipseComponent1;
+        private Label label5;
+        private System.Windows.Forms.Timer timer1;
+        private Label label2;
     }
 }
