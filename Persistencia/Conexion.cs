@@ -19,7 +19,7 @@ namespace TercerTiempo.Persistencia
             _conexion = new MySqlConnection(_cadenaConexion);
         }
 
-        public bool AbrirConexion()
+        public MySqlConnection AbrirConexion()
         {
             try
             {
@@ -28,17 +28,17 @@ namespace TercerTiempo.Persistencia
                     _conexion.Open();
                     Console.WriteLine("Conexión abierta correctamente.");
                 }
-                return true;
+                return _conexion;
             }
             catch (MySqlException ex)
             {
                 Console.WriteLine($"Error al abrir la conexión: {ex.Message}");
-                return false;
+                return _conexion;
             }
         }
 
         // Cerrar conexión
-        public bool CerrarConexion()
+        public MySqlConnection CerrarConexion()
         {
             try
             {
@@ -47,12 +47,12 @@ namespace TercerTiempo.Persistencia
                     _conexion.Close();
                     Console.WriteLine("Conexión cerrada correctamente.");
                 }
-                return true;
+                return _conexion;
             }
             catch (MySqlException ex)
             {
                 Console.WriteLine($"Error al cerrar la conexión: {ex.Message}");
-                return false;
+                return _conexion;
             }
         }
 

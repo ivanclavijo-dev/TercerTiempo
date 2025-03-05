@@ -20,12 +20,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Logica.Metodo me = new Logica.Metodo();
-
-            MessageBox.Show(me.Mensaje());
-        }
+    
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -44,7 +39,7 @@ namespace UI
             else
             {
                 panelProfile.Visible = true;
-                
+
 
             }
         }
@@ -90,6 +85,11 @@ namespace UI
         private void cerrarSesion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new Forms.Clientes()); 
         }
     }
 }

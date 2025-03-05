@@ -44,8 +44,8 @@
             pictureBox3 = new PictureBox();
             panel5 = new Panel();
             pictureBox2 = new PictureBox();
-            panelProfile = new Panel();
             label1 = new Label();
+            panelProfile = new Panel();
             cerrarSesion = new Button();
             contenedorVistas = new Panel();
             elipseComponent1 = new View.Components.ElipseComponent();
@@ -139,6 +139,7 @@
             button2.TabIndex = 2;
             button2.Text = "Clientes";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -260,16 +261,6 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
-            // panelProfile
-            // 
-            panelProfile.BackColor = Color.White;
-            panelProfile.Controls.Add(cerrarSesion);
-            panelProfile.Location = new Point(721, 0);
-            panelProfile.Name = "panelProfile";
-            panelProfile.Size = new Size(206, 51);
-            panelProfile.TabIndex = 0;
-            panelProfile.Visible = false;
-            // 
             // label1
             // 
             label1.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -281,6 +272,16 @@
             label1.TabIndex = 0;
             label1.Text = "Nacho Simois";
             label1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panelProfile
+            // 
+            panelProfile.BackColor = Color.White;
+            panelProfile.Controls.Add(cerrarSesion);
+            panelProfile.Location = new Point(721, 0);
+            panelProfile.Name = "panelProfile";
+            panelProfile.Size = new Size(206, 51);
+            panelProfile.TabIndex = 0;
+            panelProfile.Visible = false;
             // 
             // cerrarSesion
             // 
