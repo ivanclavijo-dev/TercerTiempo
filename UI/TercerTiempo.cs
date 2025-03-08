@@ -20,7 +20,7 @@ namespace UI
             InitializeComponent();
         }
 
-    
+
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -30,18 +30,7 @@ namespace UI
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (panelProfile.Visible == true)
-            {
-                panelProfile.Visible = false;
 
-
-            }
-            else
-            {
-                panelProfile.Visible = true;
-
-
-            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -74,7 +63,6 @@ namespace UI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label2.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void TercerTiempo_Load(object sender, EventArgs e)
@@ -89,7 +77,66 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new Forms.Clientes()); 
+            AbrirFormInPanel(new Forms.Clientes());
+        }
+
+        private void contenedorVistas_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BotonHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void elipseControl1_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjTextBox1__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void elipseControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void elipseControl3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
