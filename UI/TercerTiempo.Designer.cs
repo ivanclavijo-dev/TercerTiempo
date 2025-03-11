@@ -52,9 +52,7 @@ namespace UI
             label1 = new Label();
             pictureBox2 = new PictureBox();
             panel2 = new Panel();
-            rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             bindingSource1 = new BindingSource(components);
-            pictureBox7 = new PictureBox();
             elipseControl1 = new ElipseControl();
             pictureBox8 = new PictureBox();
             elipseControl2 = new ElipseControl();
@@ -65,6 +63,8 @@ namespace UI
             label3 = new Label();
             pictureBox10 = new PictureBox();
             pictureBox11 = new PictureBox();
+            rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -80,11 +80,11 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // contenedorVistas
@@ -103,7 +103,6 @@ namespace UI
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel1
             // 
@@ -115,7 +114,6 @@ namespace UI
             panel1.Name = "panel1";
             panel1.Size = new Size(186, 700);
             panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
             // 
             // panel4
             // 
@@ -216,6 +214,7 @@ namespace UI
             productosLabel.Size = new Size(86, 24);
             productosLabel.TabIndex = 0;
             productosLabel.Text = "Productos";
+            productosLabel.MouseClick += productosLabel_MouseClick;
             // 
             // pictureBox4
             // 
@@ -246,7 +245,7 @@ namespace UI
             clientesLabel.Size = new Size(67, 24);
             clientesLabel.TabIndex = 0;
             clientesLabel.Text = "Clientes";
-            clientesLabel.Click += label2_Click;
+            clientesLabel.MouseClick += clientesLabel_MouseClick;
             // 
             // pictureBox3
             // 
@@ -271,15 +270,18 @@ namespace UI
             // label1
             // 
             label1.AutoSize = true;
+            label1.Cursor = Cursors.Hand;
             label1.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(66, 14);
             label1.Name = "label1";
             label1.Size = new Size(56, 24);
             label1.TabIndex = 0;
             label1.Text = "Home";
+            label1.MouseClick += label1_MouseClick;
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.home_01;
             pictureBox2.Location = new Point(36, 14);
             pictureBox2.Name = "pictureBox2";
@@ -287,6 +289,7 @@ namespace UI
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
+            pictureBox2.MouseClick += label1_MouseClick;
             // 
             // panel2
             // 
@@ -297,40 +300,6 @@ namespace UI
             panel2.Size = new Size(186, 146);
             panel2.TabIndex = 0;
             // 
-            // rjTextBox1
-            // 
-            rjTextBox1.BackColor = Color.FromArgb(246, 246, 246);
-            rjTextBox1.BorderColor = Color.Transparent;
-            rjTextBox1.BorderFocusColor = Color.Black;
-            rjTextBox1.BorderRadius = 20;
-            rjTextBox1.BorderSize = 2;
-            rjTextBox1.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rjTextBox1.ForeColor = Color.FromArgb(130, 130, 130);
-            rjTextBox1.Location = new Point(184, 25);
-            rjTextBox1.Margin = new Padding(4);
-            rjTextBox1.Multiline = false;
-            rjTextBox1.Name = "rjTextBox1";
-            rjTextBox1.Padding = new Padding(10, 7, 10, 7);
-            rjTextBox1.PasswordChar = false;
-            rjTextBox1.PlaceholderColor = Color.DarkGray;
-            rjTextBox1.PlaceholderText = "";
-            rjTextBox1.Size = new Size(549, 39);
-            rjTextBox1.TabIndex = 3;
-            rjTextBox1.Texts = "             Ingrese el nombre del producto o cliente que busca...";
-            rjTextBox1.UnderlinedStyle = false;
-            rjTextBox1._TextChanged += rjTextBox1__TextChanged;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackColor = Color.FromArgb(246, 246, 246);
-            pictureBox7.Image = Properties.Resources.Search;
-            pictureBox7.Location = new Point(206, 34);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(26, 22);
-            pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox7.TabIndex = 4;
-            pictureBox7.TabStop = false;
-            // 
             // elipseControl1
             // 
             elipseControl1.BackColor = Color.FromArgb(246, 246, 246);
@@ -340,7 +309,6 @@ namespace UI
             elipseControl1.Size = new Size(73, 39);
             elipseControl1.TabIndex = 5;
             elipseControl1.Text = "elipseControl1";
-            elipseControl1.Click += elipseControl1_Click;
             // 
             // pictureBox8
             // 
@@ -372,15 +340,14 @@ namespace UI
             elipseControl3.Size = new Size(113, 39);
             elipseControl3.TabIndex = 8;
             elipseControl3.Text = "elipseControl3";
-            elipseControl3.Click += elipseControl3_Click;
             // 
             // elipseControl4
             // 
             elipseControl4.BackColor = Color.FromArgb(37, 161, 240);
             elipseControl4.CornerRadius = 40;
-            elipseControl4.Location = new Point(753, 31);
+            elipseControl4.Location = new Point(755, 34);
             elipseControl4.Name = "elipseControl4";
-            elipseControl4.Size = new Size(28, 28);
+            elipseControl4.Size = new Size(23, 23);
             elipseControl4.TabIndex = 9;
             elipseControl4.Text = "elipseControl4";
             // 
@@ -388,14 +355,14 @@ namespace UI
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(37, 161, 240);
-            label2.Font = new Font("Montserrat ExtraBold", 10F, FontStyle.Bold);
+            label2.Font = new Font("Montserrat ExtraBold", 8F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(758, 34);
+            label2.Location = new Point(760, 37);
             label2.Name = "label2";
-            label2.Size = new Size(17, 20);
+            label2.Size = new Size(14, 15);
             label2.TabIndex = 10;
             label2.Text = "3";
-            label2.Click += label2_Click_1;
+            label2.Click += label2_Click;
             // 
             // pictureBox9
             // 
@@ -441,6 +408,41 @@ namespace UI
             pictureBox11.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox11.TabIndex = 14;
             pictureBox11.TabStop = false;
+            pictureBox11.Click += pictureBox11_Click;
+            // 
+            // rjTextBox1
+            // 
+            rjTextBox1.BackColor = Color.FromArgb(246, 246, 246);
+            rjTextBox1.BorderColor = Color.Transparent;
+            rjTextBox1.BorderFocusColor = Color.FromArgb(0, 65, 212);
+            rjTextBox1.BorderRadius = 20;
+            rjTextBox1.BorderSize = 2;
+            rjTextBox1.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rjTextBox1.ForeColor = Color.FromArgb(64, 64, 64);
+            rjTextBox1.Location = new Point(184, 25);
+            rjTextBox1.Margin = new Padding(4);
+            rjTextBox1.Multiline = false;
+            rjTextBox1.Name = "rjTextBox1";
+            rjTextBox1.Padding = new Padding(10, 7, 10, 7);
+            rjTextBox1.PasswordChar = false;
+            rjTextBox1.PlaceholderColor = Color.DarkGray;
+            rjTextBox1.PlaceholderText = "Ingresa el nombre del producro o del cliente que busca...";
+            rjTextBox1.Size = new Size(553, 39);
+            rjTextBox1.TabIndex = 15;
+            rjTextBox1.Texts = "";
+            rjTextBox1.UnderlinedStyle = false;
+            rjTextBox1._TextChanged += rjTextBox1__TextChanged_1;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.Search;
+            pictureBox7.Location = new Point(692, 35);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(26, 22);
+            pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox7.TabIndex = 0;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
             // 
             // TercerTiempo
             // 
@@ -449,6 +451,8 @@ namespace UI
             AutoSize = true;
             BackColor = Color.White;
             ClientSize = new Size(1200, 700);
+            Controls.Add(pictureBox7);
+            Controls.Add(rjTextBox1);
             Controls.Add(pictureBox11);
             Controls.Add(pictureBox10);
             Controls.Add(label3);
@@ -459,8 +463,6 @@ namespace UI
             Controls.Add(elipseControl2);
             Controls.Add(pictureBox8);
             Controls.Add(elipseControl1);
-            Controls.Add(pictureBox7);
-            Controls.Add(rjTextBox1);
             Controls.Add(panel1);
             Controls.Add(contenedorVistas);
             FormBorderStyle = FormBorderStyle.None;
@@ -488,11 +490,11 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -521,9 +523,7 @@ namespace UI
         private Panel panel5;
         private Label label1;
         private PictureBox pictureBox2;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
         private BindingSource bindingSource1;
-        private PictureBox pictureBox7;
         private ElipseControl elipseControl1;
         private PictureBox pictureBox8;
         private ElipseControl elipseControl3;
@@ -533,5 +533,7 @@ namespace UI
         private Label label3;
         private PictureBox pictureBox10;
         private PictureBox pictureBox11;
+        private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private PictureBox pictureBox7;
     }
 }

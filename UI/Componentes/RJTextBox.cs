@@ -288,7 +288,7 @@ namespace CustomControls.RJControls
                 if (isPasswordChar)
                     textBox1.UseSystemPasswordChar = true;
             }
-        }        
+        }
         private GraphicsPath GetFigurePath(Rectangle rect, int radius)
         {
             GraphicsPath path = new GraphicsPath();

@@ -7,16 +7,27 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class TercerTiempo : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+      (
+          int nLeftRect,     // x-coordinate of upper-left corner
+          int nTopRect,      // y-coordinate of upper-left corner
+          int nRightRect,    // x-coordinate of lower-right corner
+          int nBottomRect,   // y-coordinate of lower-right corner
+          int nWidthEllipse, // height of ellipse
+          int nHeightEllipse // width of ellipse
+      );
 
         public TercerTiempo()
         {
-
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
 
@@ -50,6 +61,7 @@ namespace UI
             Form fh = Formhijo as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
+            fh.FormBorderStyle = FormBorderStyle.None; // Elimina bordes
             this.contenedorVistas.Controls.Add(fh);
             this.contenedorVistas.Tag = fh;
             fh.Show();
@@ -61,60 +73,34 @@ namespace UI
             AbrirFormInPanel(new Forms.Home());
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-        }
 
         private void TercerTiempo_Load(object sender, EventArgs e)
         {
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
             AbrirFormInPanel(new Forms.Home());
+
         }
 
-        private void cerrarSesion_Click(object sender, EventArgs e)
+
+        private void label1_MouseClick(object sender, MouseEventArgs e)
         {
+            AbrirFormInPanel(new Forms.Home());
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void clientesLabel_MouseClick(object sender, MouseEventArgs e)
         {
             AbrirFormInPanel(new Forms.Clientes());
+
         }
 
-        private void contenedorVistas_Paint(object sender, PaintEventArgs e)
+        private void productosLabel_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BotonHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void elipseControl1_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void pictureBox11_Click(object sender, EventArgs e)
         {
 
         }
@@ -124,17 +110,17 @@ namespace UI
 
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
+        private void rjTextBox1__TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void elipseControl1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void elipseControl3_Click(object sender, EventArgs e)
+        private void pictureBox7_Click(object sender, EventArgs e)
         {
 
         }
