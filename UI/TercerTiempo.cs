@@ -124,5 +124,48 @@ namespace UI
         {
 
         }
+        public void VistaColaborador(bool visible)
+        {
+            empleadosLabel.Visible = visible;
+            pictureBox5.Visible = visible;
+            panel8.Visible = visible;
+            estadisticasLabel.Visible = visible;
+            pictureBox8.Visible = visible;
+            panel9.Visible = visible;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+
+            login.Show();
+
+            this.Hide();
+        }
+
+
+
+        private void pictureBox13_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+
+            login.Show();
+
+            this.Hide();
+        }
+
+        private void panel11_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+
+            login.Show();
+
+            this.Hide();
+        }
     }
 }

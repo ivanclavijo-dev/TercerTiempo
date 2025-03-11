@@ -115,19 +115,50 @@ namespace UI
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         {
-          
+            
+
+            if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
+            {
+                if(consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
+                {
+                    TercerTiempo tercerTiempo = new TercerTiempo();
+                    tercerTiempo.VistaColaborador(Visible = false);
+                    tercerTiempo.Show();
+
+                    this.Hide();
+                }
+                else if(consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0) {
+                    TercerTiempo tercerTiempo = new TercerTiempo();
+                    
+                    tercerTiempo.Show();
+
+                    this.Hide();
+                }
+               
+            }
         }
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
-                if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
+                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
+                    tercerTiempo.VistaColaborador(Visible = false);
                     tercerTiempo.Show();
+
                     this.Hide();
                 }
+                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0)
+                {
+                    TercerTiempo tercerTiempo = new TercerTiempo();
+
+                    tercerTiempo.Show();
+
+                    this.Hide();
+                }
+
             }
         }
     }

@@ -35,8 +35,14 @@ namespace UI
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel4 = new Panel();
+            panel11 = new Panel();
+            label5 = new Label();
+            pictureBox13 = new PictureBox();
             panel3 = new Panel();
             panel9 = new Panel();
+            panel10 = new Panel();
+            label4 = new Label();
+            pictureBox12 = new PictureBox();
             estadisticasLabel = new Label();
             pictureBox6 = new PictureBox();
             panel8 = new Panel();
@@ -67,8 +73,13 @@ namespace UI
             pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            panel4.SuspendLayout();
+            panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel3.SuspendLayout();
             panel9.SuspendLayout();
+            panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -117,11 +128,48 @@ namespace UI
             // 
             // panel4
             // 
+            panel4.Controls.Add(panel11);
             panel4.Dock = DockStyle.Bottom;
             panel4.Location = new Point(0, 558);
             panel4.Name = "panel4";
             panel4.Size = new Size(186, 142);
             panel4.TabIndex = 2;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(label5);
+            panel11.Controls.Add(pictureBox13);
+            panel11.Cursor = Cursors.Hand;
+            panel11.Dock = DockStyle.Top;
+            panel11.Location = new Point(0, 0);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(186, 53);
+            panel11.TabIndex = 8;
+            panel11.MouseClick += panel11_MouseClick;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Cursor = Cursors.Hand;
+            label5.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(58, 14);
+            label5.Name = "label5";
+            label5.Size = new Size(109, 24);
+            label5.TabIndex = 0;
+            label5.Text = "Cerrar Sesion";
+            label5.Click += label5_Click;
+            label5.MouseClick += label5_MouseClick;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = Properties.Resources.Logout_Icon_UIA;
+            pictureBox13.Location = new Point(37, 19);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(16, 16);
+            pictureBox13.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox13.TabIndex = 1;
+            pictureBox13.TabStop = false;
+            pictureBox13.MouseClick += pictureBox13_MouseClick;
             // 
             // panel3
             // 
@@ -137,6 +185,7 @@ namespace UI
             // 
             // panel9
             // 
+            panel9.Controls.Add(panel10);
             panel9.Controls.Add(estadisticasLabel);
             panel9.Controls.Add(pictureBox6);
             panel9.Dock = DockStyle.Top;
@@ -144,6 +193,36 @@ namespace UI
             panel9.Name = "panel9";
             panel9.Size = new Size(185, 53);
             panel9.TabIndex = 6;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(label4);
+            panel10.Controls.Add(pictureBox12);
+            panel10.Dock = DockStyle.Top;
+            panel10.Location = new Point(0, 0);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(185, 53);
+            panel10.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(66, 14);
+            label4.Name = "label4";
+            label4.Size = new Size(97, 24);
+            label4.TabIndex = 0;
+            label4.Text = "Estadisticas";
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.bar_chart_13;
+            pictureBox12.Location = new Point(36, 14);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(25, 25);
+            pictureBox12.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox12.TabIndex = 1;
+            pictureBox12.TabStop = false;
             // 
             // estadisticasLabel
             // 
@@ -472,9 +551,16 @@ namespace UI
             Load += TercerTiempo_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel3.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
@@ -535,5 +621,11 @@ namespace UI
         private PictureBox pictureBox11;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private PictureBox pictureBox7;
+        private Panel panel11;
+        private Label label5;
+        private PictureBox pictureBox13;
+        private Panel panel10;
+        private Label label4;
+        private PictureBox pictureBox12;
     }
 }
