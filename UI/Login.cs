@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
@@ -29,7 +30,7 @@ namespace UI
         {
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
-           this.KeyPreview = true;  
+            this.KeyPreview = true;
 
         }
 
@@ -115,11 +116,11 @@ namespace UI
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
 
             if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
-                if(consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
+                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
                     tercerTiempo.VistaColaborador(Visible = false);
@@ -127,14 +128,15 @@ namespace UI
 
                     this.Hide();
                 }
-                else if(consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0) {
+                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0)
+                {
                     TercerTiempo tercerTiempo = new TercerTiempo();
-                    
+
                     tercerTiempo.Show();
 
                     this.Hide();
                 }
-               
+
             }
         }
 
@@ -160,6 +162,12 @@ namespace UI
                 }
 
             }
+        }
+
+        private void label6_MouseClick(object sender, MouseEventArgs e)
+        {
+            ValidarUsuarioLogin validarForm = new ValidarUsuarioLogin();    
+            validarForm.Show();
         }
     }
 }

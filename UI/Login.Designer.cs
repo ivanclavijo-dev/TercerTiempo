@@ -54,7 +54,7 @@
             label1.Font = new Font("Montserrat", 32.9999962F, FontStyle.Bold);
             label1.Location = new Point(516, 173);
             label1.Name = "label1";
-            label1.Size = new Size(385, 61);
+            label1.Size = new Size(388, 69);
             label1.TabIndex = 1;
             label1.Text = "Inicio de Sesión";
             // 
@@ -183,6 +183,7 @@
             label6.Size = new Size(135, 24);
             label6.TabIndex = 10;
             label6.Text = "Restablecer aquí";
+            label6.MouseClick += label6_MouseClick;
             label6.MouseEnter += label6_MouseEnter;
             label6.MouseLeave += label6_MouseLeave;
             // 
