@@ -118,7 +118,7 @@ namespace UI
         {
 
 
-            if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
+            if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
                 if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
@@ -142,7 +142,7 @@ namespace UI
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
-            if (consultas_BD.ValidarUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
+            if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
                 if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
@@ -168,6 +168,7 @@ namespace UI
         {
             ValidarUsuarioLogin validarForm = new ValidarUsuarioLogin();    
             validarForm.Show();
+            this.Hide();
         }
     }
 }

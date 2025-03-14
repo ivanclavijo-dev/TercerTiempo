@@ -35,6 +35,7 @@
             rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             label3 = new Label();
             rjButton1 = new CustomControls.RJControls.RJButton();
+            labelError = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -138,6 +139,19 @@
             rjButton1.Text = "Validar";
             rjButton1.TextColor = Color.WhiteSmoke;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.MouseClick += rjButton1_MouseClick_1;
+            // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Font = new Font("Quicksand", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelError.ForeColor = Color.Red;
+            labelError.Location = new Point(153, 425);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(190, 19);
+            labelError.TabIndex = 17;
+            labelError.Text = "No existe el usuario ingresado";
+            labelError.Visible = false;
             // 
             // ValidarUsuarioLogin
             // 
@@ -145,6 +159,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(500, 600);
+            Controls.Add(labelError);
             Controls.Add(rjButton1);
             Controls.Add(label3);
             Controls.Add(rjTextBox1);
@@ -172,5 +187,6 @@
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private Label label3;
         private CustomControls.RJControls.RJButton rjButton1;
+        private Label labelError;
     }
 }

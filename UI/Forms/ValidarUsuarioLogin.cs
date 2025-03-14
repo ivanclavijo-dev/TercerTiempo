@@ -8,11 +8,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica.BD;
 
 namespace UI.Forms
 {
     public partial class ValidarUsuarioLogin : Form
     {
+
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
  (
@@ -27,6 +30,8 @@ namespace UI.Forms
         {
             InitializeComponent();
         }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -44,6 +49,40 @@ namespace UI.Forms
             Login loginform = new Login();
             loginform.Show();
             this.Hide();
+        }
+
+        private void rjButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+       
+        private void rjButton1_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            
+             
+        consultasBD consulta_bd = new consultasBD();
+            if (consulta_bd.ValidarUsuarioLogin(rjTextBox1.Texts.Trim()) == true)
+            {
+                DatosCompartidos.ValorTextbox = rjTextBox1.Texts.Trim();
+                RestablecerContraseña restablecerContraseñaform = new RestablecerContraseña();
+                restablecerContraseñaform.Show();
+                this.Hide();
+            }
+            else if (consulta_bd.ValidarUsuarioLogin(rjTextBox1.Texts.Trim()) == false)
+            {
+                labelError.Visible = true;
+
+            }
+            else
+            {
+                MessageBox.Show("No anda");
+
+            }
+        }
+
+        public  class DatosCompartidos
+        {
+            public static string ValorTextbox { get; set; }
         }
     }
 }
