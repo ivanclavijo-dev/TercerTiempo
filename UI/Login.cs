@@ -1,4 +1,7 @@
-﻿using Logica.BD;
+﻿using CustomControls.RJControls;
+using Entidades;
+using Logica;
+using Logica.BD;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -113,10 +116,10 @@ namespace UI
         }
         private consultasBD consultas_BD = new consultasBD();
 
-
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
-        {
-            
+        { 
+            SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
+
 
             if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {

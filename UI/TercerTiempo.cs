@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Logica;
 
 namespace UI
 {
@@ -79,6 +80,7 @@ namespace UI
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             AbrirFormInPanel(new Forms.Home());
+            label3.Text = SesionUsuario.EmpleadoActual.DatosPersonales.Nombre +" "+ SesionUsuario.EmpleadoActual.DatosPersonales.Apellido;
 
         }
 

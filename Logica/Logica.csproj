@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Persistencia\Persistencia.csproj" />
+    <Compile Remove="Metodos\**" />
+    <EmbeddedResource Remove="Metodos\**" />
+    <None Remove="Metodos\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Metodos\" />
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj" />
   </ItemGroup>
 
 </Project>

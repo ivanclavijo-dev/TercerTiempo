@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Logica;
+using Entidades;
+using Persistencia.Empleado;
+using Logica.BD;
 namespace UI.Forms
 {
     public partial class Home : Form
@@ -67,7 +71,7 @@ namespace UI.Forms
 
         private void Home_Load(object sender, EventArgs e)
         {
-
+            label1.Text = $"Hola de nuevo, "+ SesionUsuario.EmpleadoActual.DatosPersonales.Nombre+"!";
 
         }
 

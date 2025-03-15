@@ -1,4 +1,5 @@
-﻿using Persistencia.Empleado;
+﻿using Entidades;
+using Persistencia.Empleado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,16 @@ namespace Logica.BD
         private rol_empleado rolEmpleado = new rol_empleado();
         private cambiar_contraseña cambiarContraseña = new cambiar_contraseña();
         private extraer_email extraerEmail = new extraer_email();
+        private ObtenerEmpleado empleadoDAO = new ObtenerEmpleado();
+
         public bool ValidarExistenciaUsuario(string usuario, string password)
         {
             return existenciaEmpleado.verificarUsuario(usuario, password);
+        }
+
+        public EmpleadoObjeto ObtenerEmpleadoLogin(string usuario, string password)
+        {
+            return empleadoDAO.ObtenerEmpleadoLogin(usuario, password);
         }
         public bool ValidarUsuarioLogin(string numero)
         {
