@@ -31,7 +31,7 @@ namespace UI.Forms
             InitializeComponent();
         }
 
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,14 +53,14 @@ namespace UI.Forms
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         {
-           
+
         }
-       
+
         private void rjButton1_MouseClick_1(object sender, MouseEventArgs e)
         {
-            
-             
-        consultasBD consulta_bd = new consultasBD();
+
+
+            consultasBD consulta_bd = new consultasBD();
             if (consulta_bd.ValidarUsuarioLogin(rjTextBox1.Texts.Trim()) == true)
             {
                 DatosCompartidos.ValorTextbox = rjTextBox1.Texts.Trim();
@@ -71,6 +71,7 @@ namespace UI.Forms
             else if (consulta_bd.ValidarUsuarioLogin(rjTextBox1.Texts.Trim()) == false)
             {
                 labelError.Visible = true;
+                rjTextBox1.Texts = "";
 
             }
             else
@@ -80,9 +81,14 @@ namespace UI.Forms
             }
         }
 
-        public  class DatosCompartidos
+        public class DatosCompartidos
         {
             public static string ValorTextbox { get; set; }
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Persistencia.Empleado
 {
-    public class CambiarContraseña
+    public class cambiar_contraseña
     {
 
         private Conexion conexion = new Conexion();
@@ -19,7 +19,7 @@ namespace Persistencia.Empleado
             bool actualizado=false;
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "UPDATE `tercertiempo`.`empleado` SET clave = '"+clave+ "' WHERE id = '" + numeroClave + "' OR cedula = '" + numeroClave + "';";
+                string consulta = "UPDATE `tercertiempo`.`empleado` SET clave = '"+clave+ "' WHERE id_empleado = '" + numeroClave + "' OR cedula = '" + numeroClave + "';";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
                     cmd.Parameters.AddWithValue("@clave", clave);

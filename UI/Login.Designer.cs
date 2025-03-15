@@ -41,6 +41,7 @@
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             rjButton1 = new CustomControls.RJControls.RJButton();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -54,7 +55,7 @@
             label1.Font = new Font("Montserrat", 32.9999962F, FontStyle.Bold);
             label1.Location = new Point(516, 173);
             label1.Name = "label1";
-            label1.Size = new Size(388, 69);
+            label1.Size = new Size(385, 61);
             label1.TabIndex = 1;
             label1.Text = "Inicio de Sesión";
             // 
@@ -232,7 +233,20 @@
             rjButton1.Text = "Ingresar";
             rjButton1.TextColor = Color.WhiteSmoke;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
             rjButton1.MouseClick += rjButton1_MouseClick;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Quicksand", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(603, 538);
+            label7.Name = "label7";
+            label7.Size = new Size(216, 19);
+            label7.TabIndex = 28;
+            label7.Text = "Los valores ingresados no existen.";
+            label7.Visible = false;
             // 
             // Login
             // 
@@ -240,6 +254,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(979, 700);
+            Controls.Add(label7);
             Controls.Add(rjButton1);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
@@ -284,5 +299,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private CustomControls.RJControls.RJButton rjButton1;
+        private Label label7;
     }
 }

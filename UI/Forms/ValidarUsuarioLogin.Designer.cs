@@ -69,7 +69,7 @@
             label2.Font = new Font("Montserrat", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(19, 166);
             label2.Name = "label2";
-            label2.Size = new Size(455, 75);
+            label2.Size = new Size(451, 66);
             label2.TabIndex = 4;
             label2.Text = "Valida tu usuario";
             // 
@@ -81,7 +81,7 @@
             label1.Location = new Point(88, 237);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.No;
-            label1.Size = new Size(317, 50);
+            label1.Size = new Size(315, 44);
             label1.TabIndex = 5;
             label1.Text = "Para poder reestablecer tu contraseña,\r\n primero necesitaremos identificarte";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -139,6 +139,7 @@
             rjButton1.Text = "Validar";
             rjButton1.TextColor = Color.WhiteSmoke;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
             rjButton1.MouseClick += rjButton1_MouseClick_1;
             // 
             // labelError

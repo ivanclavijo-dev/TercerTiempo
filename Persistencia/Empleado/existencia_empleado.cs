@@ -32,10 +32,10 @@ namespace Persistencia.Empleado
         {
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT COUNT(*) FROM empleado WHERE id = '" + numero + "' OR cedula = '" + numero + "';";
+                string consulta = "SELECT COUNT(*) FROM Persona  p JOIN Empleado e ON p.cedula = e.cedula WHERE e.id_empleado = '" + numero + "' OR p.cedula = '" + numero + "';";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", numero);
+                    cmd.Parameters.AddWithValue("@id_empleado", numero);
                     cmd.Parameters.AddWithValue("@cedula", numero);
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());

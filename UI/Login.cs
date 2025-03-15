@@ -116,7 +116,7 @@ namespace UI
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            
 
             if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
@@ -128,7 +128,7 @@ namespace UI
 
                     this.Hide();
                 }
-                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0)
+                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 2)
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
 
@@ -137,6 +137,12 @@ namespace UI
                     this.Hide();
                 }
 
+            }
+            else if(consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == false)
+            {
+                label7.Visible = true;
+                rjTextBox1.Texts = "";
+                rjTextBox2.Texts = "";
             }
         }
 
@@ -166,9 +172,14 @@ namespace UI
 
         private void label6_MouseClick(object sender, MouseEventArgs e)
         {
-            ValidarUsuarioLogin validarForm = new ValidarUsuarioLogin();    
+            ValidarUsuarioLogin validarForm = new ValidarUsuarioLogin();
             validarForm.Show();
             this.Hide();
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

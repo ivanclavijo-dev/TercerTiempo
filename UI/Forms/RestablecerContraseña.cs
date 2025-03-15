@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica.BD;
+using Logica.Metodos;
 
 namespace UI.Forms
 {

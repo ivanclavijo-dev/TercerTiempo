@@ -11,7 +11,8 @@ namespace Logica.BD
     {
         private existencia_empleado existenciaEmpleado = new existencia_empleado();
         private rol_empleado rolEmpleado = new rol_empleado();
-        private CambiarContraseña cambiarContraseña = new CambiarContraseña();
+        private cambiar_contraseña cambiarContraseña = new cambiar_contraseña();
+        private extraer_email extraerEmail = new extraer_email();
         public bool ValidarExistenciaUsuario(string usuario, string password)
         {
             return existenciaEmpleado.verificarUsuario(usuario, password);
@@ -29,6 +30,11 @@ namespace Logica.BD
         public bool CambiarContraseñaEmpleado(string clave, string numeroClave)
         {
             return cambiarContraseña.cambiarPassword(clave, numeroClave);
+        }
+
+        public string ConseguirGmail(string numeroClave)
+        {
+            return extraerEmail.extrarMail(numeroClave);
         }
             
     }

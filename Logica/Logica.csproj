@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Persistencia\Persistencia.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Metodos\" />
+  </ItemGroup>
+
 </Project>
