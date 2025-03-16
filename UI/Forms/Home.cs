@@ -71,7 +71,8 @@ namespace UI.Forms
 
         private void Home_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Hola de nuevo, "+ SesionUsuario.EmpleadoActual.DatosPersonales.Nombre+"!";
+            label1.Text = $"Hola de nuevo, " + SesionUsuario.EmpleadoActual.DatosPersonales.Nombre + "!";
+
 
         }
 
@@ -128,6 +129,20 @@ namespace UI.Forms
         {
 
         }
-       
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

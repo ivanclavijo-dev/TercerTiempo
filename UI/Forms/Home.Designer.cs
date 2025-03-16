@@ -39,16 +39,33 @@
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
-            pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
+            labelNumClientesTotales = new Label();
+            clientesTotales = new Label();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            productosVendidosUltimoMes = new Label();
+            labelProductosVendidos = new Label();
+            pictureBox11 = new PictureBox();
+            ingresosMes = new Label();
+            labelIngresosUltimoMes = new Label();
+            pictureBox12 = new PictureBox();
+            rjButton2 = new CustomControls.RJControls.RJButton();
+            label4 = new Label();
+            label5 = new Label();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // rjButton1
@@ -178,16 +195,6 @@
             pictureBox6.TabIndex = 17;
             pictureBox6.TabStop = false;
             // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = Properties.Resources.Rectangle_10;
-            pictureBox7.Location = new Point(526, 237);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(409, 186);
-            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox7.TabIndex = 18;
-            pictureBox7.TabStop = false;
-            // 
             // pictureBox8
             // 
             pictureBox8.Image = Properties.Resources.Rectangle_7;
@@ -198,14 +205,199 @@
             pictureBox8.TabIndex = 19;
             pictureBox8.TabStop = false;
             // 
+            // labelNumClientesTotales
+            // 
+            labelNumClientesTotales.AutoSize = true;
+            labelNumClientesTotales.BackColor = Color.White;
+            labelNumClientesTotales.Font = new Font("Montserrat ExtraBold", 17.75F, FontStyle.Bold);
+            labelNumClientesTotales.ForeColor = Color.FromArgb(16, 83, 233);
+            labelNumClientesTotales.Location = new Point(47, 251);
+            labelNumClientesTotales.Name = "labelNumClientesTotales";
+            labelNumClientesTotales.Size = new Size(67, 33);
+            labelNumClientesTotales.TabIndex = 20;
+            labelNumClientesTotales.Text = "1233";
+            // 
+            // clientesTotales
+            // 
+            clientesTotales.AutoSize = true;
+            clientesTotales.BackColor = Color.White;
+            clientesTotales.Font = new Font("Quicksand Light", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clientesTotales.ForeColor = Color.FromArgb(186, 184, 184);
+            clientesTotales.Location = new Point(47, 280);
+            clientesTotales.Name = "clientesTotales";
+            clientesTotales.Size = new Size(119, 24);
+            clientesTotales.TabIndex = 21;
+            clientesTotales.Text = "Clientes totales";
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.White;
+            pictureBox9.Image = Properties.Resources.Green_Arrow_1;
+            pictureBox9.Location = new Point(38, 321);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(83, 83);
+            pictureBox9.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox9.TabIndex = 22;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.White;
+            pictureBox10.Image = Properties.Resources.cart;
+            pictureBox10.Location = new Point(213, 347);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(40, 36);
+            pictureBox10.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox10.TabIndex = 25;
+            pictureBox10.TabStop = false;
+            // 
+            // productosVendidosUltimoMes
+            // 
+            productosVendidosUltimoMes.AutoSize = true;
+            productosVendidosUltimoMes.BackColor = Color.White;
+            productosVendidosUltimoMes.Font = new Font("Quicksand Light", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            productosVendidosUltimoMes.ForeColor = Color.FromArgb(186, 184, 184);
+            productosVendidosUltimoMes.Location = new Point(213, 280);
+            productosVendidosUltimoMes.Name = "productosVendidosUltimoMes";
+            productosVendidosUltimoMes.Size = new Size(119, 24);
+            productosVendidosUltimoMes.TabIndex = 24;
+            productosVendidosUltimoMes.Text = "Clientes totales";
+            // 
+            // labelProductosVendidos
+            // 
+            labelProductosVendidos.AutoSize = true;
+            labelProductosVendidos.BackColor = Color.White;
+            labelProductosVendidos.Font = new Font("Montserrat ExtraBold", 17.75F, FontStyle.Bold);
+            labelProductosVendidos.ForeColor = Color.FromArgb(16, 83, 233);
+            labelProductosVendidos.Location = new Point(213, 251);
+            labelProductosVendidos.Name = "labelProductosVendidos";
+            labelProductosVendidos.Size = new Size(67, 33);
+            labelProductosVendidos.TabIndex = 23;
+            labelProductosVendidos.Text = "1233";
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.BackColor = Color.White;
+            pictureBox11.Image = Properties.Resources.cOeBBm1ABlBU_Coins_1;
+            pictureBox11.Location = new Point(379, 340);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(48, 48);
+            pictureBox11.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox11.TabIndex = 28;
+            pictureBox11.TabStop = false;
+            // 
+            // ingresosMes
+            // 
+            ingresosMes.AutoSize = true;
+            ingresosMes.BackColor = Color.White;
+            ingresosMes.Font = new Font("Quicksand Light", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ingresosMes.ForeColor = Color.FromArgb(186, 184, 184);
+            ingresosMes.Location = new Point(379, 280);
+            ingresosMes.Name = "ingresosMes";
+            ingresosMes.Size = new Size(119, 24);
+            ingresosMes.TabIndex = 27;
+            ingresosMes.Text = "Clientes totales";
+            // 
+            // labelIngresosUltimoMes
+            // 
+            labelIngresosUltimoMes.AutoSize = true;
+            labelIngresosUltimoMes.BackColor = Color.White;
+            labelIngresosUltimoMes.Font = new Font("Montserrat ExtraBold", 17.75F, FontStyle.Bold);
+            labelIngresosUltimoMes.ForeColor = Color.FromArgb(16, 83, 233);
+            labelIngresosUltimoMes.Location = new Point(379, 251);
+            labelIngresosUltimoMes.Name = "labelIngresosUltimoMes";
+            labelIngresosUltimoMes.Size = new Size(67, 33);
+            labelIngresosUltimoMes.TabIndex = 26;
+            labelIngresosUltimoMes.Text = "1233";
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.Component_91;
+            pictureBox12.Location = new Point(510, 228);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(425, 194);
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox12.TabIndex = 29;
+            pictureBox12.TabStop = false;
+            pictureBox12.Click += pictureBox12_Click;
+            // 
+            // rjButton2
+            // 
+            rjButton2.BackColor = Color.FromArgb(16, 83, 233);
+            rjButton2.BackgroundColor = Color.FromArgb(16, 83, 233);
+            rjButton2.BorderColor = Color.PaleVioletRed;
+            rjButton2.BorderRadius = 20;
+            rjButton2.BorderSize = 0;
+            rjButton2.FlatAppearance.BorderSize = 0;
+            rjButton2.FlatStyle = FlatStyle.Flat;
+            rjButton2.Font = new Font("Montserrat ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton2.ForeColor = Color.White;
+            rjButton2.Location = new Point(619, 365);
+            rjButton2.Name = "rjButton2";
+            rjButton2.Size = new Size(228, 34);
+            rjButton2.TabIndex = 30;
+            rjButton2.Text = "Crear alerta";
+            rjButton2.TextColor = Color.White;
+            rjButton2.UseVisualStyleBackColor = false;
+            rjButton2.Click += rjButton2_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Montserrat ExtraBold", 17.75F, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(16, 83, 233);
+            label4.Location = new Point(623, 251);
+            label4.Name = "label4";
+            label4.Size = new Size(223, 33);
+            label4.TabIndex = 31;
+            label4.Text = "Crear una alerta";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Quicksand Light", 10F);
+            label5.ForeColor = Color.FromArgb(186, 184, 184);
+            label5.Location = new Point(589, 286);
+            label5.Name = "label5";
+            label5.RightToLeft = RightToLeft.No;
+            label5.Size = new Size(320, 63);
+            label5.TabIndex = 32;
+            label5.Text = "Usá esta alerta para contarle a los clientes sobre\r\n cierres, eventos, promos o cualquier novedad. \r\n¡Que nadie se quede sin saber! ";
+            label5.Click += label5_Click_1;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.White;
+            pictureBox7.Image = Properties.Resources.Rocket2;
+            pictureBox7.Location = new Point(796, 327);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(21, 21);
+            pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox7.TabIndex = 33;
+            pictureBox7.TabStop = false;
+            // 
             // Home
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(246, 246, 246);
             ClientSize = new Size(960, 616);
-            Controls.Add(pictureBox8);
             Controls.Add(pictureBox7);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(rjButton2);
+            Controls.Add(pictureBox11);
+            Controls.Add(ingresosMes);
+            Controls.Add(labelIngresosUltimoMes);
+            Controls.Add(pictureBox10);
+            Controls.Add(productosVendidosUltimoMes);
+            Controls.Add(labelProductosVendidos);
+            Controls.Add(pictureBox9);
+            Controls.Add(clientesTotales);
+            Controls.Add(labelNumClientesTotales);
+            Controls.Add(pictureBox8);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
@@ -217,6 +409,7 @@
             Controls.Add(rjButton1);
             Controls.Add(elipseControl1);
             Controls.Add(pictureBox2);
+            Controls.Add(pictureBox12);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Home";
             Text = "Home";
@@ -227,8 +420,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,7 +442,20 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private PictureBox pictureBox7;
         private PictureBox pictureBox8;
+        private Label labelNumClientesTotales;
+        private Label clientesTotales;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
+        private Label productosVendidosUltimoMes;
+        private Label labelProductosVendidos;
+        private PictureBox pictureBox11;
+        private Label ingresosMes;
+        private Label labelIngresosUltimoMes;
+        private PictureBox pictureBox12;
+        private CustomControls.RJControls.RJButton rjButton2;
+        private Label label4;
+        private Label label5;
+        private PictureBox pictureBox7;
     }
 }
