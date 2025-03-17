@@ -318,6 +318,7 @@ namespace UI
             // clientesLabel
             // 
             clientesLabel.AutoSize = true;
+            clientesLabel.Cursor = Cursors.Hand;
             clientesLabel.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             clientesLabel.Location = new Point(66, 14);
             clientesLabel.Name = "clientesLabel";
@@ -328,6 +329,7 @@ namespace UI
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = Properties.Resources.user_03;
             pictureBox3.Location = new Point(36, 14);
             pictureBox3.Name = "pictureBox3";
@@ -335,6 +337,7 @@ namespace UI
             pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
+            pictureBox3.MouseClick += pictureBox3_MouseClick;
             // 
             // panel5
             // 
@@ -530,6 +533,7 @@ namespace UI
             AutoSize = true;
             BackColor = Color.White;
             ClientSize = new Size(1200, 700);
+            Controls.Add(pictureBox8);
             Controls.Add(pictureBox7);
             Controls.Add(rjTextBox1);
             Controls.Add(pictureBox11);
@@ -540,7 +544,6 @@ namespace UI
             Controls.Add(elipseControl4);
             Controls.Add(elipseControl3);
             Controls.Add(elipseControl2);
-            Controls.Add(pictureBox8);
             Controls.Add(elipseControl1);
             Controls.Add(panel1);
             Controls.Add(contenedorVistas);

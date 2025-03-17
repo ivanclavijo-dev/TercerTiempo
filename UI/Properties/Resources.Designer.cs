@@ -63,6 +63,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_square {
+            get {
+                object obj = ResourceManager.GetObject("add-square", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Avatar_3 {
             get {
                 object obj = ResourceManager.GetObject("Avatar 3", resourceCulture);
@@ -163,6 +173,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Component_81 {
+            get {
+                object obj = ResourceManager.GetObject("Component 81", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Component_9 {
             get {
                 object obj = ResourceManager.GetObject("Component 9", resourceCulture);
@@ -176,6 +196,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap Component_91 {
             get {
                 object obj = ResourceManager.GetObject("Component 91", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_Pen_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Pen_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +256,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap images_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("images-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_circle {
+            get {
+                object obj = ResourceManager.GetObject("info-circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,6 +426,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap SVG {
             get {
                 object obj = ResourceManager.GetObject("SVG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash {
+            get {
+                object obj = ResourceManager.GetObject("trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

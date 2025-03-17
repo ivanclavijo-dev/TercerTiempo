@@ -124,6 +124,12 @@
   <data name="Rectangle 10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rectangle 10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Edit_Pen_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit_Pen_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="undraw_athletes-training_koqa (1)-Photoroom 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\undraw_athletes-training_koqa (1)-Photoroom 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Rectangle 7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rectangle 7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +166,8 @@
   <data name="Component 9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Component 9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye-slash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye-slash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add-square" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="undraw_athletes-training_koqa (1)-Photoroom 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undraw_athletes-training_koqa (1)-Photoroom 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +181,8 @@
   <data name="bar-chart-13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bar-chart-13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,14 +214,14 @@
   <data name="users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="undraw_athletes-training_koqa (1)-Photoroom 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\undraw_athletes-training_koqa (1)-Photoroom 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="home-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Component 81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Component 81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Rocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rocket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,8 +229,14 @@
   <data name="images-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Rocket2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rocket2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ondas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ondas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye-slash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye-slash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Component 91" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Component 91.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,7 +244,10 @@
   <data name="Logout_Icon_UIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logout_Icon_UIA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rocket2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rocket2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="home-01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

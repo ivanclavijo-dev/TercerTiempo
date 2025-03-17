@@ -80,7 +80,7 @@ namespace UI
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             AbrirFormInPanel(new Forms.Home());
-            label3.Text = SesionUsuario.EmpleadoActual.DatosPersonales.Nombre +" "+ SesionUsuario.EmpleadoActual.DatosPersonales.Apellido;
+            label3.Text = SesionUsuario.EmpleadoActual.DatosPersonales.Nombre + " " + SesionUsuario.EmpleadoActual.DatosPersonales.Apellido;
 
         }
 
@@ -132,7 +132,6 @@ namespace UI
             pictureBox5.Visible = visible;
             panel8.Visible = visible;
             estadisticasLabel.Visible = visible;
-            pictureBox8.Visible = visible;
             panel9.Visible = visible;
         }
 
@@ -168,6 +167,12 @@ namespace UI
             login.Show();
 
             this.Hide();
+        }
+
+        private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            AbrirFormInPanel(new Forms.Clientes());
+
         }
     }
 }

@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             rjButton1 = new CustomControls.RJControls.RJButton();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            elipseControl1 = new Componentes.ElipseControl();
-            pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -59,8 +57,8 @@
             pictureBox7 = new PictureBox();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label6 = new Label();
+            pictureBox13 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -72,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             SuspendLayout();
             // 
             // rjButton1
@@ -88,7 +87,7 @@
             rjButton1.ForeColor = Color.White;
             rjButton1.Location = new Point(70, 164);
             rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(262, 40);
+            rjButton1.Size = new Size(261, 34);
             rjButton1.TabIndex = 4;
             rjButton1.Text = "Añadir un cliente nuevo";
             rjButton1.TextColor = Color.White;
@@ -141,26 +140,6 @@
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
-            // elipseControl1
-            // 
-            elipseControl1.BackColor = Color.FromArgb(0, 65, 212);
-            elipseControl1.CornerRadius = 40;
-            elipseControl1.Location = new Point(28, 14);
-            elipseControl1.Name = "elipseControl1";
-            elipseControl1.Size = new Size(907, 213);
-            elipseControl1.TabIndex = 2;
-            elipseControl1.Text = "elipseControl1";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.Pattern;
-            pictureBox2.Location = new Point(28, 22);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(907, 213);
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.chrome_RRypiZ6QJE;
@@ -206,7 +185,7 @@
             pictureBox8.Image = Properties.Resources.Rectangle_7;
             pictureBox8.Location = new Point(28, 424);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(253, 186);
+            pictureBox8.Size = new Size(253, 190);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 19;
             pictureBox8.TabStop = false;
@@ -386,19 +365,19 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(44, 429);
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
+            chart1.Location = new Point(70, 429);
             chart1.Name = "chart1";
             chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(226, 168);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
+            chart1.Size = new Size(200, 175);
             chart1.TabIndex = 34;
             chart1.Text = "chart1";
             // 
@@ -413,6 +392,16 @@
             label6.Size = new Size(65, 24);
             label6.TabIndex = 35;
             label6.Text = "Edades";
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = Properties.Resources.Component_81;
+            pictureBox13.Location = new Point(-22, -42);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(1013, 326);
+            pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox13.TabIndex = 36;
+            pictureBox13.TabStop = false;
             // 
             // Home
             // 
@@ -445,15 +434,13 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(rjButton1);
-            Controls.Add(elipseControl1);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBox12);
+            Controls.Add(pictureBox13);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Home";
             Text = "Home";
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -465,6 +452,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -475,8 +463,6 @@
         private Label label2;
         private Label label3;
         private PictureBox pictureBox1;
-        private Componentes.ElipseControl elipseControl1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
@@ -498,5 +484,6 @@
         private PictureBox pictureBox7;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Label label6;
+        private PictureBox pictureBox13;
     }
 }

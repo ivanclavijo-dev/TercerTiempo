@@ -30,52 +30,218 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
+            MenuClientes = new Label();
+            pictureBox7 = new PictureBox();
+            rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            rjButton2 = new CustomControls.RJControls.RJButton();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Quicksand Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(76, 72);
-            dataGridView1.Name = "dataGridView1";
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Quicksand Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(16, 83, 233);
+            dataGridViewCellStyle2.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Size = new Size(861, 206);
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Montserrat Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(26, 149);
+            dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Montserrat Black", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView1.RowTemplate.Height = 40;
+            dataGridView1.Size = new Size(907, 431);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // MenuClientes
+            // 
+            MenuClientes.AutoSize = true;
+            MenuClientes.Font = new Font("Montserrat SemiBold", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MenuClientes.ForeColor = Color.FromArgb(16, 83, 233);
+            MenuClientes.Location = new Point(17, 25);
+            MenuClientes.Name = "MenuClientes";
+            MenuClientes.Size = new Size(459, 66);
+            MenuClientes.TabIndex = 1;
+            MenuClientes.Text = "Menú de Clientes";
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.Search;
+            pictureBox7.Location = new Point(567, 113);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(26, 22);
+            pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox7.TabIndex = 16;
+            pictureBox7.TabStop = false;
+            // 
+            // rjTextBox1
+            // 
+            rjTextBox1.BackColor = Color.White;
+            rjTextBox1.BorderColor = Color.Transparent;
+            rjTextBox1.BorderFocusColor = Color.FromArgb(0, 65, 212);
+            rjTextBox1.BorderRadius = 20;
+            rjTextBox1.BorderSize = 2;
+            rjTextBox1.Font = new Font("Quicksand", 10F);
+            rjTextBox1.ForeColor = Color.FromArgb(64, 64, 64);
+            rjTextBox1.Location = new Point(27, 106);
+            rjTextBox1.Margin = new Padding(4);
+            rjTextBox1.Multiline = false;
+            rjTextBox1.Name = "rjTextBox1";
+            rjTextBox1.Padding = new Padding(10, 7, 10, 7);
+            rjTextBox1.PasswordChar = false;
+            rjTextBox1.PlaceholderColor = Color.DarkGray;
+            rjTextBox1.PlaceholderText = "Busca por ID, cedula, nombre, estado cuota...";
+            rjTextBox1.Size = new Size(587, 36);
+            rjTextBox1.TabIndex = 17;
+            rjTextBox1.Texts = "";
+            rjTextBox1.UnderlinedStyle = false;
+            rjTextBox1._TextChanged += rjTextBox1__TextChanged;
+            // 
+            // rjButton2
+            // 
+            rjButton2.BackColor = Color.FromArgb(16, 83, 233);
+            rjButton2.BackgroundColor = Color.FromArgb(16, 83, 233);
+            rjButton2.BorderColor = Color.PaleVioletRed;
+            rjButton2.BorderRadius = 20;
+            rjButton2.BorderSize = 0;
+            rjButton2.FlatAppearance.BorderSize = 0;
+            rjButton2.FlatStyle = FlatStyle.Flat;
+            rjButton2.Font = new Font("Quicksand", 12F, FontStyle.Bold);
+            rjButton2.ForeColor = Color.White;
+            rjButton2.Location = new Point(621, 109);
+            rjButton2.Name = "rjButton2";
+            rjButton2.Size = new Size(150, 33);
+            rjButton2.TabIndex = 31;
+            rjButton2.Text = "Pagar";
+            rjButton2.TextColor = Color.White;
+            rjButton2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.add_square;
+            pictureBox1.Location = new Point(777, 111);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(27, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 32;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Edit_Pen_Icon;
+            pictureBox2.Location = new Point(821, 111);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(27, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 33;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.trash;
+            pictureBox3.Location = new Point(864, 111);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(27, 27);
+            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.TabIndex = 34;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.info_circle;
+            pictureBox4.Location = new Point(906, 111);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(27, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox4.TabIndex = 35;
+            pictureBox4.TabStop = false;
             // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1020, 645);
+            BackColor = Color.FromArgb(246, 246, 246);
+            ClientSize = new Size(960, 616);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(rjButton2);
+            Controls.Add(pictureBox7);
+            Controls.Add(rjTextBox1);
+            Controls.Add(MenuClientes);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Clientes";
             Text = "Clientes";
             Load += Clientes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
+        private Label MenuClientes;
+        private PictureBox pictureBox7;
+        private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private CustomControls.RJControls.RJButton rjButton2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }
