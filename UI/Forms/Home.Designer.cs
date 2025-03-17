@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             rjButton1 = new CustomControls.RJControls.RJButton();
             label1 = new Label();
             label2 = new Label();
@@ -54,6 +57,8 @@
             label4 = new Label();
             label5 = new Label();
             pictureBox7 = new PictureBox();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -66,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // rjButton1
@@ -158,10 +164,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.chrome_RRypiZ6QJE;
-            pictureBox3.Location = new Point(259, 428);
+            pictureBox3.Location = new Point(287, 424);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(676, 190);
-            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.Size = new Size(648, 190);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
@@ -198,9 +204,9 @@
             // pictureBox8
             // 
             pictureBox8.Image = Properties.Resources.Rectangle_7;
-            pictureBox8.Location = new Point(28, 428);
+            pictureBox8.Location = new Point(28, 424);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(225, 186);
+            pictureBox8.Size = new Size(253, 186);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox8.TabIndex = 19;
             pictureBox8.TabStop = false;
@@ -233,10 +239,10 @@
             // 
             pictureBox9.BackColor = Color.White;
             pictureBox9.Image = Properties.Resources.Green_Arrow_1;
-            pictureBox9.Location = new Point(38, 321);
+            pictureBox9.Location = new Point(44, 356);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(83, 83);
-            pictureBox9.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox9.Size = new Size(58, 55);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox9.TabIndex = 22;
             pictureBox9.TabStop = false;
             // 
@@ -244,7 +250,7 @@
             // 
             pictureBox10.BackColor = Color.White;
             pictureBox10.Image = Properties.Resources.cart;
-            pictureBox10.Location = new Point(213, 347);
+            pictureBox10.Location = new Point(213, 363);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(40, 36);
             pictureBox10.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -255,13 +261,13 @@
             // 
             productosVendidosUltimoMes.AutoSize = true;
             productosVendidosUltimoMes.BackColor = Color.White;
-            productosVendidosUltimoMes.Font = new Font("Quicksand Light", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            productosVendidosUltimoMes.Font = new Font("Quicksand Light", 11F);
             productosVendidosUltimoMes.ForeColor = Color.FromArgb(186, 184, 184);
             productosVendidosUltimoMes.Location = new Point(213, 280);
             productosVendidosUltimoMes.Name = "productosVendidosUltimoMes";
-            productosVendidosUltimoMes.Size = new Size(119, 24);
+            productosVendidosUltimoMes.Size = new Size(108, 69);
             productosVendidosUltimoMes.TabIndex = 24;
-            productosVendidosUltimoMes.Text = "Clientes totales";
+            productosVendidosUltimoMes.Text = "Productos \r\nvendidos en el\r\nultimo mes";
             // 
             // labelProductosVendidos
             // 
@@ -279,7 +285,7 @@
             // 
             pictureBox11.BackColor = Color.White;
             pictureBox11.Image = Properties.Resources.cOeBBm1ABlBU_Coins_1;
-            pictureBox11.Location = new Point(379, 340);
+            pictureBox11.Location = new Point(379, 356);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(48, 48);
             pictureBox11.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -294,9 +300,9 @@
             ingresosMes.ForeColor = Color.FromArgb(186, 184, 184);
             ingresosMes.Location = new Point(379, 280);
             ingresosMes.Name = "ingresosMes";
-            ingresosMes.Size = new Size(119, 24);
+            ingresosMes.Size = new Size(122, 48);
             ingresosMes.TabIndex = 27;
-            ingresosMes.Text = "Clientes totales";
+            ingresosMes.Text = "De ingresos en \r\nel ultimo mes";
             // 
             // labelIngresosUltimoMes
             // 
@@ -378,12 +384,44 @@
             pictureBox7.TabIndex = 33;
             pictureBox7.TabStop = false;
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(44, 429);
+            chart1.Name = "chart1";
+            chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(226, 168);
+            chart1.TabIndex = 34;
+            chart1.Text = "chart1";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Quicksand Light", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(186, 184, 184);
+            label6.Location = new Point(135, 429);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 24);
+            label6.TabIndex = 35;
+            label6.Text = "Edades";
+            // 
             // Home
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(246, 246, 246);
             ClientSize = new Size(960, 616);
+            Controls.Add(label6);
+            Controls.Add(chart1);
             Controls.Add(pictureBox7);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -426,6 +464,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -457,5 +496,7 @@
         private Label label4;
         private Label label5;
         private PictureBox pictureBox7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Label label6;
     }
 }

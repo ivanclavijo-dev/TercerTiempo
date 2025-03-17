@@ -118,11 +118,12 @@ namespace UI
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         { 
-            SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
 
 
             if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
+                SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
+
                 if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
@@ -151,8 +152,11 @@ namespace UI
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
+                SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
+
                 if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
