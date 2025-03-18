@@ -17,7 +17,7 @@ namespace Persistencia.Estadisticas
 
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT COUNT(*) FROM Ventas_Productos WHERE dia_hora_venta >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);";
+                string consulta = "SELECT COUNT(*) FROM paga WHERE fecha_hora >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
 

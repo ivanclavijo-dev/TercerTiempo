@@ -16,11 +16,11 @@ namespace Persistencia.Empleado
         {
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT COUNT(*) FROM empleado WHERE clave = '" + contraseña + "' and user = '" + usuario + "';";
+                string consulta = "SELECT COUNT(*) FROM colaborador WHERE contrasenia = '" + contraseña + "' and usuario = '" + usuario + "';";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
-                    cmd.Parameters.AddWithValue("@user", usuario);
-                    cmd.Parameters.AddWithValue("@clave", contraseña);
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@contrasenia", contraseña);
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -32,7 +32,7 @@ namespace Persistencia.Empleado
         {
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT COUNT(*) FROM Persona  p JOIN Empleado e ON p.cedula = e.cedula WHERE e.id_empleado = '" + numero + "' OR p.cedula = '" + numero + "';";
+                string consulta = "SELECT COUNT(*) FROM persona  p JOIN colaborador e ON p.cedula = e.cedula_colaborador WHERE e.idColaborador = '" + numero + "' OR p.cedula = '" + numero + "';";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
                     cmd.Parameters.AddWithValue("@id_empleado", numero);

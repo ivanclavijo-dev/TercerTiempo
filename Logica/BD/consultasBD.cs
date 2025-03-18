@@ -13,7 +13,7 @@ namespace Logica.BD
     public class consultasBD
     {
         private existencia_empleado existenciaEmpleado = new existencia_empleado();
-        private rol_empleado rolEmpleado = new rol_empleado();
+        private RolEmpleado rolEmpleado = new RolEmpleado();
         private cambiar_contraseña cambiarContraseña = new cambiar_contraseña();
         private extraer_email extraerEmail = new extraer_email();
         private ObtenerEmpleado empleadoDAO = new ObtenerEmpleado();
@@ -55,9 +55,9 @@ namespace Logica.BD
             return existenciaEmpleado.verificarUsuarioCambioContraseña(numero);
         }
 
-        public int consultarRol(string usuario, string password)
+        public string consultarRol(string usuario, string password)
         {
-            return rolEmpleado.verificarRol(usuario, password);
+            return rolEmpleado.VerificarRol(usuario, password);
         }
 
         public bool CambiarContraseñaEmpleado(string clave, string numeroClave)

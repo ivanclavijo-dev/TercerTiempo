@@ -17,11 +17,11 @@ namespace Persistencia.Estadisticas
 
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT SUM(total_ingresos) AS total_dinero_ingresado\r\nFROM (\r\n    -- Sumar el total de ventas del mes anterior\r\n    SELECT SUM(precio_total) AS total_ingresos\r\n    FROM Ventas_Productos\r\n    WHERE MONTH(dia_hora_venta) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)\r\n      AND YEAR(dia_hora_venta) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)\r\n\r\n    UNION ALL\r\n\r\n    -- Sumar el total de pagos del mes anterior\r\n    SELECT SUM(precio) AS total_ingresos\r\n    FROM Pagos\r\n    WHERE MONTH(dia_pago) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)\r\n      AND YEAR(dia_pago) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)\r\n) AS ingresos;\r\n";
+                string consulta = "SELECT SUM(total_ingresos) AS TotalIngresos\r\nFROM (\r\n    -- Ingresos por artículos vendidos en el mes anterior\r\n    SELECT SUM(a.precio_oferta) AS total_ingresos\r\n    FROM paga p\r\n    JOIN articulo a ON p.idArticulo_paga = a.idArticulo\r\n    WHERE p.fecha_hora >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')\r\n      AND p.fecha_hora < DATE_FORMAT(CURDATE(), '%Y-%m-01')\r\n    \r\n    UNION ALL\r\n    \r\n    -- Ingresos por membresías pagadas en el mes anterior\r\n    SELECT SUM(pl.precio_oferta) AS total_ingresos\r\n    FROM adquiere ad\r\n    JOIN plan pl ON ad.idPlan = pl.idPlan\r\n    WHERE ad.fecha_inicio >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')\r\n      AND ad.fecha_inicio < DATE_FORMAT(CURDATE(), '%Y-%m-01')\r\n) AS t;\r\n";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
 
-                    jutotalIngresos = Convert.ToInt32(cmd.ExecuteScalar());
+                    totalIngresos = Convert.ToInt32(cmd.ExecuteScalar());
 
                 }
             }

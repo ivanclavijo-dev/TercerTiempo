@@ -17,7 +17,7 @@ namespace Persistencia.Estadisticas
 
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT COUNT(*) from empleado;";
+                string consulta = "SELECT COUNT(*) from cliente;";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
                     

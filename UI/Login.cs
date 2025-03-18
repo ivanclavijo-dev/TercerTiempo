@@ -124,7 +124,7 @@ namespace UI
             {
                 SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
 
-                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
+                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "User")
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
                     tercerTiempo.VistaColaborador(Visible = false);
@@ -132,7 +132,7 @@ namespace UI
 
                     this.Hide();
                 }
-                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 2)
+                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "Admin")
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
 
@@ -157,7 +157,7 @@ namespace UI
             {
                 SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
 
-                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 1)
+                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "User")
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
                     tercerTiempo.VistaColaborador(Visible = false);
@@ -165,7 +165,7 @@ namespace UI
 
                     this.Hide();
                 }
-                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == 0)
+                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "Admin")
                 {
                     TercerTiempo tercerTiempo = new TercerTiempo();
 

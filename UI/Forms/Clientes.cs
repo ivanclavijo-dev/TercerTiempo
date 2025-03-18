@@ -44,12 +44,43 @@ namespace UI.Forms
         }
         private void MostrarClientes()
         {
-           dataGridView1.DataSource = objetoC.MostrarClient();
+            dataGridView1.DataSource = objetoC.MostrarClient();
         }
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "EstadoCuota" && e.Value != null)
+            {
+                string estado = e.Value.ToString().Trim().ToLower();
+
+                switch (estado)
+                {
+                    case "vigente":
+                        e.CellStyle.BackColor = Color.Green;
+                        e.CellStyle.ForeColor = Color.White;
+                        break;
+
+                    case "por vencer":
+                        e.CellStyle.BackColor = Color.Orange;
+                        e.CellStyle.ForeColor = Color.Black;
+                        break;
+
+                    case "vencido":
+                        e.CellStyle.BackColor = Color.Red;
+                        e.CellStyle.ForeColor = Color.White;
+                        break;
+
+                    default:
+                        e.CellStyle.BackColor = Color.White;
+                        e.CellStyle.ForeColor = Color.Black;
+                        break;
+                }
+            }
         }
     }
 }

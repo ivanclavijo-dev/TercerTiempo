@@ -8,31 +8,30 @@ using TercerTiempo.Persistencia;
 
 namespace Persistencia.Empleado
 {
-    public class rol_empleado
+    public class RolEmpleado
     {
         private Conexion conexion = new Conexion();
-        int rol;
-        public int verificarRol(string usuario, string contraseña)
+
+        public string VerificarRol(string usuario, string contraseña)
         {
-            
+            string rol = string.Empty;
+
             MySqlConnection conn = conexion.AbrirConexion();
+            string consulta = "SELECT rol FROM colaborador WHERE contrasenia = @clave AND usuario = @user;";
+            using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
             {
-                string consulta = "SELECT rol FROM empleado WHERE clave = '" + contraseña + "' and user = '" + usuario + "';";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
+                cmd.Parameters.AddWithValue("@user", usuario);
+                cmd.Parameters.AddWithValue("@clave", contraseña);
+
+                object valor = cmd.ExecuteScalar();
+                if (valor != null)
                 {
-                    cmd.Parameters.AddWithValue("@user", usuario);
-                    cmd.Parameters.AddWithValue("@clave", contraseña);
-
-                   object valor = cmd.ExecuteScalar();
-                    if (valor != null && int.TryParse(valor.ToString(), out int numero))
-                    {
-                        rol = numero;
-                    }
-
+                    rol = valor.ToString();
                 }
             }
-            return rol;
 
+            return rol;
         }
     }
+
 }
