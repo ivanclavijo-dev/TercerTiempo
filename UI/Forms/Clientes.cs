@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Logica;
 using Logica.BD;
 using Logica.Grids;
+using UI.Paneles;
 
 namespace UI.Forms
 {
@@ -83,6 +84,12 @@ namespace UI.Forms
                         break;
                 }
             }
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            VentanaAltaClientes altaCliente = new VentanaAltaClientes();
+            altaCliente.Show();
         }
     }
 }

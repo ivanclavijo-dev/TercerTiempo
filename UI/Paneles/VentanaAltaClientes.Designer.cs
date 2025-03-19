@@ -353,6 +353,7 @@
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaAltaClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "VentanaAltaClientes";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
