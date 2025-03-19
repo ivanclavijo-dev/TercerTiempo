@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Persistencia.ArticulosConsultas;
 using Persistencia.Empleado;
 using Persistencia.Estadisticas;
 using System;
@@ -69,6 +70,17 @@ namespace Logica.BD
         {
             return extraerEmail.extrarMail(numeroClave);
         }
-           
+
+        // Carrito
+
+        private CargarArticulos cargarArticulos = new CargarArticulos();
+
+        public List<Articulos> carrito(int id)
+        {
+            return cargarArticulos.CargarArticulosDesdeBD(id);
+        }
+
+
+
     }
 }

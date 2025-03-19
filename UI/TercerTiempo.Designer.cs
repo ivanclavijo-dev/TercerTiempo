@@ -287,6 +287,7 @@ namespace UI
             // productosLabel
             // 
             productosLabel.AutoSize = true;
+            productosLabel.Cursor = Cursors.Hand;
             productosLabel.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             productosLabel.Location = new Point(66, 14);
             productosLabel.Name = "productosLabel";
@@ -304,6 +305,7 @@ namespace UI
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 1;
             pictureBox4.TabStop = false;
+            pictureBox4.MouseClick += pictureBox4_MouseClick;
             // 
             // panel6
             // 

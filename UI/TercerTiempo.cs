@@ -99,7 +99,7 @@ namespace UI
 
         private void productosLabel_MouseClick(object sender, MouseEventArgs e)
         {
-
+            AbrirFormInPanel(new Forms.Productos());
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
@@ -172,6 +172,12 @@ namespace UI
         private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
         {
             AbrirFormInPanel(new Forms.Clientes());
+
+        }
+
+        private void pictureBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            AbrirFormInPanel(new Forms.Productos());
 
         }
     }
