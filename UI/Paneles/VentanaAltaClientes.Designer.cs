@@ -43,7 +43,9 @@
             NotificacionesChkbox = new CheckBox();
             rjButton1 = new CustomControls.RJControls.RJButton();
             rjButton2 = new CustomControls.RJControls.RJButton();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -331,12 +333,25 @@
             rjButton2.UseVisualStyleBackColor = false;
             rjButton2.Click += rjButton2_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = Properties.Resources.Carret_Left;
+            pictureBox2.Location = new Point(771, 30);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(55, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 23;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // VentanaAltaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(899, 546);
+            Controls.Add(pictureBox2);
             Controls.Add(rjButton2);
             Controls.Add(rjButton1);
             Controls.Add(NotificacionesChkbox);
@@ -353,9 +368,9 @@
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaAltaClientes";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "VentanaAltaClientes";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -376,5 +391,6 @@
         private CheckBox NotificacionesChkbox;
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton rjButton2;
+        private PictureBox pictureBox2;
     }
 }

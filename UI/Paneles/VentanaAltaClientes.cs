@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Logica.BD.Altas;
+using Logica.MetodosAdicionales;
+using UI.Forms;
 
 namespace UI.Paneles
 {
@@ -20,7 +22,7 @@ namespace UI.Paneles
             InitializeComponent();
         }
 
-        private void rjButton2_Click(object sender, EventArgs e)
+        public void limpiar()
         {
             cedulaTextbox.Texts = "";
             nombreTextbox.Texts = "";
@@ -33,26 +35,72 @@ namespace UI.Paneles
             NotificacionesChkbox.Checked = false;
         }
 
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
         private void rjButton1_Click(object sender, EventArgs e)
         {
+            Validaciones validaciones = new Validaciones();
+            bool validarFecha = validaciones.formatoFecha(nacimientoTextbox.Texts);
 
-            if (cedulaTextbox.Texts == "" || nombreTextbox.Texts == "" || apellidoTextbox.Texts == "" || telefonoTextbox.Texts == "" || 
+            if (cedulaTextbox.Texts == "" || nombreTextbox.Texts == "" || apellidoTextbox.Texts == "" || telefonoTextbox.Texts == "" ||
                 nacimientoTextbox.Texts == "" || servicioTextbox.Texts == "" || sexoTextbox.Texts == "")
             {
                 MessageBox.Show("Debes completar todos los campos para enviar los datos.");
-            } else
+            } else if (!validarFecha)
+            {
+                MessageBox.Show("El formato de la fecha es incorrecto.");
+            }
+            else
             {
                 Altas altas = new Altas();
 
-                if(altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
-                    servicioTextbox.Texts, nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts))
+                int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
+                    servicioTextbox.Texts, nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts);
+
+                int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
+
+                if (resultadoIngresarPersona == 1)
                 {
                     MessageBox.Show("Se ingreso la persona");
-                } else
+
+                    if (resultadoIngresarCliente == 1)
+                    {
+                        MessageBox.Show("Se ingreso al cliente correctamente");
+                        limpiar();
+                    }
+                    else if (resultadoIngresarCliente == 2)
+                    {
+                        MessageBox.Show("Error al ingresar al cliente");
+                    } else if (resultadoIngresarCliente == 3)
+                    {
+                        MessageBox.Show("El cliente ya existe. No puedes registrarlo denuevo.");
+                    } else
+                    {
+                        MessageBox.Show("Error no identificado, comunicarse con soporte.");
+                    }
+                }
+                else if (resultadoIngresarPersona == 2)
                 {
                     MessageBox.Show("Error al ingresar la persona");
+                } else if (resultadoIngresarPersona == 3)
+                {
+                    MessageBox.Show("La persona ya esta ingresada en el sistema. Compruebe la cedula ingresada.");
+                } else if (resultadoIngresarPersona == 4)
+                {
+                    MessageBox.Show("El formato de la fecha ingresada esta mal.");
+                } else
+                {
+                    MessageBox.Show("Error no identificado, comunicarse con soporte.");
                 }
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

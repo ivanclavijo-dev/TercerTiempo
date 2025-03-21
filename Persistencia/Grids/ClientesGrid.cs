@@ -19,13 +19,33 @@ namespace Persistencia.Grids
 
         public DataTable MostrarClientes()
         {
+            DataTable tabla = new DataTable();
+
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "SELECT \r\n    LPAD(c.idCliente, 3, '0') AS ID,  -- Asegura que el ID tenga al menos 3 dígitos, con ceros a la izquierda\r\n    CONCAT(p.nombre, ' ', p.apellido) AS Nombre,\r\n    ad.fecha_inicio AS 'Ultimo pago',\r\n    CASE \r\n        WHEN ad.vencimiento >= CURDATE() + INTERVAL 7 DAY THEN 'Vigente'\r\n        WHEN ad.vencimiento >= CURDATE() THEN 'Por vencer'\r\n        ELSE 'Vencido'\r\n    END AS 'Estado de cuota',\r\n    CASE \r\n        WHEN p.notificaciones = 1 THEN 'Activo'\r\n        ELSE 'Inactivo'\r\n    END AS Notificaciones\r\nFROM cliente c\r\nJOIN persona p ON c.cedula_cliente = p.cedula\r\nLEFT JOIN adquiere ad ON c.idCliente = ad.idCliente_adquiere;\r\n";
+            cmd.CommandText = @"SELECT 
+                                LPAD(c.idCliente, 3, '0') AS ID,
+                                CONCAT(p.nombre, ' ', p.apellido) AS Nombre,
+                                ad.fecha_inicio AS 'Ultimo pago',
+                                CASE 
+                                    WHEN ad.vencimiento >= CURDATE() + INTERVAL 7 DAY THEN 'Vigente'
+                                    WHEN ad.vencimiento >= CURDATE() THEN 'Por vencer'
+                                    ELSE 'Vencido'
+                                END AS 'Estado de cuota',
+                                CASE 
+                                    WHEN p.notificaciones = 1 THEN 'Activo'
+                                    ELSE 'Inactivo'
+                                END AS Notificaciones
+                            FROM cliente c
+                            JOIN persona p ON c.cedula_cliente = p.cedula
+                            LEFT JOIN adquiere ad ON c.idCliente = ad.idCliente_adquiere
+                            WHERE estado_cliente = '1'
+                            ORDER BY c.idCliente;";
+
             leer = cmd.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
-            return tabla;
 
+            return tabla;
         }
     }
 }

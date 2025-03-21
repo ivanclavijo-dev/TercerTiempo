@@ -70,6 +70,7 @@ namespace UI.Forms
         consultasBD consultas = new consultasBD();
         private void Home_Load(object sender, EventArgs e)
         {
+
             label1.Text = $"Hola de nuevo, " + SesionUsuario.EmpleadoActual.DatosPersonales.Nombre + "!";
             labelNumClientesTotales.Text = consultas.ObtenerNumeroClientesTotales().ToString();
             labelProductosVendidos.Text = consultas.ObtenerNumeroVentasMes().ToString();
