@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Logica;
 using Logica.BD;
 using Logica.Grids;
+using Persistencia.Grids;
 using UI.Paneles.Avisos;
 
 namespace UI.Forms
@@ -51,10 +52,12 @@ namespace UI.Forms
         private void Clientes_Load(object sender, EventArgs e)
         {
         }
+        private OB_ClienteGrid clientOb = new OB_ClienteGrid();
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
         {
-
+            string texto = rjTextBox1.Texts.Trim();
+            dataGridView1.DataSource = clientOb.ObtenerClientes(texto);
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -123,5 +126,8 @@ namespace UI.Forms
                 MessageBox.Show("Por favor, seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+       
+        
     }
 }

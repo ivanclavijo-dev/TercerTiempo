@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Persistencia.ArticulosConsultas;
+using Persistencia.ClientesConsultas;
 using Persistencia.Empleado;
 using Persistencia.Estadisticas;
 using System;
@@ -23,7 +24,12 @@ namespace Logica.BD
         private VentasUltimoMes ventasMes = new VentasUltimoMes();
         private IngresosUltimoMes ingresosUltimoMes = new IngresosUltimoMes();
        private PromedioEdades promedioEdades = new PromedioEdades();
+        private ObtenerCliente obtenerCliente = new ObtenerCliente();
 
+        public Cliente ObtenerClienteVenta(int id)
+        {
+            return obtenerCliente.ObtenerClienteProducto(id);
+        }
         public DataTable ObtenerRangosEdad()
         {
             return promedioEdades.ObtenerRangosEdad();

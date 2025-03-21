@@ -45,7 +45,6 @@
             pictureBox7 = new PictureBox();
             rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             MenuClientes = new Label();
-            dataGridView1 = new DataGridView();
             pictureBox4 = new PictureBox();
             labelCantCarrito = new Label();
             label1 = new Label();
@@ -55,16 +54,21 @@
             Precio = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            rjButton3 = new CustomControls.RJControls.RJButton();
+            rjButton1 = new CustomControls.RJControls.RJButton();
+            label3 = new Label();
             btnCarrito = new Componentes.ElipseControl();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox3
@@ -108,7 +112,7 @@
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.Font = new Font("Quicksand", 12F, FontStyle.Bold);
             rjButton2.ForeColor = Color.White;
-            rjButton2.Location = new Point(621, 106);
+            rjButton2.Location = new Point(621, 109);
             rjButton2.Name = "rjButton2";
             rjButton2.Size = new Size(150, 34);
             rjButton2.TabIndex = 39;
@@ -161,59 +165,6 @@
             MenuClientes.TabIndex = 36;
             MenuClientes.Text = "Menú de Productos";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.LightGray;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(16, 83, 233);
-            dataGridViewCellStyle2.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeight = 60;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Montserrat Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(26, 149);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Montserrat Black", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridView1.RowTemplate.Height = 40;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(907, 431);
-            dataGridView1.TabIndex = 35;
-            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.FromArgb(16, 83, 233);
@@ -259,82 +210,84 @@
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.AllowUserToResizeColumns = false;
             dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.LightGray;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.BorderStyle = BorderStyle.None;
             dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(16, 83, 233);
-            dataGridViewCellStyle7.Font = new Font("Montserrat Black", 9.25F, FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(16, 83, 233);
+            dataGridViewCellStyle2.Font = new Font("Montserrat Black", 9.25F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.ColumnHeadersHeight = 60;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Cant, Nombre, Precio, Descripcion });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Montserrat Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Montserrat Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.Location = new Point(29, 65);
             dataGridView2.MultiSelect = false;
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Montserrat", 8F, FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Montserrat", 8F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView2.RowTemplate.Height = 40;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(326, 188);
             dataGridView2.TabIndex = 49;
+            dataGridView2.CellValueChanged += dataGridView2_CellValueChanged;
+            dataGridView2.RowsAdded += dataGridView2_RowsAdded;
+            dataGridView2.RowsRemoved += dataGridView2_RowsRemoved;
             // 
             // Cant
             // 
             Cant.HeaderText = "Cant.";
             Cant.Name = "Cant";
-            Cant.ReadOnly = true;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
             // 
             // Precio
             // 
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
-            Precio.ReadOnly = true;
             // 
             // Descripcion
             // 
             Descripcion.HeaderText = "Desc.";
             Descripcion.Name = "Descripcion";
-            Descripcion.ReadOnly = true;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(rjButton3);
+            panel1.Controls.Add(rjButton1);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(dataGridView2);
             panel1.Location = new Point(554, 71);
@@ -342,6 +295,58 @@
             panel1.Size = new Size(377, 331);
             panel1.TabIndex = 50;
             panel1.Visible = false;
+            // 
+            // rjButton3
+            // 
+            rjButton3.BackColor = Color.FromArgb(244, 54, 20);
+            rjButton3.BackgroundColor = Color.FromArgb(244, 54, 20);
+            rjButton3.BorderColor = Color.PaleVioletRed;
+            rjButton3.BorderRadius = 10;
+            rjButton3.BorderSize = 0;
+            rjButton3.FlatAppearance.BorderSize = 0;
+            rjButton3.FlatStyle = FlatStyle.Flat;
+            rjButton3.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            rjButton3.ForeColor = Color.White;
+            rjButton3.Location = new Point(256, 293);
+            rjButton3.Name = "rjButton3";
+            rjButton3.Size = new Size(99, 25);
+            rjButton3.TabIndex = 52;
+            rjButton3.Text = "Quitar";
+            rjButton3.TextColor = Color.White;
+            rjButton3.UseVisualStyleBackColor = false;
+            rjButton3.MouseClick += rjButton3_MouseClick;
+            // 
+            // rjButton1
+            // 
+            rjButton1.BackColor = Color.FromArgb(16, 83, 233);
+            rjButton1.BackgroundColor = Color.FromArgb(16, 83, 233);
+            rjButton1.BorderColor = Color.PaleVioletRed;
+            rjButton1.BorderRadius = 10;
+            rjButton1.BorderSize = 0;
+            rjButton1.FlatAppearance.BorderSize = 0;
+            rjButton1.FlatStyle = FlatStyle.Flat;
+            rjButton1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton1.ForeColor = Color.White;
+            rjButton1.Location = new Point(29, 293);
+            rjButton1.Name = "rjButton1";
+            rjButton1.Size = new Size(221, 25);
+            rjButton1.TabIndex = 51;
+            rjButton1.Text = "Pagar";
+            rjButton1.TextColor = Color.White;
+            rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.MouseClick += rjButton1_MouseClick;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Montserrat", 11.749999F, FontStyle.Italic);
+            label3.ForeColor = Color.FromArgb(16, 83, 233);
+            label3.Location = new Point(29, 256);
+            label3.Name = "label3";
+            label3.Size = new Size(179, 25);
+            label3.TabIndex = 50;
+            label3.Text = "Total a pagar: $2.032";
             // 
             // btnCarrito
             // 
@@ -370,6 +375,76 @@
             label2.Text = "Carrito";
             label2.MouseClick += label2_MouseClick;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(231, 238, 253);
+            dataGridViewCellStyle6.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(16, 83, 233);
+            dataGridViewCellStyle7.Font = new Font("Montserrat", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridView1.ColumnHeadersHeight = 70;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView1.Cursor = Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(26, 149);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridView1.RowTemplate.Height = 40;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(907, 431);
+            dataGridView1.TabIndex = 53;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Quicksand Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(64, 64, 64);
+            label4.Location = new Point(29, 45);
+            label4.Name = "label4";
+            label4.Size = new Size(259, 19);
+            label4.TabIndex = 53;
+            label4.Text = "*doble click en cantidad para modificarla";
+            // 
             // Productos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -397,11 +472,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -415,7 +490,6 @@
         private PictureBox pictureBox7;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private Label MenuClientes;
-        private DataGridView dataGridView1;
         private PictureBox pictureBox4;
         private Label labelCantCarrito;
         private Label label1;
@@ -427,5 +501,10 @@
         private Panel panel1;
         private Componentes.ElipseControl btnCarrito;
         private Label label2;
+        private DataGridView dataGridView1;
+        private Label label3;
+        private CustomControls.RJControls.RJButton rjButton3;
+        private CustomControls.RJControls.RJButton rjButton1;
+        private Label label4;
     }
 }

@@ -12,12 +12,19 @@ namespace Logica.Grids
      public class OB_ClienteGrid
     {
         private ClientesGrid objetoCliente =  new ClientesGrid();
+        private ClientesGridFiltrado objetoClienteFiltrado = new ClientesGridFiltrado();
+
 
         public DataTable MostrarClient()
         {
             DataTable tabla = new DataTable();  
             tabla=objetoCliente.MostrarClientes();
             return tabla;
+        }
+
+        public DataTable ObtenerClientes(string texto)
+        {
+            return objetoClienteFiltrado.BuscarClientesFiltrados(texto);
         }
     }
 }

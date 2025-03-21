@@ -117,7 +117,7 @@
             MenuClientes.ForeColor = Color.FromArgb(16, 83, 233);
             MenuClientes.Location = new Point(17, 25);
             MenuClientes.Name = "MenuClientes";
-            MenuClientes.Size = new Size(462, 75);
+            MenuClientes.Size = new Size(459, 66);
             MenuClientes.TabIndex = 1;
             MenuClientes.Text = "Menú de Clientes";
             // 

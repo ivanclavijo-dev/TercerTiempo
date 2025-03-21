@@ -48,7 +48,7 @@
             label1.ForeColor = Color.FromArgb(1, 16, 83, 233);
             label1.Location = new Point(69, 45);
             label1.Name = "label1";
-            label1.Size = new Size(434, 75);
+            label1.Size = new Size(430, 66);
             label1.TabIndex = 0;
             label1.Text = "¿Desea eliminar";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -62,7 +62,7 @@
             label2.ForeColor = Color.FromArgb(1, 16, 83, 233);
             label2.Location = new Point(148, 105);
             label2.Name = "label2";
-            label2.Size = new Size(286, 75);
+            label2.Size = new Size(281, 66);
             label2.TabIndex = 1;
             label2.Text = "el cliente?";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -126,7 +126,7 @@
             label6.ForeColor = Color.Gray;
             label6.Location = new Point(233, 387);
             label6.Name = "label6";
-            label6.Size = new Size(114, 25);
+            label6.Size = new Size(112, 22);
             label6.TabIndex = 6;
             label6.Text = "No, cancelar";
             label6.Click += label6_Click;

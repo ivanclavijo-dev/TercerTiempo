@@ -22,7 +22,13 @@ namespace Persistencia.Grids
             DataTable tabla = new DataTable();
 
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = @"SELECT 
+            cmd.CommandText = @"
+                            WITH ranked_adquiere AS (
+                                SELECT *,
+                                       ROW_NUMBER() OVER (PARTITION BY idCliente_adquiere ORDER BY fecha_inicio DESC) AS rn
+                                FROM adquiere
+                            )
+                            SELECT 
                                 LPAD(c.idCliente, 3, '0') AS ID,
                                 CONCAT(p.nombre, ' ', p.apellido) AS Nombre,
                                 ad.fecha_inicio AS 'Ultimo pago',
@@ -37,9 +43,11 @@ namespace Persistencia.Grids
                                 END AS Notificaciones
                             FROM cliente c
                             JOIN persona p ON c.cedula_cliente = p.cedula
-                            LEFT JOIN adquiere ad ON c.idCliente = ad.idCliente_adquiere
+                            LEFT JOIN ranked_adquiere ad 
+                                ON c.idCliente = ad.idCliente_adquiere AND ad.rn = 1
                             WHERE estado_cliente = '1'
                             ORDER BY c.idCliente;";
+
 
             leer = cmd.ExecuteReader();
             tabla.Load(leer);
