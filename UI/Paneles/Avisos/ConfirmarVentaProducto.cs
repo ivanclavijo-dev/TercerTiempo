@@ -1,4 +1,5 @@
-﻿using Logica;
+﻿using Entidades;
+using Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace UI.Paneles.Avisos
         {
             idCliente.Text = SesionCliente.clienteActual.idCliente.ToString();
             nombreCliente.Text = SesionCliente.clienteActual.DatosPersonales.Nombre + " " + SesionCliente.clienteActual.DatosPersonales.Apellido;
+            label5.Text = "Total a pagar: $"+Carrito.valorTotal;
         }
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)

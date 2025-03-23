@@ -172,16 +172,22 @@ namespace UI.Forms
         private void CalcularTotal()
         {
             int total = dataGridView2.Rows
-                .Cast<DataGridViewRow>()
-                .Where(r => !r.IsNewRow)
-                .Sum(r =>
-                {
-                    if (int.TryParse(r.Cells[2].Value?.ToString(), out int precio))
-                        return precio;
-                    return 0;
-                });
+    .Cast<DataGridViewRow>()
+    .Where(r => !r.IsNewRow)
+    .Sum(r =>
+    {
+        if (int.TryParse(r.Cells[0].Value?.ToString(), out int cantidad) &&
+            int.TryParse(r.Cells[2].Value?.ToString(), out int precio))
+        {
+            return cantidad * precio;
+        }
+        return 0;
+    });
 
             label3.Text = $"Total a pagar: ${total:N2}";
+            Carrito.valorTotal = total;
+
+
         }
 
 

@@ -90,6 +90,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AccessibleRole = AccessibleRole.Alert;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
@@ -183,6 +184,7 @@
             Name = "SeleccionarClienteProducto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SeleccionarClienteProducto";
+            Load += SeleccionarClienteProducto_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

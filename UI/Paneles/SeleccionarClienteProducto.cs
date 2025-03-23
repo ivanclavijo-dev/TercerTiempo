@@ -72,5 +72,10 @@ namespace UI.Paneles
         {
 
         }
+
+        private void SeleccionarClienteProducto_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = rjTextBox1;
+        }
     }
 }
