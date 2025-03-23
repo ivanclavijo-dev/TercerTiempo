@@ -66,12 +66,12 @@ namespace UI.Forms
 
         private void rjButton2_MouseClick(object sender, MouseEventArgs e)
         {
-
             if (dataGridView1.Rows.Count > 0)
             {
                 int index = dataGridView1.CurrentCell.RowIndex;
                 DataGridViewRow row = dataGridView1.Rows[index];
 
+                int id = int.Parse(row.Cells[0].Value.ToString());
                 string nombre = row.Cells[1].Value.ToString();
                 int precio = int.Parse(row.Cells[2].Value.ToString());
                 int stock = int.Parse(row.Cells[3].Value.ToString());
@@ -83,14 +83,14 @@ namespace UI.Forms
                     return;
                 }
 
-                // Buscar si el producto ya está en el carrito
                 bool existe = false;
+
                 foreach (DataGridViewRow fila in dataGridView2.Rows)
                 {
-                    if (fila.Cells[1].Value != null && fila.Cells[1].Value.ToString() == nombre)
+                    if (!fila.IsNewRow && fila.Cells[2].Value?.ToString() == nombre)
                     {
-                        int cantidadActual = int.Parse(fila.Cells[0].Value.ToString());
-                        fila.Cells[0].Value = cantidadActual + 1;
+                        int cantidadActual = int.Parse(fila.Cells[1].Value.ToString());
+                        fila.Cells[1].Value = cantidadActual + 1;
                         existe = true;
                         break;
                     }
@@ -98,14 +98,33 @@ namespace UI.Forms
 
                 if (!existe)
                 {
-                    // Agrega el producto con cantidad 1
-                    dataGridView2.Rows.Add("1", nombre, precio, desc);
+                    dataGridView2.Rows.Add(id, 1, nombre, precio, desc);
                     contadorCarrito++;
+                }
 
+                // 🧠 Actualizamos la clase Carrito global
+                var existente = Carrito.Productos.FirstOrDefault(p => p.idArticulo == id);
+                if (existente != null)
+                {
+                    existente.stock += 1;
+                }
+                else
+                {
+                    Carrito.Productos.Add(new Articulos
+                    {
+                        idArticulo = id,
+                        marca = nombre,
+                        precio_lista = precio,
+                        stock = 1,
+                        detalle = desc
+                    });
                 }
 
                 labelCantCarrito.Text = contadorCarrito.ToString();
+                CalcularTotal();
             }
+
+
         }
 
 
@@ -176,8 +195,8 @@ namespace UI.Forms
     .Where(r => !r.IsNewRow)
     .Sum(r =>
     {
-        if (int.TryParse(r.Cells[0].Value?.ToString(), out int cantidad) &&
-            int.TryParse(r.Cells[2].Value?.ToString(), out int precio))
+        if (int.TryParse(r.Cells[1].Value?.ToString(), out int cantidad) &&
+            int.TryParse(r.Cells[3].Value?.ToString(), out int precio))
         {
             return cantidad * precio;
         }

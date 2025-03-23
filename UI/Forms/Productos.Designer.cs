@@ -49,18 +49,19 @@
             labelCantCarrito = new Label();
             label1 = new Label();
             dataGridView2 = new DataGridView();
-            Cant = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            label4 = new Label();
             rjButton3 = new CustomControls.RJControls.RJButton();
             rjButton1 = new CustomControls.RJControls.RJButton();
             label3 = new Label();
             btnCarrito = new Componentes.ElipseControl();
             label2 = new Label();
             dataGridView1 = new DataGridView();
-            label4 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            Cant = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Descripcion = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -226,7 +227,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.ColumnHeadersHeight = 60;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Cant, Nombre, Precio, Descripcion });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { ID, Cant, Nombre, Precio, Descripcion });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Montserrat Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -261,26 +262,6 @@
             dataGridView2.RowsAdded += dataGridView2_RowsAdded;
             dataGridView2.RowsRemoved += dataGridView2_RowsRemoved;
             // 
-            // Cant
-            // 
-            Cant.HeaderText = "Cant.";
-            Cant.Name = "Cant";
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Desc.";
-            Descripcion.Name = "Descripcion";
-            // 
             // panel1
             // 
             panel1.BackColor = Color.White;
@@ -295,6 +276,18 @@
             panel1.Size = new Size(377, 331);
             panel1.TabIndex = 50;
             panel1.Visible = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Quicksand Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(64, 64, 64);
+            label4.Location = new Point(29, 45);
+            label4.Name = "label4";
+            label4.Size = new Size(259, 19);
+            label4.TabIndex = 53;
+            label4.Text = "*doble click en cantidad para modificarla";
             // 
             // rjButton3
             // 
@@ -433,17 +426,30 @@
             dataGridView1.Size = new Size(907, 431);
             dataGridView1.TabIndex = 53;
             // 
-            // label4
+            // ID
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Font = new Font("Quicksand Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(29, 45);
-            label4.Name = "label4";
-            label4.Size = new Size(259, 19);
-            label4.TabIndex = 53;
-            label4.Text = "*doble click en cantidad para modificarla";
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Cant
+            // 
+            Cant.HeaderText = "Cant.";
+            Cant.Name = "Cant";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            // 
+            // Descripcion
+            // 
+            Descripcion.HeaderText = "Desc.";
+            Descripcion.Name = "Descripcion";
             // 
             // Productos
             // 
@@ -494,10 +500,6 @@
         private Label labelCantCarrito;
         private Label label1;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn Cant;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Descripcion;
         private Panel panel1;
         private Componentes.ElipseControl btnCarrito;
         private Label label2;
@@ -506,5 +508,10 @@
         private CustomControls.RJControls.RJButton rjButton3;
         private CustomControls.RJControls.RJButton rjButton1;
         private Label label4;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Cant;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Descripcion;
     }
 }

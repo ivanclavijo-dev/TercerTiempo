@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Carrito
+    public static class Carrito
     {
+        public static List<Articulos> Productos = new List<Articulos>();
+
         public static int valorTotal {  get; set; }
     }
 }
