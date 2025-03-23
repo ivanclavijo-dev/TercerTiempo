@@ -90,6 +90,7 @@
             rjButton1.Text = "Si, confirmar";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
             rjButton1.MouseClick += rjButton1_MouseClick;
             // 
             // label4

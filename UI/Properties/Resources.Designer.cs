@@ -113,6 +113,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cerrar {
+            get {
+                object obj = ResourceManager.GetObject("cerrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chrome_RRypiZ6QJE {
             get {
                 object obj = ResourceManager.GetObject("chrome_RRypiZ6QJE", resourceCulture);
@@ -296,6 +306,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap Logout_Icon_UIA {
             get {
                 object obj = ResourceManager.GetObject("Logout_Icon_UIA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marca_de_verificacion {
+            get {
+                object obj = ResourceManager.GetObject("marca-de-verificacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
