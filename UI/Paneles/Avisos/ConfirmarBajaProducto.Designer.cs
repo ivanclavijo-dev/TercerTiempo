@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            estadoCuotaCliente = new Label();
-            nombreCliente = new Label();
-            idCliente = new Label();
+            nombreProducto = new Label();
+            idProducto = new Label();
             label6 = new Label();
             rjButton1 = new CustomControls.RJControls.RJButton();
             label5 = new Label();
@@ -38,38 +37,28 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
+            Stock = new Label();
             SuspendLayout();
             // 
-            // estadoCuotaCliente
+            // nombreProducto
             // 
-            estadoCuotaCliente.AutoSize = true;
-            estadoCuotaCliente.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            estadoCuotaCliente.ForeColor = Color.Silver;
-            estadoCuotaCliente.Location = new Point(339, 269);
-            estadoCuotaCliente.Name = "estadoCuotaCliente";
-            estadoCuotaCliente.Size = new Size(28, 40);
-            estadoCuotaCliente.TabIndex = 19;
-            estadoCuotaCliente.Text = "-";
+            nombreProducto.AutoSize = true;
+            nombreProducto.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nombreProducto.Location = new Point(339, 227);
+            nombreProducto.Name = "nombreProducto";
+            nombreProducto.Size = new Size(28, 40);
+            nombreProducto.TabIndex = 18;
+            nombreProducto.Text = "-";
             // 
-            // nombreCliente
+            // idProducto
             // 
-            nombreCliente.AutoSize = true;
-            nombreCliente.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nombreCliente.Location = new Point(339, 227);
-            nombreCliente.Name = "nombreCliente";
-            nombreCliente.Size = new Size(28, 40);
-            nombreCliente.TabIndex = 18;
-            nombreCliente.Text = "-";
-            // 
-            // idCliente
-            // 
-            idCliente.AutoSize = true;
-            idCliente.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            idCliente.Location = new Point(339, 187);
-            idCliente.Name = "idCliente";
-            idCliente.Size = new Size(28, 40);
-            idCliente.TabIndex = 17;
-            idCliente.Text = "-";
+            idProducto.AutoSize = true;
+            idProducto.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            idProducto.Location = new Point(339, 187);
+            idProducto.Name = "idProducto";
+            idProducto.Size = new Size(28, 40);
+            idProducto.TabIndex = 17;
+            idProducto.Text = "-";
             // 
             // label6
             // 
@@ -82,6 +71,7 @@
             label6.Size = new Size(112, 22);
             label6.TabIndex = 16;
             label6.Text = "No, cancelar";
+            label6.MouseClick += label6_MouseClick;
             // 
             // rjButton1
             // 
@@ -102,6 +92,7 @@
             rjButton1.Text = "Si, eliminar";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.MouseClick += rjButton1_MouseClick;
             // 
             // label5
             // 
@@ -159,14 +150,25 @@
             label2.Text = "el producto?";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // Stock
+            // 
+            Stock.AutoSize = true;
+            Stock.Font = new Font("Quicksand", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Stock.Location = new Point(339, 269);
+            Stock.Name = "Stock";
+            Stock.Size = new Size(28, 40);
+            Stock.TabIndex = 19;
+            Stock.Text = "-";
+            // 
             // ConfirmarBajaProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(577, 461);
-            Controls.Add(estadoCuotaCliente);
-            Controls.Add(nombreCliente);
-            Controls.Add(idCliente);
+            Controls.Add(Stock);
+            Controls.Add(nombreProducto);
+            Controls.Add(idProducto);
             Controls.Add(label6);
             Controls.Add(rjButton1);
             Controls.Add(label5);
@@ -176,16 +178,15 @@
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ConfirmarBajaProducto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ConfirmarVentaProducto";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label estadoCuotaCliente;
-        private Label nombreCliente;
-        private Label idCliente;
+        private Label nombreProducto;
+        private Label idProducto;
         private Label label6;
         private CustomControls.RJControls.RJButton rjButton1;
         private Label label5;
@@ -193,5 +194,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        private Label Stock;
     }
 }

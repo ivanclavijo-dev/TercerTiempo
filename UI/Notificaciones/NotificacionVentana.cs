@@ -81,7 +81,7 @@ namespace UI.Notificaciones
         {
             linAlertBox.Width += 2;
 
-            if (linAlertBox.Width >= 300)
+            if (linAlertBox.Width >= 344)
             {
                 timerAnimacion.Stop();
 

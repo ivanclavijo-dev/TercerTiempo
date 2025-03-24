@@ -15,6 +15,7 @@ namespace Logica.BD.Altas
         private AltaPersona altaPersona;
         private AltaCliente altacliente;
         private AltaPago altaPago;
+        private AltaProducto altaProducto;
         private ValidarExistencias validarExistencias;
 
         public Altas()
@@ -22,12 +23,19 @@ namespace Logica.BD.Altas
             altaPersona = new AltaPersona();
             altacliente = new AltaCliente();
             validarExistencias = new ValidarExistencias();
+            altaPago = new AltaPago();
+            altaProducto = new AltaProducto();
         }
 
 
         public bool ingresarPago(int idCliente, int idArticulo)
         {
             return altaPago.IngresarPago(idCliente, idArticulo);
+        }
+
+        public bool ingresarProducto(string detalle, int precioLista, int precioOferta, string marca, int stock)
+        {
+            return altaProducto.IngresarProducto(marca, detalle, precioLista, precioOferta, stock);
         }
 
         // El metodo de ingresar persona devuelve 1 = Creado correctamente, 2 = Error al crear, 3 = La persona ya existe en la tabla, 4 = Error en el formato de la fecha

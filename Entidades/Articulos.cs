@@ -14,5 +14,14 @@ namespace Entidades
         public int precio_oferta { get; set; }
         public string marca { get; set; }
         public int stock { get; set; }
+
+        public static Articulos articuloactual { get; set; }
+
     }
+
+
+
+
+
 }
+s

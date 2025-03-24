@@ -22,5 +22,10 @@ namespace Logica.BD.LogicaBajas
                 return false;
             }
         }
+
+        public bool eliminarProducto(int id) { 
+            BajaArticulo bajaProducto = new BajaArticulo(); 
+            return bajaProducto.EliminarArticulo(id);
+        }
     }
 }

@@ -21,7 +21,14 @@ namespace Persistencia.Estadisticas
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
 
-                    totalIngresos = Convert.ToInt32(cmd.ExecuteScalar());
+                    object resultado = cmd.ExecuteScalar();
+                    totalIngresos = 0;
+
+                    if (resultado != DBNull.Value && resultado != null)
+                    {
+                        totalIngresos = Convert.ToInt32(resultado);
+                    }
+
 
                 }
             }

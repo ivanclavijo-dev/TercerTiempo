@@ -49,6 +49,11 @@
             labelCantCarrito = new Label();
             label1 = new Label();
             dataGridView2 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Cant = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Descripcion = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             label4 = new Label();
             rjButton3 = new CustomControls.RJControls.RJButton();
@@ -57,11 +62,6 @@
             btnCarrito = new Componentes.ElipseControl();
             label2 = new Label();
             dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Cant = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -74,6 +74,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = Properties.Resources.trash;
             pictureBox3.Location = new Point(864, 111);
             pictureBox3.Name = "pictureBox3";
@@ -81,6 +82,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox3.TabIndex = 42;
             pictureBox3.TabStop = false;
+            pictureBox3.MouseClick += pictureBox3_MouseClick;
             // 
             // pictureBox2
             // 
@@ -94,6 +96,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.add_square;
             pictureBox1.Location = new Point(777, 111);
             pictureBox1.Name = "pictureBox1";
@@ -101,6 +104,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 40;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // rjButton2
             // 
@@ -261,6 +265,31 @@
             dataGridView2.CellValueChanged += dataGridView2_CellValueChanged;
             dataGridView2.RowsAdded += dataGridView2_RowsAdded;
             dataGridView2.RowsRemoved += dataGridView2_RowsRemoved;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Cant
+            // 
+            Cant.HeaderText = "Cant.";
+            Cant.Name = "Cant";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            // 
+            // Descripcion
+            // 
+            Descripcion.HeaderText = "Desc.";
+            Descripcion.Name = "Descripcion";
             // 
             // panel1
             // 
@@ -425,31 +454,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(907, 431);
             dataGridView1.TabIndex = 53;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // Cant
-            // 
-            Cant.HeaderText = "Cant.";
-            Cant.Name = "Cant";
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Desc.";
-            Descripcion.Name = "Descripcion";
+            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
             // 
             // Productos
             // 

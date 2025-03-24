@@ -91,7 +91,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Gainsboro;
-            ClientSize = new Size(300, 80);
+            ClientSize = new Size(344, 80);
             Controls.Add(linAlertBox);
             Controls.Add(subtitleAlert);
             Controls.Add(labelTituloAlertBox);
