@@ -50,8 +50,6 @@ namespace UI.Forms
         private void MostrarProductos()
         {
             var productos = objetoP.MostrarProducto();
-            MessageBox.Show("Productos cargados: " + productos.Rows.Count); // 👈
-
             dataGridView1.DataSource = productos;
             dataGridView1.ClearSelection();
 
@@ -311,14 +309,14 @@ namespace UI.Forms
 
                 int idArticulo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
                 ConfirmarBajaProducto bajaProducto = new ConfirmarBajaProducto();
+               
+                bajaProducto.Show();
                 bajaProducto.FormClosed += (s, args) =>
                 {
                     MostrarProductos(); // ✅ Esto es lo que queremos que pase
-                    MessageBox.Show("MostrarProductos se ejecutó");
+
 
                 };
-                bajaProducto.Show();
-
 
 
 

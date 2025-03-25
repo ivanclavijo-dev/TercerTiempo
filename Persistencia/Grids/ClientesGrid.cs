@@ -14,7 +14,6 @@ namespace Persistencia.Grids
         private Conexion conexion = new Conexion();
 
         MySqlDataReader leer;
-        DataTable tabla = new DataTable();
         MySqlCommand cmd = new MySqlCommand();
 
         public DataTable MostrarClientes()

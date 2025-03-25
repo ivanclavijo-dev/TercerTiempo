@@ -15,18 +15,24 @@ namespace Persistencia.Grids
         private Conexion conexion = new Conexion();
 
         MySqlDataReader leer;
-        DataTable tabla = new DataTable();
         MySqlCommand cmd = new MySqlCommand();
 
         public DataTable MostrarProductos()
         {
+            DataTable tabla = new DataTable(); // 👈 local dentro del método, se crea fresco cada vez
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = "SELECT \r\n    idArticulo AS 'ID',\r\n    marca      AS 'Nombre',\r\n    precio_lista AS 'Precio',\r\n    stock      AS 'Stock',\r\n    detalle    AS 'Descripcion'\r\nFROM articulo;\r\n";
+            cmd.CommandText = @"SELECT 
+        idArticulo AS 'ID',
+        marca      AS 'Nombre',
+        precio_lista AS 'Precio',
+        stock      AS 'Stock',
+        detalle    AS 'Descripcion'
+    FROM articulo;";
             leer = cmd.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
             return tabla;
-
         }
+
     }
 }
