@@ -257,15 +257,18 @@ namespace UI
             // empleadosLabel
             // 
             empleadosLabel.AutoSize = true;
+            empleadosLabel.Cursor = Cursors.Hand;
             empleadosLabel.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             empleadosLabel.Location = new Point(66, 14);
             empleadosLabel.Name = "empleadosLabel";
             empleadosLabel.Size = new Size(95, 24);
             empleadosLabel.TabIndex = 0;
             empleadosLabel.Text = "Empleados";
+            empleadosLabel.MouseClick += empleadosLabel_MouseClick;
             // 
             // pictureBox5
             // 
+            pictureBox5.Cursor = Cursors.Hand;
             pictureBox5.Image = Properties.Resources.users;
             pictureBox5.Location = new Point(36, 14);
             pictureBox5.Name = "pictureBox5";

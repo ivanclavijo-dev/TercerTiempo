@@ -180,5 +180,10 @@ namespace UI
             AbrirFormInPanel(new Forms.Productos());
 
         }
+
+        private void empleadosLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            AbrirFormInPanel(new Forms.Colaboradores());
+        }
     }
 }

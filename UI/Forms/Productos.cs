@@ -2,6 +2,7 @@
 using Logica.BD;
 using Logica.Grids;
 using Logica.ObjetosTablas;
+using MySqlX.XDevAPI;
 using Persistencia.PersistenciaAltas;
 using System;
 using System.Collections.Generic;
@@ -43,10 +44,11 @@ namespace UI.Forms
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
         }
-
+        OB_ProductoGrid productoOb = new OB_ProductoGrid();
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
         {
-
+            string texto = rjTextBox1.Texts.Trim();
+            dataGridView1.DataSource = productoOb.ObtenerProductos(texto);
         }
         private void MostrarProductos()
         {
