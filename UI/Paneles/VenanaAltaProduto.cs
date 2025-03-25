@@ -76,7 +76,7 @@ namespace UI.Paneles
 
         private void VenanaAltaProduto_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void StockTextBox_KeyPress(object sender, KeyPressEventArgs e)

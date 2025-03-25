@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Notificaciones;
+using UI.Paneles;
 using UI.Paneles.Avisos;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -275,7 +276,7 @@ namespace UI.Forms
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                
+
                 Form formPrincipal = ObtenerFormularioPrincipal();
 
                 NotificacionVentana noti = new NotificacionVentana(formPrincipal);
@@ -309,7 +310,7 @@ namespace UI.Forms
 
                 int idArticulo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
                 ConfirmarBajaProducto bajaProducto = new ConfirmarBajaProducto();
-               
+
                 bajaProducto.Show();
                 bajaProducto.FormClosed += (s, args) =>
                 {
@@ -341,6 +342,58 @@ namespace UI.Forms
         {
             dataGridView1.ClearSelection();
 
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                
+                Form formPrincipal = ObtenerFormularioPrincipal();
+
+                NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                noti.TitleAlertBox = "Alerta.";
+                noti.SubituloAlertBox = "Debe seleccionar una fila.";
+                noti.ColorAlertBox = Color.Orange;
+                noti.BackColorAlertBox = Color.WhiteSmoke;
+                noti.IconeAlertBox = Properties.Resources.exclamacion;
+
+                noti.Show();
+            }
+            else
+            {
+                int index = dataGridView1.CurrentCell.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[index];
+
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nombre = row.Cells[1].Value.ToString();
+                int precio = int.Parse(row.Cells[2].Value.ToString());
+                int stock = int.Parse(row.Cells[3].Value.ToString());
+                string desc = row.Cells[4].Value.ToString();
+
+                Articulos.articuloactual = new Articulos()
+                {
+                    idArticulo = id,
+                    marca = nombre,
+                    precio_lista = precio,
+                    stock = stock,
+                    detalle = desc
+                };
+
+                int idArticulo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+                VentanaEditarProducto editarProducto = new VentanaEditarProducto();
+
+                editarProducto.Show();
+                editarProducto.FormClosed += (s, args) =>
+                {
+                    MostrarProductos(); // ✅ Esto es lo que queremos que pase
+
+
+                };
+
+
+
+            }
         }
     }
 }

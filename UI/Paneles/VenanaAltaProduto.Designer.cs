@@ -225,9 +225,9 @@
             labelID.ForeColor = Color.White;
             labelID.Location = new Point(103, 190);
             labelID.Name = "labelID";
-            labelID.Size = new Size(87, 23);
+            labelID.Size = new Size(35, 23);
             labelID.TabIndex = 26;
-            labelID.Text = "Agua Salus";
+            labelID.Text = "dsd";
             // 
             // labelNombre
             // 
@@ -237,8 +237,9 @@
             labelNombre.ForeColor = Color.White;
             labelNombre.Location = new Point(170, 225);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(0, 23);
+            labelNombre.Size = new Size(53, 23);
             labelNombre.TabIndex = 27;
+            labelNombre.Text = "dsada";
             // 
             // labelPrecio
             // 

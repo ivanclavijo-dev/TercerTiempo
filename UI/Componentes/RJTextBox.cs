@@ -178,6 +178,7 @@ namespace CustomControls.RJControls
                     textBox1.ForeColor = value;
             }
         }
+       
 
         [Category("RJ Code Advance")]
         public string PlaceholderText
