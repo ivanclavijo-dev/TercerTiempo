@@ -1,4 +1,5 @@
-﻿using Logica.Grids;
+﻿using CustomControls.RJControls;
+using Logica.Grids;
 using Logica.ObjetosTablas;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Paneles;
 
 namespace UI.Forms
 {
@@ -33,8 +35,19 @@ namespace UI.Forms
         private void Colaboradores_Load(object sender, EventArgs e)
         {
             MostrarEmplaedos();
+            
+
 
         }
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Paneles.VentanaAltaColaborador ventanaAlta = new Paneles.VentanaAltaColaborador();
+            ventanaAlta.Show();
+
+        }
+
+
+
     }
 }
 

@@ -87,6 +87,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 41;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
             // 
             // MenuColaborador
             // 
