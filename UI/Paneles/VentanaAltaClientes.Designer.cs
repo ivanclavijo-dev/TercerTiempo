@@ -65,7 +65,7 @@
             label1.ForeColor = Color.FromArgb(16, 83, 233);
             label1.Location = new Point(386, 79);
             label1.Name = "label1";
-            label1.Size = new Size(440, 62);
+            label1.Size = new Size(437, 55);
             label1.TabIndex = 1;
             label1.Text = "Registrar un Cliente";
             // 
@@ -369,6 +369,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaAltaClientes";
             Text = "VentanaAltaClientes";
+            Load += VentanaAltaClientes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

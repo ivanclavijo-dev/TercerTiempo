@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using Logica.BD;
 using Logica.BD.Altas;
 using Logica.MetodosAdicionales;
 using UI.Forms;
@@ -49,7 +50,8 @@ namespace UI.Paneles
                 nacimientoTextbox.Texts == "" || servicioTextbox.Texts == "" || sexoTextbox.Texts == "")
             {
                 MessageBox.Show("Debes completar todos los campos para enviar los datos.");
-            } else if (!validarFecha)
+            }
+            else if (!validarFecha)
             {
                 MessageBox.Show("El formato de la fecha es incorrecto.");
             }
@@ -74,10 +76,12 @@ namespace UI.Paneles
                     else if (resultadoIngresarCliente == 2)
                     {
                         MessageBox.Show("Error al ingresar al cliente");
-                    } else if (resultadoIngresarCliente == 3)
+                    }
+                    else if (resultadoIngresarCliente == 3)
                     {
                         MessageBox.Show("El cliente ya existe. No puedes registrarlo denuevo.");
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Error no identificado, comunicarse con soporte.");
                     }
@@ -85,13 +89,16 @@ namespace UI.Paneles
                 else if (resultadoIngresarPersona == 2)
                 {
                     MessageBox.Show("Error al ingresar la persona");
-                } else if (resultadoIngresarPersona == 3)
+                }
+                else if (resultadoIngresarPersona == 3)
                 {
                     MessageBox.Show("La persona ya esta ingresada en el sistema. Compruebe la cedula ingresada.");
-                } else if (resultadoIngresarPersona == 4)
+                }
+                else if (resultadoIngresarPersona == 4)
                 {
                     MessageBox.Show("El formato de la fecha ingresada esta mal.");
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Error no identificado, comunicarse con soporte.");
                 }
@@ -101,6 +108,13 @@ namespace UI.Paneles
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void VentanaAltaClientes_Load(object sender, EventArgs e)
+        {
+            consultasBD consultas = new consultasBD();
+            int idNuevo = consultas.ObtenerIdDelClienteNuevo();
+            IdTextbox.PlaceholderText = "ID del Cliente: "+idNuevo;
         }
     }
 }

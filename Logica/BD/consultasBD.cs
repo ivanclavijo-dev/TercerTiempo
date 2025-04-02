@@ -25,7 +25,18 @@ namespace Logica.BD
         private IngresosUltimoMes ingresosUltimoMes = new IngresosUltimoMes();
        private PromedioEdades promedioEdades = new PromedioEdades();
         private ObtenerCliente obtenerCliente = new ObtenerCliente();
+        private ObtenerIdDelClienteNuevo obtenerIdDelClienteNuevo = new ObtenerIdDelClienteNuevo();
+        private ObtenerIdArticuloNuevo ObtenerIdArticuloNuevo = new ObtenerIdArticuloNuevo();
 
+
+        public int ObtenerIdDelArticuloNuevo()
+        {
+            return ObtenerIdArticuloNuevo.IdNuevoArticulo();
+        }
+        public int ObtenerIdDelClienteNuevo()
+        {
+            return obtenerIdDelClienteNuevo.IdNuevoCliente();
+        }
         public Cliente ObtenerClienteVenta(int id)
         {
             return obtenerCliente.ObtenerClienteProducto(id);

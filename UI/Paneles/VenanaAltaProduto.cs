@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Logica.BD;
 using Logica.BD.Altas;
 using Persistencia.PersistenciaAltas;
 using System;
@@ -73,9 +74,17 @@ namespace UI.Paneles
 
             }
         }
+        consultasBD consultasBD = new consultasBD();
 
         private void VenanaAltaProduto_Load(object sender, EventArgs e)
         {
+            NombreTextBox._TextChanged += (s, ev) => labelNombre.Text = NombreTextBox.Texts;
+            PrecioListaTextBox._TextChanged += (s, ev) => labelPrecio.Text = PrecioListaTextBox.Texts;
+            StockTextBox._TextChanged += (s, ev) => labelStock.Text = StockTextBox.Texts;
+            DescTextBox._TextChanged += (s, ev) => labelDescripcion.Text = DescTextBox.Texts;
+
+            int id = consultasBD.ObtenerIdDelArticuloNuevo();
+            labelID.Text = Convert.ToString(id);
             
         }
 
