@@ -45,6 +45,7 @@ namespace Persistencia.Grids
                 @texto IS NULL OR @texto = ''
                 OR CONCAT(p.nombre, ' ', p.apellido) LIKE CONCAT(@texto, '%')
                 OR LPAD(c.idCliente, 3, '0') LIKE CONCAT(@texto, '%')
+                OR p.cedula LIKE CONCAT(@texto, '%')
             )
             ORDER BY c.idCliente;
         ";

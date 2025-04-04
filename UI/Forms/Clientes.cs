@@ -12,6 +12,7 @@ using Logica;
 using Logica.BD;
 using Logica.Grids;
 using Persistencia.Grids;
+using UI.Paneles;
 using UI.Paneles.Avisos;
 
 namespace UI.Forms
@@ -31,6 +32,9 @@ namespace UI.Forms
           );
         OB_ClienteGrid objetoC = new OB_ClienteGrid();
 
+        private Form ventanaAltaCliente;
+        private Form ventanaPagarCliente;
+
         public Clientes()
         {
             InitializeComponent();
@@ -44,6 +48,15 @@ namespace UI.Forms
             dataGridView1.DataSource = objetoC.MostrarClient();
         }
 
+        private void MostrarPanel(Form form)
+        {
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormClosed += (s, args) =>
+            {
+                MostrarClientes();
+            };
+            form.Show(); 
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -51,13 +64,13 @@ namespace UI.Forms
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+            ventanaAltaCliente = new VentanaAltaClientes();
         }
-        private OB_ClienteGrid clientOb = new OB_ClienteGrid();
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
         {
             string texto = rjTextBox1.Texts.Trim();
-            dataGridView1.DataSource = clientOb.ObtenerClientes(texto);
+            dataGridView1.DataSource = objetoC.ObtenerClientes(texto);
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -66,35 +79,33 @@ namespace UI.Forms
             {
                 string estado = e.Value.ToString();
 
-                    if (estado == "Vigente")
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(56, 224, 56);
-                    }
-                    else if (estado == "Por vencer")
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(240, 165, 45);
-                    }
-                    else if (estado == "Vencido")
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(244, 54, 20);
-                    }
-                    else if (estado == "Pendiente")
-                    {
-                        e.CellStyle.ForeColor = Color.Silver;
-                    }
+                if (estado == "Vigente")
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(56, 224, 56);
+                }
+                else if (estado == "Por vencer")
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(240, 165, 45);
+                }
+                else if (estado == "Vencido")
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(244, 54, 20);
+                }
+                else if (estado == "Pendiente")
+                {
+                    e.CellStyle.ForeColor = Color.Silver;
+                }
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Paneles.VentanaAltaClientes ventanaAlta = new Paneles.VentanaAltaClientes();
-            ventanaAlta.StartPosition = FormStartPosition.CenterScreen;
-            ventanaAlta.FormClosed += (s, args) =>
+            if (ventanaAltaCliente == null || ventanaAltaCliente.IsDisposed)
             {
-                MostrarClientes();
-            };
+                ventanaAltaCliente = new VentanaAltaClientes();
+            }
 
-            ventanaAlta.Show();
+            MostrarPanel(ventanaAltaCliente);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -110,13 +121,14 @@ namespace UI.Forms
                 if (id != null && nombre != null && estadoCuota != null)
                 {
                     ConfirmaBajaCliente confirmaBajaCliente = new ConfirmaBajaCliente(id, nombre, estadoCuota);
-                    confirmaBajaCliente.FormClosed += (s, args) => 
+                    confirmaBajaCliente.FormClosed += (s, args) =>
                     {
                         MostrarClientes();
                     }; ;
 
                     confirmaBajaCliente.Show();
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Ocurrio un error al intentar obtener el cliente.");
                 }
@@ -127,7 +139,35 @@ namespace UI.Forms
             }
         }
 
-       
-        
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtiene los datos de la fila seleccionada
+                string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
+                string nombre = dataGridView1.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                string estadoCuota = dataGridView1.SelectedRows[0].Cells["Estado de cuota"].Value.ToString();
+
+                if (id != null && nombre != null && estadoCuota != null)
+                {
+                    Detalle_planes ventana_planes = new Detalle_planes(id, nombre, estadoCuota);
+                    ventana_planes.StartPosition = FormStartPosition.CenterScreen;
+                    ventana_planes.FormClosed += (s, args) =>
+                    {
+                        MostrarClientes();
+                    }; ;
+
+                    ventana_planes.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error al intentar obtener el cliente.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

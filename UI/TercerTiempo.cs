@@ -26,12 +26,17 @@ namespace UI
           int nHeightEllipse // width of ellipse
       );
 
+        private Form homeForm;
+        private Form clientesForm;
+        private Form productosForm;
+        private Form colaboradoresForm;
+
+
         public TercerTiempo()
         {
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
-
 
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -55,23 +60,9 @@ namespace UI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void AbrirFormInPanel(object Formhijo)
-        {
-            if (this.contenedorVistas.Controls.Count > 0)
-                this.contenedorVistas.Controls.RemoveAt(0);
-            Form fh = Formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            fh.FormBorderStyle = FormBorderStyle.None; // Elimina bordes
-            this.contenedorVistas.Controls.Add(fh);
-            this.contenedorVistas.Tag = fh;
-            fh.Show();
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new Forms.Home());
+            AbrirFormInPanel(homeForm);
         }
 
 
@@ -79,32 +70,49 @@ namespace UI
         {
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
-            AbrirFormInPanel(new Forms.Home());
+            homeForm = new Forms.Home();
+            clientesForm = new Forms.Clientes();
+            productosForm = new Forms.Productos();
+            colaboradoresForm = new Forms.Colaboradores();
+
+            AbrirFormInPanel(homeForm);
             label3.Text = SesionUsuario.EmpleadoActual.DatosPersonales.Nombre + " " + SesionUsuario.EmpleadoActual.DatosPersonales.Apellido;
 
         }
 
+        private void AbrirFormInPanel(Form formHijo)
+        {
+            if (this.contenedorVistas.Controls.Count > 0)
+                this.contenedorVistas.Controls.RemoveAt(0);
+
+            formHijo.TopLevel = false;
+            formHijo.Dock = DockStyle.Fill;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            this.contenedorVistas.Controls.Add(formHijo);
+            this.contenedorVistas.Tag = formHijo;
+            formHijo.Show();
+        }
 
         private void label1_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Home());
+            AbrirFormInPanel(homeForm);
 
         }
 
         private void clientesLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Clientes());
+            AbrirFormInPanel(clientesForm);
 
         }
 
         private void productosLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Productos());
+            AbrirFormInPanel(productosForm);
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
@@ -171,19 +179,33 @@ namespace UI
 
         private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Clientes());
+            AbrirFormInPanel(clientesForm);
 
         }
 
         private void pictureBox4_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Productos());
+            AbrirFormInPanel(productosForm);
 
         }
 
         private void empleadosLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            AbrirFormInPanel(new Forms.Colaboradores());
+            AbrirFormInPanel(colaboradoresForm);
+        }
+
+        private void panel5_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(productosForm);
+
         }
     }
 }

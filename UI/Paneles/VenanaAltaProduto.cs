@@ -40,10 +40,9 @@ namespace UI.Paneles
 
         private Form ObtenerFormularioPrincipal()
         {
-            // Buscar en los formularios abiertos un formulario de tipo TercerTiempo (tu form principal)
             foreach (Form form in Application.OpenForms)
             {
-                if (form is TercerTiempo) // Cambiá esto si tu form principal tiene otro nombre
+                if (form is TercerTiempo) 
                 {
                     return form;
                 }
@@ -162,10 +161,9 @@ namespace UI.Paneles
 
                     noti.Show();
 
-                    // 🔥 Cierra el formulario inmediatamente
-                    this.Hide();      // ocultalo primero para una transición más suave
-                    this.Close();     // luego cerralo
-                    return;           // salí del handler para que no siga ejecutando nada más
+                    this.Hide();      
+                    this.Close();    
+                    return;         
                 }
                 else
                 {

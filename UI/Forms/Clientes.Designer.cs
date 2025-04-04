@@ -117,7 +117,7 @@
             MenuClientes.ForeColor = Color.FromArgb(16, 83, 233);
             MenuClientes.Location = new Point(17, 25);
             MenuClientes.Name = "MenuClientes";
-            MenuClientes.Size = new Size(459, 66);
+            MenuClientes.Size = new Size(462, 75);
             MenuClientes.TabIndex = 1;
             MenuClientes.Text = "Menú de Clientes";
             // 
@@ -172,6 +172,7 @@
             rjButton2.Text = "Pagar";
             rjButton2.TextColor = Color.White;
             rjButton2.UseVisualStyleBackColor = false;
+            rjButton2.Click += rjButton2_Click;
             // 
             // pictureBox1
             // 

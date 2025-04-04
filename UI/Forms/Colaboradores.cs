@@ -35,8 +35,6 @@ namespace UI.Forms
         private void Colaboradores_Load(object sender, EventArgs e)
         {
             MostrarEmplaedos();
-            
-
 
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)

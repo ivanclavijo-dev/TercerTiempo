@@ -301,6 +301,7 @@ namespace UI
             // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = Properties.Resources.list;
             pictureBox4.Location = new Point(36, 14);
             pictureBox4.Name = "pictureBox4";
@@ -308,6 +309,7 @@ namespace UI
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 1;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click_1;
             pictureBox4.MouseClick += pictureBox4_MouseClick;
             // 
             // panel6
@@ -353,6 +355,8 @@ namespace UI
             panel5.Name = "panel5";
             panel5.Size = new Size(185, 53);
             panel5.TabIndex = 2;
+            panel5.MouseEnter += panel5_MouseEnter;
+            panel5.MouseHover += panel5_MouseHover;
             // 
             // label1
             // 
@@ -446,7 +450,7 @@ namespace UI
             label2.ForeColor = Color.White;
             label2.Location = new Point(760, 37);
             label2.Name = "label2";
-            label2.Size = new Size(14, 15);
+            label2.Size = new Size(15, 17);
             label2.TabIndex = 10;
             label2.Text = "3";
             label2.Click += label2_Click;
@@ -488,6 +492,7 @@ namespace UI
             // pictureBox11
             // 
             pictureBox11.BackColor = Color.FromArgb(246, 246, 246);
+            pictureBox11.Cursor = Cursors.Hand;
             pictureBox11.Image = Properties.Resources.Close_Icons_UIA;
             pictureBox11.Location = new Point(1090, 28);
             pictureBox11.Name = "pictureBox11";
