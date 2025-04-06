@@ -22,18 +22,24 @@ namespace Persistencia.Grids
 
             cmd.Connection = conexion.AbrirConexion();
             cmd.CommandText = @"
-                            WITH ranked_adquiere AS (
-                                SELECT *,
-                                       ROW_NUMBER() OVER (PARTITION BY idCliente_adquiere ORDER BY fecha_inicio DESC) AS rn
-                                FROM adquiere
+                            WITH ultima_membresia AS (
+                                SELECT a.*
+                                FROM (
+                                    SELECT *,
+                                           ROW_NUMBER() OVER (PARTITION BY idCliente_adquiere ORDER BY fecha_inicio DESC) AS rn
+                                    FROM adquiere
+                                ) a
+                                WHERE a.rn = 1
                             )
+
                             SELECT 
                                 LPAD(c.idCliente, 3, '0') AS ID,
                                 CONCAT(p.nombre, ' ', p.apellido) AS Nombre,
-                                ad.fecha_inicio AS 'Ultimo pago',
+                                um.fecha_inicio AS 'Ultimo pago',
                                 CASE 
-                                    WHEN ad.vencimiento >= CURDATE() + INTERVAL 7 DAY THEN 'Vigente'
-                                    WHEN ad.vencimiento >= CURDATE() THEN 'Por vencer'
+                                    WHEN um.vencimiento IS NULL THEN 'Sin membresía'
+                                    WHEN um.vencimiento >= CURDATE() + INTERVAL 7 DAY THEN 'Vigente'
+                                    WHEN um.vencimiento >= CURDATE() THEN 'Por vencer'
                                     ELSE 'Vencido'
                                 END AS 'Estado de cuota',
                                 CASE 
@@ -42,10 +48,16 @@ namespace Persistencia.Grids
                                 END AS Notificaciones
                             FROM cliente c
                             JOIN persona p ON c.cedula_cliente = p.cedula
-                            LEFT JOIN ranked_adquiere ad 
-                                ON c.idCliente = ad.idCliente_adquiere AND ad.rn = 1
-                            WHERE estado_cliente = '1'
-                            ORDER BY c.idCliente;";
+                            LEFT JOIN ultima_membresia um ON c.idCliente = um.idCliente_adquiere
+                            WHERE c.estado_cliente = '1'
+                            ORDER BY 
+                                CASE 
+                                    WHEN um.vencimiento IS NULL THEN 4
+                                    WHEN um.vencimiento >= CURDATE() + INTERVAL 7 DAY THEN 1
+                                    WHEN um.vencimiento >= CURDATE() THEN 2
+                                    ELSE 3
+                                END,
+                                c.idCliente;";
 
 
             leer = cmd.ExecuteReader();

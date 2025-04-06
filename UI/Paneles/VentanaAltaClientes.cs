@@ -21,6 +21,7 @@ namespace UI.Paneles
         public VentanaAltaClientes()
         {
             InitializeComponent();
+            
         }
 
         public void limpiar()
@@ -114,7 +115,52 @@ namespace UI.Paneles
         {
             consultasBD consultas = new consultasBD();
             int idNuevo = consultas.ObtenerIdDelClienteNuevo();
-            IdTextbox.PlaceholderText = "ID del Cliente: "+idNuevo;
+            IdTextbox.PlaceholderText = "ID del Cliente: " + idNuevo;
+            IdTextbox.ForeColor = Color.FromArgb(130, 130, 130);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cedulaTextbox__TextChanged(object sender, EventArgs e)
+        {
+            string cedula = cedulaTextbox.Texts;
+            cedulalbl.Text = $"Cedula: {cedula}";
+        }
+
+        private void nombreTextbox__TextChanged(object sender, EventArgs e)
+        {
+            ActualizarLabelNombreCompleto();
+        }
+        private void apellidoTextbox__TextChanged(object sender, EventArgs e)
+        {
+            ActualizarLabelNombreCompleto();
+        }
+
+        private void ActualizarLabelNombreCompleto()
+        {
+            string nombre = Capitalizar(nombreTextbox.Texts);
+            string apellido = Capitalizar(apellidoTextbox.Texts);
+            string textoCompleto = $"Nombre: {nombre} {apellido}";
+
+            // Limitar a máximo 22 caracteres
+            if (textoCompleto.Length > 21)
+            {
+                textoCompleto = textoCompleto.Substring(0, 18) + "...";
+            }
+
+            nombrelbl.Text = textoCompleto;
+        }
+
+        public string Capitalizar(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return "";
+
+            texto = texto.Trim().ToLower();
+            return char.ToUpper(texto[0]) + texto.Substring(1);
         }
     }
 }

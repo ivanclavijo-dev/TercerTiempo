@@ -64,13 +64,15 @@ namespace UI.Paneles
             string soloNombre = nombre.Split(' ')[0];
             label1.Text = $"Últimos pagos de {soloNombre}";
 
+            dataGridView1.DataSource = null; // Por las dudas, limpiamos antes de volver a cargar
+            dataGridView1.DataSource = pagosGrid.MostrarPagos(id);
+
         }
 
         PagosGrid pagosGrid = new PagosGrid();
 
         private void Detalle_planes_Load(object sender, EventArgs e)
         {
-            pagosGrid.MostrarPagos(idCliente.Text);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

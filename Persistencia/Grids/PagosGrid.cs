@@ -20,7 +20,7 @@ namespace Persistencia.Grids
         {
             DataTable tabla = new DataTable();
             cmd.Connection = conexion.AbrirConexion();
-            cmd.CommandText = @"SELECT idAdquiere AS ID, idCliente_adquiere AS Cliente, vencimiento, p.nombre, metodo_pago FROM adquiere
+            cmd.CommandText = @"SELECT idAdquiere AS Factura, vencimiento AS Vencimiento, p.nombre AS Plan, metodo_pago AS Metodo FROM adquiere
                                 INNER JOIN plan p ON adquiere.idPlan = p.idPlan
                                 WHERE idCliente_adquiere = "+id+";";
             leer = cmd.ExecuteReader();

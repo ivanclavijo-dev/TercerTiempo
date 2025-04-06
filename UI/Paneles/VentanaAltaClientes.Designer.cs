@@ -44,6 +44,11 @@
             rjButton1 = new CustomControls.RJControls.RJButton();
             rjButton2 = new CustomControls.RJControls.RJButton();
             pictureBox2 = new PictureBox();
+            cedulalbl = new Label();
+            nombrelbl = new Label();
+            telefonolbl = new Label();
+            nacimientolbl = new Label();
+            serviciolbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -65,7 +70,7 @@
             label1.ForeColor = Color.FromArgb(16, 83, 233);
             label1.Location = new Point(386, 79);
             label1.Name = "label1";
-            label1.Size = new Size(437, 55);
+            label1.Size = new Size(440, 62);
             label1.TabIndex = 1;
             label1.Text = "Registrar un Cliente";
             // 
@@ -115,6 +120,7 @@
             nombreTextbox.TabIndex = 12;
             nombreTextbox.Texts = "";
             nombreTextbox.UnderlinedStyle = false;
+            nombreTextbox._TextChanged += nombreTextbox__TextChanged;
             // 
             // apellidoTextbox
             // 
@@ -138,6 +144,7 @@
             apellidoTextbox.TabIndex = 14;
             apellidoTextbox.Texts = "";
             apellidoTextbox.UnderlinedStyle = false;
+            apellidoTextbox._TextChanged += apellidoTextbox__TextChanged;
             // 
             // telefonoTextbox
             // 
@@ -208,6 +215,7 @@
             cedulaTextbox.TabIndex = 15;
             cedulaTextbox.Texts = "";
             cedulaTextbox.UnderlinedStyle = false;
+            cedulaTextbox._TextChanged += cedulaTextbox__TextChanged;
             // 
             // sexoTextbox
             // 
@@ -345,12 +353,77 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // cedulalbl
+            // 
+            cedulalbl.AutoSize = true;
+            cedulalbl.BackColor = Color.FromArgb(16, 83, 233);
+            cedulalbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cedulalbl.ForeColor = Color.White;
+            cedulalbl.Location = new Point(61, 210);
+            cedulalbl.Name = "cedulalbl";
+            cedulalbl.Size = new Size(92, 30);
+            cedulalbl.TabIndex = 24;
+            cedulalbl.Text = "Cedula:";
+            // 
+            // nombrelbl
+            // 
+            nombrelbl.AutoSize = true;
+            nombrelbl.BackColor = Color.FromArgb(16, 83, 233);
+            nombrelbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nombrelbl.ForeColor = Color.White;
+            nombrelbl.Location = new Point(61, 258);
+            nombrelbl.Name = "nombrelbl";
+            nombrelbl.Size = new Size(104, 30);
+            nombrelbl.TabIndex = 25;
+            nombrelbl.Text = "Nombre:";
+            // 
+            // telefonolbl
+            // 
+            telefonolbl.AutoSize = true;
+            telefonolbl.BackColor = Color.FromArgb(16, 83, 233);
+            telefonolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            telefonolbl.ForeColor = Color.White;
+            telefonolbl.Location = new Point(61, 306);
+            telefonolbl.Name = "telefonolbl";
+            telefonolbl.Size = new Size(109, 30);
+            telefonolbl.TabIndex = 26;
+            telefonolbl.Text = "Telefono:";
+            // 
+            // nacimientolbl
+            // 
+            nacimientolbl.AutoSize = true;
+            nacimientolbl.BackColor = Color.FromArgb(16, 83, 233);
+            nacimientolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nacimientolbl.ForeColor = Color.White;
+            nacimientolbl.Location = new Point(61, 354);
+            nacimientolbl.Name = "nacimientolbl";
+            nacimientolbl.Size = new Size(140, 30);
+            nacimientolbl.TabIndex = 27;
+            nacimientolbl.Text = "Nacimiento:";
+            // 
+            // serviciolbl
+            // 
+            serviciolbl.AutoSize = true;
+            serviciolbl.BackColor = Color.FromArgb(16, 83, 233);
+            serviciolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            serviciolbl.ForeColor = Color.White;
+            serviciolbl.Location = new Point(61, 402);
+            serviciolbl.Name = "serviciolbl";
+            serviciolbl.Size = new Size(102, 30);
+            serviciolbl.TabIndex = 28;
+            serviciolbl.Text = "Servicio:";
+            // 
             // VentanaAltaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(899, 546);
+            Controls.Add(serviciolbl);
+            Controls.Add(nacimientolbl);
+            Controls.Add(telefonolbl);
+            Controls.Add(nombrelbl);
+            Controls.Add(cedulalbl);
             Controls.Add(pictureBox2);
             Controls.Add(rjButton2);
             Controls.Add(rjButton1);
@@ -393,5 +466,10 @@
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton rjButton2;
         private PictureBox pictureBox2;
+        private Label cedulalbl;
+        private Label nombrelbl;
+        private Label telefonolbl;
+        private Label nacimientolbl;
+        private Label serviciolbl;
     }
 }
