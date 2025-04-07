@@ -50,12 +50,36 @@ namespace UI.Forms
 
         private void MostrarPanel(Form form)
         {
+            // Crear el fondo negro transparente
+            Form fondo = new Form
+            {
+                FormBorderStyle = FormBorderStyle.None,
+                BackColor = Color.Black,
+                Opacity = 0.5,
+                ShowInTaskbar = false,
+                StartPosition = FormStartPosition.CenterScreen,
+                Size = new Size(1200, 700), // Tamaño fijo
+                Location = this.FindForm().Location,
+                TopMost = false
+            };
+
+            fondo.Show();
+
+            // Configurar el formulario a mostrar
             form.StartPosition = FormStartPosition.CenterScreen;
             form.FormClosed += (s, args) =>
             {
+                fondo.Close();
+                fondo.Dispose();
+
+                Form formPadre = this.FindForm();
+                formPadre.BringToFront();  // <-- esto trae la principal al frente
+                formPadre.Activate();      // <-- esto la pone en foco nuevamente
+
                 MostrarClientes();
             };
-            form.Show(); 
+
+            form.ShowDialog(); // Mostrar el formulario modal encima del fondo
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -121,12 +145,7 @@ namespace UI.Forms
                 if (id != null && nombre != null && estadoCuota != null)
                 {
                     ConfirmaBajaCliente confirmaBajaCliente = new ConfirmaBajaCliente(id, nombre, estadoCuota);
-                    confirmaBajaCliente.FormClosed += (s, args) =>
-                    {
-                        MostrarClientes();
-                    }; ;
-
-                    confirmaBajaCliente.Show();
+                    MostrarPanel(confirmaBajaCliente);
                 }
                 else
                 {
@@ -138,12 +157,10 @@ namespace UI.Forms
                 MessageBox.Show("Por favor, seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void rjButton2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtiene los datos de la fila seleccionada
                 string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
                 string nombre = dataGridView1.SelectedRows[0].Cells["Nombre"].Value.ToString();
                 string estadoCuota = dataGridView1.SelectedRows[0].Cells["Estado de cuota"].Value.ToString();
@@ -151,17 +168,11 @@ namespace UI.Forms
                 if (id != null && nombre != null && estadoCuota != null)
                 {
                     Detalle_planes ventana_planes = new Detalle_planes(id, nombre, estadoCuota);
-                    ventana_planes.StartPosition = FormStartPosition.CenterScreen;
-                    ventana_planes.FormClosed += (s, args) =>
-                    {
-                        MostrarClientes();
-                    }; ;
-
-                    ventana_planes.Show();
+                    MostrarPanel(ventana_planes);
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error al intentar obtener el cliente.");
+                    MessageBox.Show("Ocurrió un error al intentar obtener el cliente.");
                 }
             }
             else

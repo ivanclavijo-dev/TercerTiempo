@@ -37,7 +37,6 @@
             telefonoTextbox = new CustomControls.RJControls.RJTextBox();
             nacimientoTextbox = new CustomControls.RJControls.RJTextBox();
             cedulaTextbox = new CustomControls.RJControls.RJTextBox();
-            sexoTextbox = new CustomControls.RJControls.RJTextBox();
             servicioTextbox = new CustomControls.RJControls.RJTextBox();
             observacionTextbox = new CustomControls.RJControls.RJTextBox();
             NotificacionesChkbox = new CheckBox();
@@ -49,8 +48,11 @@
             telefonolbl = new Label();
             nacimientolbl = new Label();
             serviciolbl = new Label();
+            pictureBox4 = new PictureBox();
+            sexoTextbox = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -86,6 +88,7 @@
             IdTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             IdTextbox.Location = new Point(386, 145);
             IdTextbox.Margin = new Padding(4);
+            IdTextbox.MaxLength = 32767;
             IdTextbox.MinimumSize = new Size(50, 30);
             IdTextbox.Multiline = false;
             IdTextbox.Name = "IdTextbox";
@@ -109,6 +112,7 @@
             nombreTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nombreTextbox.Location = new Point(386, 196);
             nombreTextbox.Margin = new Padding(4);
+            nombreTextbox.MaxLength = 32767;
             nombreTextbox.MinimumSize = new Size(50, 30);
             nombreTextbox.Multiline = false;
             nombreTextbox.Name = "nombreTextbox";
@@ -133,6 +137,7 @@
             apellidoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             apellidoTextbox.Location = new Point(609, 197);
             apellidoTextbox.Margin = new Padding(4);
+            apellidoTextbox.MaxLength = 32767;
             apellidoTextbox.MinimumSize = new Size(50, 30);
             apellidoTextbox.Multiline = false;
             apellidoTextbox.Name = "apellidoTextbox";
@@ -157,6 +162,7 @@
             telefonoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             telefonoTextbox.Location = new Point(386, 247);
             telefonoTextbox.Margin = new Padding(4);
+            telefonoTextbox.MaxLength = 32767;
             telefonoTextbox.MinimumSize = new Size(50, 30);
             telefonoTextbox.Multiline = false;
             telefonoTextbox.Name = "telefonoTextbox";
@@ -168,10 +174,11 @@
             telefonoTextbox.TabIndex = 13;
             telefonoTextbox.Texts = "";
             telefonoTextbox.UnderlinedStyle = false;
+            telefonoTextbox._TextChanged += telefonoTextbox__TextChanged;
             // 
             // nacimientoTextbox
             // 
-            nacimientoTextbox.AccessibleDescription = "nacimientoTextbox";
+            nacimientoTextbox.AccessibleDescription = "";
             nacimientoTextbox.BackColor = Color.FromArgb(232, 232, 232);
             nacimientoTextbox.BorderColor = Color.Transparent;
             nacimientoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
@@ -181,6 +188,7 @@
             nacimientoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nacimientoTextbox.Location = new Point(609, 249);
             nacimientoTextbox.Margin = new Padding(4);
+            nacimientoTextbox.MaxLength = 32767;
             nacimientoTextbox.MinimumSize = new Size(50, 30);
             nacimientoTextbox.Multiline = false;
             nacimientoTextbox.Name = "nacimientoTextbox";
@@ -192,6 +200,7 @@
             nacimientoTextbox.TabIndex = 16;
             nacimientoTextbox.Texts = "";
             nacimientoTextbox.UnderlinedStyle = false;
+            nacimientoTextbox._TextChanged += nacimientoTextbox__TextChanged;
             // 
             // cedulaTextbox
             // 
@@ -204,6 +213,7 @@
             cedulaTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             cedulaTextbox.Location = new Point(609, 145);
             cedulaTextbox.Margin = new Padding(4);
+            cedulaTextbox.MaxLength = 32767;
             cedulaTextbox.MinimumSize = new Size(50, 30);
             cedulaTextbox.Multiline = false;
             cedulaTextbox.Name = "cedulaTextbox";
@@ -217,30 +227,6 @@
             cedulaTextbox.UnderlinedStyle = false;
             cedulaTextbox._TextChanged += cedulaTextbox__TextChanged;
             // 
-            // sexoTextbox
-            // 
-            sexoTextbox.AccessibleDescription = "sexoTextbox";
-            sexoTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            sexoTextbox.BorderColor = Color.Transparent;
-            sexoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            sexoTextbox.BorderRadius = 20;
-            sexoTextbox.BorderSize = 2;
-            sexoTextbox.Font = new Font("Quicksand", 13.75F);
-            sexoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
-            sexoTextbox.Location = new Point(609, 301);
-            sexoTextbox.Margin = new Padding(4);
-            sexoTextbox.MinimumSize = new Size(50, 30);
-            sexoTextbox.Multiline = false;
-            sexoTextbox.Name = "sexoTextbox";
-            sexoTextbox.Padding = new Padding(20, 7, 10, 7);
-            sexoTextbox.PasswordChar = false;
-            sexoTextbox.PlaceholderColor = Color.DarkGray;
-            sexoTextbox.PlaceholderText = "Sexo";
-            sexoTextbox.Size = new Size(217, 43);
-            sexoTextbox.TabIndex = 18;
-            sexoTextbox.Texts = "";
-            sexoTextbox.UnderlinedStyle = false;
-            // 
             // servicioTextbox
             // 
             servicioTextbox.AccessibleDescription = "servicioTextbox";
@@ -253,6 +239,7 @@
             servicioTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             servicioTextbox.Location = new Point(386, 301);
             servicioTextbox.Margin = new Padding(4);
+            servicioTextbox.MaxLength = 32767;
             servicioTextbox.MinimumSize = new Size(50, 30);
             servicioTextbox.Multiline = false;
             servicioTextbox.Name = "servicioTextbox";
@@ -264,6 +251,7 @@
             servicioTextbox.TabIndex = 17;
             servicioTextbox.Texts = "";
             servicioTextbox.UnderlinedStyle = false;
+            servicioTextbox._TextChanged += servicioTextbox__TextChanged;
             // 
             // observacionTextbox
             // 
@@ -277,6 +265,7 @@
             observacionTextbox.ForeColor = Color.FromArgb(64, 64, 64);
             observacionTextbox.Location = new Point(386, 352);
             observacionTextbox.Margin = new Padding(4);
+            observacionTextbox.MaxLength = 32767;
             observacionTextbox.Multiline = true;
             observacionTextbox.Name = "observacionTextbox";
             observacionTextbox.Padding = new Padding(15, 10, 10, 7);
@@ -357,9 +346,9 @@
             // 
             cedulalbl.AutoSize = true;
             cedulalbl.BackColor = Color.FromArgb(16, 83, 233);
-            cedulalbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cedulalbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             cedulalbl.ForeColor = Color.White;
-            cedulalbl.Location = new Point(61, 210);
+            cedulalbl.Location = new Point(61, 249);
             cedulalbl.Name = "cedulalbl";
             cedulalbl.Size = new Size(92, 30);
             cedulalbl.TabIndex = 24;
@@ -369,9 +358,9 @@
             // 
             nombrelbl.AutoSize = true;
             nombrelbl.BackColor = Color.FromArgb(16, 83, 233);
-            nombrelbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nombrelbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             nombrelbl.ForeColor = Color.White;
-            nombrelbl.Location = new Point(61, 258);
+            nombrelbl.Location = new Point(61, 287);
             nombrelbl.Name = "nombrelbl";
             nombrelbl.Size = new Size(104, 30);
             nombrelbl.TabIndex = 25;
@@ -381,21 +370,21 @@
             // 
             telefonolbl.AutoSize = true;
             telefonolbl.BackColor = Color.FromArgb(16, 83, 233);
-            telefonolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            telefonolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             telefonolbl.ForeColor = Color.White;
-            telefonolbl.Location = new Point(61, 306);
+            telefonolbl.Location = new Point(61, 325);
             telefonolbl.Name = "telefonolbl";
             telefonolbl.Size = new Size(109, 30);
             telefonolbl.TabIndex = 26;
-            telefonolbl.Text = "Telefono:";
+            telefonolbl.Text = "Teléfono:";
             // 
             // nacimientolbl
             // 
             nacimientolbl.AutoSize = true;
             nacimientolbl.BackColor = Color.FromArgb(16, 83, 233);
-            nacimientolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nacimientolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             nacimientolbl.ForeColor = Color.White;
-            nacimientolbl.Location = new Point(61, 354);
+            nacimientolbl.Location = new Point(61, 363);
             nacimientolbl.Name = "nacimientolbl";
             nacimientolbl.Size = new Size(140, 30);
             nacimientolbl.TabIndex = 27;
@@ -405,20 +394,60 @@
             // 
             serviciolbl.AutoSize = true;
             serviciolbl.BackColor = Color.FromArgb(16, 83, 233);
-            serviciolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            serviciolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             serviciolbl.ForeColor = Color.White;
-            serviciolbl.Location = new Point(61, 402);
+            serviciolbl.Location = new Point(61, 401);
             serviciolbl.Name = "serviciolbl";
             serviciolbl.Size = new Size(102, 30);
             serviciolbl.TabIndex = 28;
             serviciolbl.Text = "Servicio:";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.info_circle;
+            pictureBox4.Location = new Point(829, 257);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(27, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox4.TabIndex = 36;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            pictureBox4.MouseEnter += pictureBox4_MouseEnter;
+            pictureBox4.MouseLeave += pictureBox4_MouseLeave;
+            // 
+            // sexoTextbox
+            // 
+            sexoTextbox.AccessibleDescription = "servicioTextbox";
+            sexoTextbox.BackColor = Color.FromArgb(232, 232, 232);
+            sexoTextbox.BorderColor = Color.Transparent;
+            sexoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
+            sexoTextbox.BorderRadius = 20;
+            sexoTextbox.BorderSize = 2;
+            sexoTextbox.Font = new Font("Quicksand", 13.75F);
+            sexoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
+            sexoTextbox.Location = new Point(609, 301);
+            sexoTextbox.Margin = new Padding(4);
+            sexoTextbox.MaxLength = 32767;
+            sexoTextbox.MinimumSize = new Size(50, 30);
+            sexoTextbox.Multiline = false;
+            sexoTextbox.Name = "sexoTextbox";
+            sexoTextbox.Padding = new Padding(20, 7, 10, 7);
+            sexoTextbox.PasswordChar = false;
+            sexoTextbox.PlaceholderColor = Color.DarkGray;
+            sexoTextbox.PlaceholderText = "Genero";
+            sexoTextbox.Size = new Size(217, 43);
+            sexoTextbox.TabIndex = 37;
+            sexoTextbox.Texts = "";
+            sexoTextbox.UnderlinedStyle = false;
+            // 
             // VentanaAltaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(899, 546);
+            Controls.Add(sexoTextbox);
+            Controls.Add(pictureBox4);
             Controls.Add(serviciolbl);
             Controls.Add(nacimientolbl);
             Controls.Add(telefonolbl);
@@ -429,7 +458,6 @@
             Controls.Add(rjButton1);
             Controls.Add(NotificacionesChkbox);
             Controls.Add(observacionTextbox);
-            Controls.Add(sexoTextbox);
             Controls.Add(servicioTextbox);
             Controls.Add(nacimientoTextbox);
             Controls.Add(cedulaTextbox);
@@ -445,6 +473,7 @@
             Load += VentanaAltaClientes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -459,7 +488,6 @@
         private CustomControls.RJControls.RJTextBox telefonoTextbox;
         private CustomControls.RJControls.RJTextBox nacimientoTextbox;
         private CustomControls.RJControls.RJTextBox cedulaTextbox;
-        private CustomControls.RJControls.RJTextBox sexoTextbox;
         private CustomControls.RJControls.RJTextBox servicioTextbox;
         private CustomControls.RJControls.RJTextBox observacionTextbox;
         private CheckBox NotificacionesChkbox;
@@ -471,5 +499,7 @@
         private Label telefonolbl;
         private Label nacimientolbl;
         private Label serviciolbl;
+        private PictureBox pictureBox4;
+        private CustomControls.RJControls.RJTextBox sexoTextbox;
     }
 }

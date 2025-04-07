@@ -1,4 +1,6 @@
-﻿namespace CustomControls.RJControls
+﻿using System.ComponentModel;
+
+namespace CustomControls.RJControls
 {
     partial class RJTextBox
     {
@@ -65,5 +67,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
+
+
+        [Category("RJ Code Advance")]
+        [Description("Establece el número máximo de caracteres que se pueden ingresar.")]
+        public int MaxLength
+        {
+            get => textBox1.MaxLength;
+            set => textBox1.MaxLength = value;
+        }
     }
 }

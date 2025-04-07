@@ -71,14 +71,33 @@ namespace UI.Paneles.Avisos
             Bajas bajas = new Bajas();
             bool resultadoBaja = bajas.eliminarCliente(Convert.ToInt32(idCliente.Text));
 
-            if (resultadoBaja) 
+            if (resultadoBaja)
             {
                 MessageBox.Show("Se elimino el cliente correctamente");
                 this.Close();
 
-            } else
+            }
+            else
             {
                 MessageBox.Show("Error al eliminar el cliente.");
+            }
+        }
+
+        private void label6_MouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+            {
+                lbl.Font = new Font(lbl.Font, FontStyle.Underline);
+            }
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+            {
+                lbl.Font = new Font(lbl.Font, FontStyle.Regular);
             }
         }
     }
