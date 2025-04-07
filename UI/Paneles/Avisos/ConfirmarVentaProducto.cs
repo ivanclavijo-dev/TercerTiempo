@@ -73,34 +73,41 @@ namespace UI.Paneles.Avisos
             AltaPago altaPago = new AltaPago();
             int idCliente = SesionCliente.clienteActual.idCliente;
 
+            bool huboError = true;
+
             foreach (var producto in Carrito.Productos)
             {
-                for (int i = 0; i < producto.stock; i++)
+                bool insertado = altaPago.IngresarPago(idCliente, producto.idArticulo, producto.stock);
+
+
+                if (!insertado)
                 {
-                    if (altaPago.IngresarPago(idCliente, producto.idArticulo))
-                    {
-                        Form formPrincipal = ObtenerFormularioPrincipal();
-
-                        NotificacionVentana noti = new NotificacionVentana(formPrincipal);
-                        noti.TitleAlertBox = "Venta confirmada";
-                        noti.SubituloAlertBox = "La venta fue exitosa";
-                        noti.ColorAlertBox = Color.Green;
-                        noti.BackColorAlertBox = Color.WhiteSmoke;
-                        noti.IconeAlertBox = Properties.Resources.marca_de_verificacion;
-
-                        noti.Show();
-
-                        // 🔥 Cierra el formulario inmediatamente
-                        this.Hide();      // ocultalo primero para una transición más suave
-                        this.Close();     // luego cerralo
-                        return;           // salí del handler para que no siga ejecutando nada más
-                    }
-                    else
-                    {
-                        // Podés manejar el error acá si querés
-                    }
+                    huboError = true;
+                    Console.WriteLine($"Error al registrar el producto con ID {producto.idArticulo}");
                 }
             }
+
+            // Si todo salió bien, recién ahí mostramos notificación y cerramos
+            if (!huboError)
+            {
+                Form formPrincipal = ObtenerFormularioPrincipal();
+
+                NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                noti.TitleAlertBox = "Venta confirmada";
+                noti.SubituloAlertBox = "La venta fue exitosa";
+                noti.ColorAlertBox = Color.Green;
+                noti.BackColorAlertBox = Color.WhiteSmoke;
+                noti.IconeAlertBox = Properties.Resources.marca_de_verificacion;
+                noti.Show();
+
+                this.Hide();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Algunos productos no pudieron registrarse.");
+            }
+
 
         }
 

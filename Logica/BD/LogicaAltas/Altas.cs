@@ -28,9 +28,9 @@ namespace Logica.BD.Altas
         }
 
 
-        public bool ingresarPago(int idCliente, int idArticulo)
+        public bool ingresarPago(int idCliente, int idArticulo, int cantidad)
         {
-            return altaPago.IngresarPago(idCliente, idArticulo);
+            return altaPago.IngresarPago(idCliente, idArticulo, cantidad);
         }
 
         public bool ingresarProducto(string detalle, int precioLista, int precioOferta, string marca, int stock)
