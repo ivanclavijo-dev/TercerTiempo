@@ -117,42 +117,20 @@ namespace UI
         private consultasBD consultas_BD = new consultasBD();
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
-        { 
-
-
-            if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
-            {
-                SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
-
-                if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "User")
-                {
-                    TercerTiempo tercerTiempo = new TercerTiempo();
-                    tercerTiempo.VistaColaborador(Visible = false);
-                    tercerTiempo.Show();
-
-                    this.Hide();
-                }
-                else if (consultas_BD.consultarRol(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == "Admin")
-                {
-                    TercerTiempo tercerTiempo = new TercerTiempo();
-
-                    tercerTiempo.Show();
-
-                    this.Hide();
-                }
-
-            }
-            else if(consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == false)
-            {
-                label7.Visible = true;
-                rjTextBox1.Texts = "";
-                rjTextBox2.Texts = "";
-            }
+        {
+            IniciarSesion();
         }
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                IniciarSesion();
+            }
+        }
 
+        public void IniciarSesion()
+        {
             if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == true)
             {
                 SesionUsuario.EmpleadoActual = consultas_BD.ObtenerEmpleadoLogin(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim());
@@ -173,7 +151,12 @@ namespace UI
 
                     this.Hide();
                 }
-
+            }
+            else if (consultas_BD.ValidarExistenciaUsuario(rjTextBox1.Texts.Trim(), rjTextBox2.Texts.Trim()) == false)
+            {
+                label7.Visible = true;
+                rjTextBox1.Texts = "";
+                rjTextBox2.Texts = "";
             }
         }
 

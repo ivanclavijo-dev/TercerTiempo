@@ -31,13 +31,11 @@ namespace UI
         private Form productosForm;
         private Form colaboradoresForm;
 
-
         public TercerTiempo()
         {
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
-
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {

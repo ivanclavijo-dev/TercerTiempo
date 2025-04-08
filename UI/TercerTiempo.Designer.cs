@@ -261,9 +261,9 @@ namespace UI
             empleadosLabel.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             empleadosLabel.Location = new Point(66, 14);
             empleadosLabel.Name = "empleadosLabel";
-            empleadosLabel.Size = new Size(95, 24);
+            empleadosLabel.Size = new Size(106, 24);
             empleadosLabel.TabIndex = 0;
-            empleadosLabel.Text = "Empleados";
+            empleadosLabel.Text = "Colaborador";
             empleadosLabel.MouseClick += empleadosLabel_MouseClick;
             // 
             // pictureBox5
@@ -513,6 +513,7 @@ namespace UI
             rjTextBox1.ForeColor = Color.FromArgb(64, 64, 64);
             rjTextBox1.Location = new Point(184, 25);
             rjTextBox1.Margin = new Padding(4);
+            rjTextBox1.MaxLength = 32767;
             rjTextBox1.Multiline = false;
             rjTextBox1.Name = "rjTextBox1";
             rjTextBox1.Padding = new Padding(10, 7, 10, 7);

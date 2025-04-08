@@ -50,36 +50,7 @@ namespace UI.Forms
 
         private void MostrarPanel(Form form)
         {
-            // Crear el fondo negro transparente
-            Form fondo = new Form
-            {
-                FormBorderStyle = FormBorderStyle.None,
-                BackColor = Color.Black,
-                Opacity = 0.5,
-                ShowInTaskbar = false,
-                StartPosition = FormStartPosition.CenterScreen,
-                Size = new Size(1200, 700), // Tamaño fijo
-                Location = this.FindForm().Location,
-                TopMost = false
-            };
-
-            fondo.Show();
-
-            // Configurar el formulario a mostrar
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormClosed += (s, args) =>
-            {
-                fondo.Close();
-                fondo.Dispose();
-
-                Form formPadre = this.FindForm();
-                formPadre.BringToFront();  // <-- esto trae la principal al frente
-                formPadre.Activate();      // <-- esto la pone en foco nuevamente
-
-                MostrarClientes();
-            };
-
-            form.ShowDialog(); // Mostrar el formulario modal encima del fondo
+            UI.Helpers.ModalOverlayHelper.MostrarConOverlay(form, MostrarClientes);
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
