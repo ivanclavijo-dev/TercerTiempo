@@ -70,15 +70,16 @@ namespace UI.Paneles.Avisos
 
         private void rjButton1_MouseClick(object sender, MouseEventArgs e)
         {
-            AltaPago altaPago = new AltaPago();
+            Altas altas = new Altas();
+            
             int idCliente = SesionCliente.clienteActual.idCliente;
 
-            bool huboError = true;
+            bool huboError = false;
 
             foreach (var producto in Carrito.Productos)
             {
-                bool insertado = altaPago.IngresarPago(idCliente, producto.idArticulo, producto.stock);
-
+                bool insertado = altas.ingresarPago(idCliente, producto.idArticulo, producto.cantidad);
+                MessageBox.Show(Convert.ToString(producto.cantidad));
 
                 if (!insertado)
                 {
@@ -99,6 +100,7 @@ namespace UI.Paneles.Avisos
                 noti.BackColorAlertBox = Color.WhiteSmoke;
                 noti.IconeAlertBox = Properties.Resources.marca_de_verificacion;
                 noti.Show();
+                this.DialogResult = DialogResult.OK; // ✅ Esto es clave
 
                 this.Hide();
                 this.Close();

@@ -69,6 +69,8 @@ namespace UI.Forms
             // Solo permitir edición en la columna "Cantidad" (índice 0)
             dataGridView2.Columns[0].ReadOnly = false;
             dataGridView1.ClearSelection();
+            dataGridView2.AutoGenerateColumns = true; // ⚠️ PONÉ ESTO TEMPORALMENTE
+
 
         }
 
@@ -85,58 +87,68 @@ namespace UI.Forms
                 int id = int.Parse(row.Cells[0].Value.ToString());
                 string nombre = row.Cells[1].Value.ToString();
                 int precio = int.Parse(row.Cells[2].Value.ToString());
-                int stock = int.Parse(row.Cells[3].Value.ToString());
+                int stockDisponible = int.Parse(row.Cells[3].Value.ToString());
                 string desc = row.Cells[4].Value.ToString();
 
-                if (stock == 0)
+                if (stockDisponible == 0)
                 {
-                    MessageBox.Show("No hay stock");
+                    MessageBox.Show("No hay stock disponible.");
                     return;
                 }
 
-                bool existe = false;
-
-                foreach (DataGridViewRow fila in dataGridView2.Rows)
-                {
-                    if (!fila.IsNewRow && fila.Cells[2].Value?.ToString() == nombre)
-                    {
-                        int cantidadActual = int.Parse(fila.Cells[1].Value.ToString());
-                        fila.Cells[1].Value = cantidadActual + 1;
-                        existe = true;
-                        break;
-                    }
-                }
-
-                if (!existe)
-                {
-                    dataGridView2.Rows.Add(id, 1, nombre, precio, desc);
-                    contadorCarrito++;
-                }
-
-                // 🧠 Actualizamos la clase Carrito global
                 var existente = Carrito.Productos.FirstOrDefault(p => p.idArticulo == id);
                 if (existente != null)
                 {
-                    existente.stock += 1;
+                    if (existente.cantidad < stockDisponible)
+                    {
+                        existente.cantidad += 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede agregar más, se alcanzó el stock disponible.");
+                        return;
+                    }
                 }
                 else
                 {
                     Carrito.Productos.Add(new Articulos
                     {
                         idArticulo = id,
-                        marca = nombre,
+                        detalle = nombre,
                         precio_lista = precio,
-                        stock = 1,
-                        detalle = desc
+                        marca = desc,
+                        stock = stockDisponible, // stock real de BD
+                        cantidad = 1             // lo que el cliente quiere
                     });
+                    contadorCarrito++;
+                    MessageBox.Show("Productos en carrito: " + Carrito.Productos.Count);
+
                 }
 
+                ActualizarVistaCarrito();
                 labelCantCarrito.Text = contadorCarrito.ToString();
                 CalcularTotal();
             }
 
-
         }
+        private void ActualizarVistaCarrito()
+        {
+            dataGridView2.Columns.Clear(); // 💥 elimina las duplicadas
+
+            dataGridView2.AutoGenerateColumns = true;
+
+            dataGridView2.DataSource = Carrito.Productos
+                .Select(p => new
+                {
+                    ID = p.idArticulo,
+                    Cant = p.cantidad,
+                    Nombre = p.detalle,
+                    Precio = p.precio_lista,
+                    Desc = p.marca
+                }).ToList();
+        }
+
+
 
 
 
@@ -240,11 +252,21 @@ namespace UI.Forms
 
         private void rjButton3_MouseClick(object sender, MouseEventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count > 0) // Verifica si hay una fila seleccionada
+
+            if (dataGridView2.SelectedRows.Count > 0)
             {
-                dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
-                CalcularTotal(); // Actualiza el total después de eliminar
-                contadorCarrito--;
+                int idSeleccionado = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["ID"].Value);
+
+                var productoAEliminar = Carrito.Productos.FirstOrDefault(p => p.idArticulo == idSeleccionado);
+                if (productoAEliminar != null)
+                {
+                    Carrito.Productos.Remove(productoAEliminar);
+                    contadorCarrito--;
+                }
+
+                // 👉 Volvés a cargar la grilla desde la lista
+                ActualizarVistaCarrito();
+                CalcularTotal();
                 labelCantCarrito.Text = contadorCarrito.ToString();
             }
             else
@@ -257,8 +279,18 @@ namespace UI.Forms
         {
             if (contadorCarrito > 0)
             {
-                Paneles.SeleccionarClienteProducto seleccionarClienteProducto = new Paneles.SeleccionarClienteProducto();
-                seleccionarClienteProducto.Show();
+                SeleccionarClienteProducto seleccionar = new SeleccionarClienteProducto();
+                var resultado = seleccionar.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    MostrarProductos();              // 🔁 actualiza el stock desde BD
+                    Carrito.Productos.Clear();       // limpia lista global
+                    contadorCarrito = 0;
+                    labelCantCarrito.Text = "0";
+                    ActualizarVistaCarrito();        // limpia visual del carrito
+                    CalcularTotal();                 // total = $0
+                }
             }
 
         }
@@ -350,7 +382,7 @@ namespace UI.Forms
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                
+
                 Form formPrincipal = ObtenerFormularioPrincipal();
 
                 NotificacionVentana noti = new NotificacionVentana(formPrincipal);
@@ -396,6 +428,11 @@ namespace UI.Forms
 
 
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

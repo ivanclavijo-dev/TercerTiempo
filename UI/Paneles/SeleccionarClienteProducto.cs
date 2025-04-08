@@ -63,8 +63,13 @@ namespace UI.Paneles
 
 
                 Paneles.Avisos.ConfirmarVentaProducto confirmarVentaProducto = new Avisos.ConfirmarVentaProducto();
-                confirmarVentaProducto.Show();
-                this.Dispose();
+                var resultado = confirmarVentaProducto.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK; // ⚠️ Pasamos el OK hacia arriba
+                    this.Close();
+                }
             }
         }
 

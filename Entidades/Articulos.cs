@@ -13,7 +13,9 @@ namespace Entidades
         public int precio_lista { get; set; }
         public int precio_oferta { get; set; }
         public string marca { get; set; }
-        public int stock { get; set; }
+        public int stock { get; set; } // 🔹 stock disponible en base de datos
+
+        public int cantidad { get; set; } // ✅ cantidad seleccionada en el carrito
 
         public static Articulos articuloactual { get; set; }
 
