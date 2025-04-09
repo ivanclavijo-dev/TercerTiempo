@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -15,6 +16,7 @@ using Logica.BD.Altas;
 using Logica.MetodosAdicionales;
 using UI.Forms;
 using UI.Paneles.Desplegable;
+using UI.Properties;
 
 namespace UI.Paneles
 {
@@ -31,13 +33,20 @@ namespace UI.Paneles
                int nWidthEllipse,
                int nHeightEllipse
             );
+
+        public void RedondearPictureBox(PictureBox pb)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(0, 0, pb.Width, pb.Height);
+            pb.Region = new Region(gp);
+        }
+
         public VentanaAltaClientes()
         {
             InitializeComponent();
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
         }
-
 
         private void VentanaAltaClientes_Load(object sender, EventArgs e)
         {
@@ -48,6 +57,7 @@ namespace UI.Paneles
 
             cedulaTextbox.MaxLength = 8;
             telefonoTextbox.MaxLength = 9;
+            RedondearPictureBox(FotoPerfil);
         }
 
         public void limpiar()
@@ -87,7 +97,7 @@ namespace UI.Paneles
                 Altas altas = new Altas();
 
                 int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
-                    servicioTextbox.Texts, nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts);
+                    servicioTextbox.Texts, nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts, fotoPerfilBytes);
 
                 int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
 
@@ -269,5 +279,46 @@ namespace UI.Paneles
             bloqueando = false;
         }
 
+        private void rjButton4_Click(object sender, EventArgs e)
+        {
+            BuscarImagen();
+        }
+
+        private byte[] fotoPerfilBytes = null;
+
+        public void BuscarImagen()
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Filter = "Imágenes|*.jpg; *.png",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                    Title = "Seleccione una foto de perfil"
+                };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FotoPerfil.Image = Image.FromFile(openFileDialog.FileName);
+
+                    // Convertir imagen a byte[]
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        FotoPerfil.Image.Save(ms, FotoPerfil.Image.RawFormat);
+                        fotoPerfilBytes = ms.ToArray();
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Ocurrió un error al cargar la imagen: " + error.Message, "Error");
+            }
+        }
+
+        private void rjButton3_Click(object sender, EventArgs e)
+        {
+            var img = Properties.Resources.default_user;
+            MessageBox.Show(img == null ? "Es null" : "Imagen cargada");
+        }
     }
 }

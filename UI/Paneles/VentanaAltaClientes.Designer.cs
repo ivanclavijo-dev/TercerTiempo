@@ -50,9 +50,13 @@
             serviciolbl = new Label();
             pictureBox4 = new PictureBox();
             sexoTextbox = new CustomControls.RJControls.RJTextBox();
+            FotoPerfil = new PictureBox();
+            rjButton3 = new CustomControls.RJControls.RJButton();
+            rjButton4 = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FotoPerfil).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -440,12 +444,65 @@
             sexoTextbox.Texts = "";
             sexoTextbox.UnderlinedStyle = false;
             // 
+            // FotoPerfil
+            // 
+            FotoPerfil.Image = (Image)resources.GetObject("FotoPerfil.Image");
+            FotoPerfil.Location = new Point(121, 111);
+            FotoPerfil.Name = "FotoPerfil";
+            FotoPerfil.Size = new Size(128, 128);
+            FotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
+            FotoPerfil.TabIndex = 38;
+            FotoPerfil.TabStop = false;
+            // 
+            // rjButton3
+            // 
+            rjButton3.BackColor = Color.FromArgb(16, 83, 233);
+            rjButton3.BackgroundColor = Color.FromArgb(16, 83, 233);
+            rjButton3.BorderColor = Color.FromArgb(16, 83, 233);
+            rjButton3.BorderRadius = 15;
+            rjButton3.BorderSize = 0;
+            rjButton3.FlatAppearance.BorderSize = 0;
+            rjButton3.FlatStyle = FlatStyle.Flat;
+            rjButton3.Font = new Font("Quicksand", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton3.ForeColor = Color.White;
+            rjButton3.Location = new Point(43, 474);
+            rjButton3.Name = "rjButton3";
+            rjButton3.Size = new Size(137, 44);
+            rjButton3.TabIndex = 39;
+            rjButton3.Text = "Hacer foto nueva";
+            rjButton3.TextColor = Color.White;
+            rjButton3.UseVisualStyleBackColor = false;
+            rjButton3.Click += rjButton3_Click;
+            // 
+            // rjButton4
+            // 
+            rjButton4.BackColor = Color.FromArgb(16, 83, 233);
+            rjButton4.BackgroundColor = Color.FromArgb(16, 83, 233);
+            rjButton4.BorderColor = Color.FromArgb(16, 83, 233);
+            rjButton4.BorderRadius = 15;
+            rjButton4.BorderSize = 0;
+            rjButton4.FlatAppearance.BorderSize = 0;
+            rjButton4.FlatStyle = FlatStyle.Flat;
+            rjButton4.Font = new Font("Quicksand", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton4.ForeColor = Color.White;
+            rjButton4.Location = new Point(203, 474);
+            rjButton4.Name = "rjButton4";
+            rjButton4.Size = new Size(137, 44);
+            rjButton4.TabIndex = 40;
+            rjButton4.Text = "Elegir foto";
+            rjButton4.TextColor = Color.White;
+            rjButton4.UseVisualStyleBackColor = false;
+            rjButton4.Click += rjButton4_Click;
+            // 
             // VentanaAltaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(899, 546);
+            Controls.Add(rjButton4);
+            Controls.Add(rjButton3);
+            Controls.Add(FotoPerfil);
             Controls.Add(sexoTextbox);
             Controls.Add(pictureBox4);
             Controls.Add(serviciolbl);
@@ -474,6 +531,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FotoPerfil).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -501,5 +559,8 @@
         private Label serviciolbl;
         private PictureBox pictureBox4;
         private CustomControls.RJControls.RJTextBox sexoTextbox;
+        private PictureBox FotoPerfil;
+        private CustomControls.RJControls.RJButton rjButton3;
+        private CustomControls.RJControls.RJButton rjButton4;
     }
 }

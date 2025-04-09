@@ -12,16 +12,17 @@ namespace Persistencia.PersistenciaAltas
     {
         private Conexion cn = new Conexion();
 
-        // FALTA AGREGAR FOTO DE PERFIL
-
-        public bool IngresarPersona(int cedula, string nombre, string apellido, string telefono, string servicio_medico, string fecha_nacimiento, bool notificaciones, string sexo)
+        public bool IngresarPersona(int cedula, string nombre, string apellido, string telefono, string servicio_medico, string fecha_nacimiento, bool notificaciones, string sexo, byte[] foto_perfil = null)
         {
             try
             {
-                cn.AbrirConexion();
                 MySqlConnection conn = cn.AbrirConexion();
 
-                string query = "INSERT INTO persona (cedula, nombre, apellido, telefono, servicio_medico, fecha_nacimiento, notificaciones, sexo) VALUES (@Cedula, @Nombre, @Apellido, @Telefono, @Servicio_medico, @Fecha_nacimiento, @Notificaciones, @Sexo);";
+                string query = @"INSERT INTO persona 
+                    (cedula, nombre, apellido, telefono, servicio_medico, fecha_nacimiento, notificaciones, sexo, foto_perfil) 
+                    VALUES 
+                    (@Cedula, @Nombre, @Apellido, @Telefono, @Servicio_medico, @Fecha_nacimiento, @Notificaciones, @Sexo, @FotoPerfil);";
+
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Cedula", cedula);
@@ -32,6 +33,12 @@ namespace Persistencia.PersistenciaAltas
                     cmd.Parameters.AddWithValue("@Fecha_nacimiento", fecha_nacimiento);
                     cmd.Parameters.AddWithValue("@Notificaciones", notificaciones);
                     cmd.Parameters.AddWithValue("@Sexo", sexo);
+
+                    // Manejo seguro del parámetro de imagen
+                    if (foto_perfil != null)
+                        cmd.Parameters.Add("@FotoPerfil", MySqlDbType.MediumBlob).Value = foto_perfil;
+                    else
+                        cmd.Parameters.Add("@FotoPerfil", MySqlDbType.MediumBlob).Value = DBNull.Value;
 
                     int filasAfectadas = cmd.ExecuteNonQuery();
                     return filasAfectadas > 0;

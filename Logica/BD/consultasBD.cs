@@ -97,7 +97,11 @@ namespace Logica.BD
             return cargarArticulos.CargarArticulosDesdeBD(id);
         }
 
+        private ObtenerFotoPerfil obtenerFotoPerfil = new ObtenerFotoPerfil();
 
-
+        public byte[] ObtenerFotoDePerfil(int cedula)
+        {
+            return obtenerFotoPerfil.ObtenerFoto(cedula);
+        }
     }
 }

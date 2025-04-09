@@ -40,32 +40,22 @@ namespace Logica.BD.Altas
 
         // El metodo de ingresar persona devuelve 1 = Creado correctamente, 2 = Error al crear, 3 = La persona ya existe en la tabla, 4 = Error en el formato de la fecha
 
-        public int ingresarPersona(int cedula, string nombre, string apellido, string telefono, string servicio_medico, string fecha_nacimiento, bool notis, string sexo)
+        public int ingresarPersona(int cedula, string nombre, string apellido, string telefono, string servicio_medico, string fecha_nacimiento, bool notis, string sexo, byte[] foto_perfil = null)
         {
             try
             {
+                bool existencia = validarExistencias.validarPersona(cedula);
 
-                    bool existencia = validarExistencias.validarPersona(cedula);
+                if (existencia)
+                {
+                    return 3; // Ya existe la persona
+                }
 
-                    if (existencia)
-                    {
-                        return 3;
-                    }
+                bool resultado = altaPersona.IngresarPersona(cedula, nombre, apellido, telefono, servicio_medico, fecha_nacimiento, notis, sexo, foto_perfil);
 
-                    bool resultado = altaPersona.IngresarPersona(cedula, nombre, apellido, telefono, servicio_medico, fecha_nacimiento, notis, sexo);
-
-                    if (resultado)
-                    {
-                        Console.WriteLine("Se ingresó a la persona");
-                        return 1;
-                    } else
-                    {
-                        Console.WriteLine("Error al ingresar a la persona");
-                        return 2;
-                    }
-
+                return resultado ? 1 : 2;
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 return 2;

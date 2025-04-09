@@ -39,4 +39,10 @@
     <Folder Include="Paneles\Efecto\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\default_user.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
