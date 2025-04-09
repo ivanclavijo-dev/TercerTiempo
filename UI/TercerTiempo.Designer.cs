@@ -39,10 +39,13 @@ namespace UI
             label5 = new Label();
             pictureBox13 = new PictureBox();
             panel3 = new Panel();
+            panel12 = new Panel();
+            pictureBox12 = new PictureBox();
+            label4 = new Label();
             panel9 = new Panel();
             panel10 = new Panel();
-            label4 = new Label();
-            pictureBox12 = new PictureBox();
+            pictureBox14 = new PictureBox();
+            label6 = new Label();
             estadisticasLabel = new Label();
             pictureBox6 = new PictureBox();
             panel8 = new Panel();
@@ -77,9 +80,11 @@ namespace UI
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             panel3.SuspendLayout();
+            panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             panel9.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -173,6 +178,7 @@ namespace UI
             // 
             // panel3
             // 
+            panel3.Controls.Add(panel12);
             panel3.Controls.Add(panel9);
             panel3.Controls.Add(panel8);
             panel3.Controls.Add(panel7);
@@ -180,8 +186,38 @@ namespace UI
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(0, 224);
             panel3.Name = "panel3";
-            panel3.Size = new Size(185, 284);
+            panel3.Size = new Size(185, 328);
             panel3.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(pictureBox12);
+            panel12.Controls.Add(label4);
+            panel12.Dock = DockStyle.Top;
+            panel12.Location = new Point(0, 265);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(185, 53);
+            panel12.TabIndex = 7;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = Properties.Resources.bar_chart_13;
+            pictureBox12.Location = new Point(37, 15);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(25, 25);
+            pictureBox12.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox12.TabIndex = 1;
+            pictureBox12.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(70, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(97, 24);
+            label4.TabIndex = 0;
+            label4.Text = "Estadisticas";
             // 
             // panel9
             // 
@@ -196,33 +232,37 @@ namespace UI
             // 
             // panel10
             // 
-            panel10.Controls.Add(label4);
-            panel10.Controls.Add(pictureBox12);
+            panel10.Controls.Add(pictureBox14);
+            panel10.Controls.Add(label6);
             panel10.Dock = DockStyle.Top;
             panel10.Location = new Point(0, 0);
             panel10.Name = "panel10";
             panel10.Size = new Size(185, 53);
             panel10.TabIndex = 7;
             // 
-            // label4
+            // pictureBox14
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(66, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(97, 24);
-            label4.TabIndex = 0;
-            label4.Text = "Estadisticas";
+            pictureBox14.Cursor = Cursors.Hand;
+            pictureBox14.Image = Properties.Resources.icons8_dumbbell_24;
+            pictureBox14.Location = new Point(36, 15);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(24, 24);
+            pictureBox14.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox14.TabIndex = 1;
+            pictureBox14.TabStop = false;
+            pictureBox14.MouseClick += pictureBox14_MouseClick;
             // 
-            // pictureBox12
+            // label6
             // 
-            pictureBox12.Image = Properties.Resources.bar_chart_13;
-            pictureBox12.Location = new Point(36, 14);
-            pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(25, 25);
-            pictureBox12.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox12.TabIndex = 1;
-            pictureBox12.TabStop = false;
+            label6.AutoSize = true;
+            label6.Cursor = Cursors.Hand;
+            label6.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(70, 15);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 24);
+            label6.TabIndex = 0;
+            label6.Text = "Rutinas";
+            label6.MouseClick += label6_MouseClick;
             // 
             // estadisticasLabel
             // 
@@ -570,11 +610,14 @@ namespace UI
             panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel3.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
@@ -641,5 +684,8 @@ namespace UI
         private Panel panel10;
         private Label label4;
         private PictureBox pictureBox12;
+        private Panel panel12;
+        private PictureBox pictureBox14;
+        private Label label6;
     }
 }

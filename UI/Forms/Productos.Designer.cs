@@ -49,19 +49,19 @@
             labelCantCarrito = new Label();
             label1 = new Label();
             dataGridView2 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Cant = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Descripcion = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             label4 = new Label();
             rjButton3 = new CustomControls.RJControls.RJButton();
             rjButton1 = new CustomControls.RJControls.RJButton();
             label3 = new Label();
-            btnCarrito = new Componentes.ElipseControl();
+            btnCarrito = new UI.Componentes.ElipseControl();
             label2 = new Label();
             dataGridView1 = new DataGridView();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Cant = new DataGridViewTextBoxColumn();
-            ID = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -169,7 +169,7 @@
             MenuClientes.ForeColor = Color.FromArgb(16, 83, 233);
             MenuClientes.Location = new Point(17, 25);
             MenuClientes.Name = "MenuClientes";
-            MenuClientes.Size = new Size(513, 66);
+            MenuClientes.Size = new Size(517, 75);
             MenuClientes.TabIndex = 36;
             MenuClientes.Text = "Menú de Productos";
             // 
@@ -206,9 +206,9 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(16, 83, 233);
-            label1.Location = new Point(67, 12);
+            label1.Location = new Point(80, 12);
             label1.Name = "label1";
-            label1.Size = new Size(250, 33);
+            label1.Size = new Size(252, 38);
             label1.TabIndex = 48;
             label1.Text = "Carrito de compras";
             // 
@@ -244,7 +244,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.Location = new Point(29, 65);
+            dataGridView2.Location = new Point(42, 65);
             dataGridView2.MultiSelect = false;
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -269,6 +269,31 @@
             dataGridView2.RowsAdded += dataGridView2_RowsAdded;
             dataGridView2.RowsRemoved += dataGridView2_RowsRemoved;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Cant
+            // 
+            Cant.HeaderText = "Cant.";
+            Cant.Name = "Cant";
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            // 
+            // Descripcion
+            // 
+            Descripcion.HeaderText = "Desc.";
+            Descripcion.Name = "Descripcion";
+            // 
             // panel1
             // 
             panel1.BackColor = Color.White;
@@ -278,9 +303,9 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(dataGridView2);
-            panel1.Location = new Point(554, 71);
+            panel1.Location = new Point(524, 71);
             panel1.Name = "panel1";
-            panel1.Size = new Size(377, 331);
+            panel1.Size = new Size(407, 331);
             panel1.TabIndex = 50;
             panel1.Visible = false;
             // 
@@ -290,7 +315,7 @@
             label4.BackColor = Color.White;
             label4.Font = new Font("Quicksand Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(29, 45);
+            label4.Location = new Point(42, 45);
             label4.Name = "label4";
             label4.Size = new Size(259, 19);
             label4.TabIndex = 53;
@@ -307,7 +332,7 @@
             rjButton3.FlatStyle = FlatStyle.Flat;
             rjButton3.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             rjButton3.ForeColor = Color.White;
-            rjButton3.Location = new Point(256, 293);
+            rjButton3.Location = new Point(269, 293);
             rjButton3.Name = "rjButton3";
             rjButton3.Size = new Size(99, 25);
             rjButton3.TabIndex = 52;
@@ -327,7 +352,7 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(29, 293);
+            rjButton1.Location = new Point(42, 293);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(221, 25);
             rjButton1.TabIndex = 51;
@@ -342,7 +367,7 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Montserrat", 11.749999F, FontStyle.Italic);
             label3.ForeColor = Color.FromArgb(16, 83, 233);
-            label3.Location = new Point(29, 256);
+            label3.Location = new Point(42, 256);
             label3.Name = "label3";
             label3.Size = new Size(179, 25);
             label3.TabIndex = 50;
@@ -433,31 +458,6 @@
             dataGridView1.Size = new Size(907, 431);
             dataGridView1.TabIndex = 53;
             dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Desc.";
-            Descripcion.Name = "Descripcion";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Cant
-            // 
-            Cant.HeaderText = "Cant.";
-            Cant.Name = "Cant";
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
             // 
             // Productos
             // 

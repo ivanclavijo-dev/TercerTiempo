@@ -79,12 +79,20 @@ namespace UI.Paneles.Avisos
             foreach (var producto in Carrito.Productos)
             {
                 bool insertado = altas.ingresarPago(idCliente, producto.idArticulo, producto.cantidad);
-                MessageBox.Show(Convert.ToString(producto.cantidad));
 
                 if (!insertado)
                 {
                     huboError = true;
-                    Console.WriteLine($"Error al registrar el producto con ID {producto.idArticulo}");
+                    Form formPrincipal = ObtenerFormularioPrincipal();
+
+                    NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                    noti.TitleAlertBox = "Error.";
+                    noti.SubituloAlertBox = "No se ha podido finalizar la venta.";
+                    noti.ColorAlertBox = Color.Orange;
+                    noti.BackColorAlertBox = Color.WhiteSmoke;
+                    noti.IconeAlertBox = Properties.Resources.exclamacion;
+
+                    noti.Show();
                 }
             }
 

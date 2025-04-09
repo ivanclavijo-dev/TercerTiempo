@@ -66,9 +66,9 @@ namespace UI.Forms
                 col.ReadOnly = true;
             }
 
-            // Solo permitir edición en la columna "Cantidad" (índice 0)
-            dataGridView2.Columns[0].ReadOnly = false;
+            dataGridView2.Columns["Cant"].ReadOnly = false; // Asegúrate que "Cant" es el nombre correcto
             dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
             dataGridView2.AutoGenerateColumns = true; // ⚠️ PONÉ ESTO TEMPORALMENTE
 
 
@@ -92,8 +92,16 @@ namespace UI.Forms
 
                 if (stockDisponible == 0)
                 {
-                    MessageBox.Show("No hay stock disponible.");
-                    return;
+                    Form formPrincipal = ObtenerFormularioPrincipal();
+
+                    NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                    noti.TitleAlertBox = "Alerta.";
+                    noti.SubituloAlertBox = "No hay stock disponible.";
+                    noti.ColorAlertBox = Color.Orange;
+                    noti.BackColorAlertBox = Color.WhiteSmoke;
+                    noti.IconeAlertBox = Properties.Resources.exclamacion;
+
+                    noti.Show(); return;
                 }
 
                 var existente = Carrito.Productos.FirstOrDefault(p => p.idArticulo == id);
@@ -105,8 +113,16 @@ namespace UI.Forms
                     }
                     else
                     {
-                        MessageBox.Show("No se puede agregar más, se alcanzó el stock disponible.");
-                        return;
+                        Form formPrincipal = ObtenerFormularioPrincipal();
+
+                        NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                        noti.TitleAlertBox = "Alerta.";
+                        noti.SubituloAlertBox = "Mo se puede agregar mas.";
+                        noti.ColorAlertBox = Color.Orange;
+                        noti.BackColorAlertBox = Color.WhiteSmoke;
+                        noti.IconeAlertBox = Properties.Resources.exclamacion;
+
+                        noti.Show(); return;
                     }
                 }
                 else
@@ -121,7 +137,6 @@ namespace UI.Forms
                         cantidad = 1             // lo que el cliente quiere
                     });
                     contadorCarrito++;
-                    MessageBox.Show("Productos en carrito: " + Carrito.Productos.Count);
 
                 }
 
@@ -264,14 +279,23 @@ namespace UI.Forms
                     contadorCarrito--;
                 }
 
-                // 👉 Volvés a cargar la grilla desde la lista
+                // 👉 Volvés a cargar la grilla desde la listame
                 ActualizarVistaCarrito();
                 CalcularTotal();
                 labelCantCarrito.Text = contadorCarrito.ToString();
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Form formPrincipal = ObtenerFormularioPrincipal();
+
+                NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+                noti.TitleAlertBox = "Alerta.";
+                noti.SubituloAlertBox = "Debe seleccionar una fila.";
+                noti.ColorAlertBox = Color.Orange;
+                noti.BackColorAlertBox = Color.WhiteSmoke;
+                noti.IconeAlertBox = Properties.Resources.exclamacion;
+
+                noti.Show();
             }
         }
 

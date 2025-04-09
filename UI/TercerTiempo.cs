@@ -30,6 +30,7 @@ namespace UI
         private Form clientesForm;
         private Form productosForm;
         private Form colaboradoresForm;
+        private Form rutinasForm;
 
         public TercerTiempo()
         {
@@ -72,6 +73,7 @@ namespace UI
             clientesForm = new Forms.Clientes();
             productosForm = new Forms.Productos();
             colaboradoresForm = new Forms.Colaboradores();
+            rutinasForm = new Forms.Rutinas();
 
             AbrirFormInPanel(homeForm);
             label3.Text = SesionUsuario.EmpleadoActual.DatosPersonales.Nombre + " " + SesionUsuario.EmpleadoActual.DatosPersonales.Apellido;
@@ -203,6 +205,17 @@ namespace UI
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
             AbrirFormInPanel(productosForm);
+
+        }
+
+        private void label6_MouseClick(object sender, MouseEventArgs e)
+        {
+            AbrirFormInPanel(rutinasForm);
+        }
+
+        private void pictureBox14_MouseClick(object sender, MouseEventArgs e)
+        {
+            AbrirFormInPanel(rutinasForm);
 
         }
     }
