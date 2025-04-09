@@ -103,5 +103,15 @@ namespace Logica.BD
         {
             return obtenerFotoPerfil.ObtenerFoto(cedula);
         }
+
+        public class ClienteLogica
+        {
+            private ObtenerCliente obtenerCliente = new ObtenerCliente();
+
+            public Cliente ObtenerClientePorId(int id)
+            {
+                return obtenerCliente.ObtenerClienteProducto(id);
+            }
+        }
     }
 }

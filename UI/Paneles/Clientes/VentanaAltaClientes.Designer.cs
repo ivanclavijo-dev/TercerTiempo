@@ -62,7 +62,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(43, 79);
+            pictureBox1.Location = new Point(43, 62);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(297, 388);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -338,7 +338,7 @@
             // 
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Carret_Left;
-            pictureBox2.Location = new Point(771, 30);
+            pictureBox2.Location = new Point(817, 31);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(55, 55);
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -352,7 +352,7 @@
             cedulalbl.BackColor = Color.FromArgb(16, 83, 233);
             cedulalbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             cedulalbl.ForeColor = Color.White;
-            cedulalbl.Location = new Point(61, 249);
+            cedulalbl.Location = new Point(61, 232);
             cedulalbl.Name = "cedulalbl";
             cedulalbl.Size = new Size(92, 30);
             cedulalbl.TabIndex = 24;
@@ -364,7 +364,7 @@
             nombrelbl.BackColor = Color.FromArgb(16, 83, 233);
             nombrelbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             nombrelbl.ForeColor = Color.White;
-            nombrelbl.Location = new Point(61, 287);
+            nombrelbl.Location = new Point(61, 270);
             nombrelbl.Name = "nombrelbl";
             nombrelbl.Size = new Size(104, 30);
             nombrelbl.TabIndex = 25;
@@ -376,7 +376,7 @@
             telefonolbl.BackColor = Color.FromArgb(16, 83, 233);
             telefonolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             telefonolbl.ForeColor = Color.White;
-            telefonolbl.Location = new Point(61, 325);
+            telefonolbl.Location = new Point(61, 308);
             telefonolbl.Name = "telefonolbl";
             telefonolbl.Size = new Size(109, 30);
             telefonolbl.TabIndex = 26;
@@ -388,7 +388,7 @@
             nacimientolbl.BackColor = Color.FromArgb(16, 83, 233);
             nacimientolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             nacimientolbl.ForeColor = Color.White;
-            nacimientolbl.Location = new Point(61, 363);
+            nacimientolbl.Location = new Point(61, 346);
             nacimientolbl.Name = "nacimientolbl";
             nacimientolbl.Size = new Size(140, 30);
             nacimientolbl.TabIndex = 27;
@@ -400,7 +400,7 @@
             serviciolbl.BackColor = Color.FromArgb(16, 83, 233);
             serviciolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
             serviciolbl.ForeColor = Color.White;
-            serviciolbl.Location = new Point(61, 401);
+            serviciolbl.Location = new Point(61, 384);
             serviciolbl.Name = "serviciolbl";
             serviciolbl.Size = new Size(102, 30);
             serviciolbl.TabIndex = 28;
@@ -447,7 +447,7 @@
             // FotoPerfil
             // 
             FotoPerfil.Image = (Image)resources.GetObject("FotoPerfil.Image");
-            FotoPerfil.Location = new Point(121, 111);
+            FotoPerfil.Location = new Point(121, 94);
             FotoPerfil.Name = "FotoPerfil";
             FotoPerfil.Size = new Size(128, 128);
             FotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
@@ -459,17 +459,21 @@
             rjButton3.BackColor = Color.FromArgb(16, 83, 233);
             rjButton3.BackgroundColor = Color.FromArgb(16, 83, 233);
             rjButton3.BorderColor = Color.FromArgb(16, 83, 233);
-            rjButton3.BorderRadius = 15;
+            rjButton3.BorderRadius = 10;
             rjButton3.BorderSize = 0;
+            rjButton3.Cursor = Cursors.Hand;
             rjButton3.FlatAppearance.BorderSize = 0;
             rjButton3.FlatStyle = FlatStyle.Flat;
-            rjButton3.Font = new Font("Quicksand", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton3.Font = new Font("Montserrat Medium", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton3.ForeColor = Color.White;
-            rjButton3.Location = new Point(43, 474);
+            rjButton3.Image = Properties.Resources.Camira_Icons_UIA;
+            rjButton3.ImageAlign = ContentAlignment.MiddleLeft;
+            rjButton3.Location = new Point(43, 458);
             rjButton3.Name = "rjButton3";
-            rjButton3.Size = new Size(137, 44);
+            rjButton3.Padding = new Padding(5, 0, 0, 0);
+            rjButton3.Size = new Size(146, 27);
             rjButton3.TabIndex = 39;
-            rjButton3.Text = "Hacer foto nueva";
+            rjButton3.Text = "Foto nueva";
             rjButton3.TextColor = Color.White;
             rjButton3.UseVisualStyleBackColor = false;
             rjButton3.Click += rjButton3_Click;
@@ -479,15 +483,17 @@
             rjButton4.BackColor = Color.FromArgb(16, 83, 233);
             rjButton4.BackgroundColor = Color.FromArgb(16, 83, 233);
             rjButton4.BorderColor = Color.FromArgb(16, 83, 233);
-            rjButton4.BorderRadius = 15;
+            rjButton4.BorderRadius = 10;
             rjButton4.BorderSize = 0;
             rjButton4.FlatAppearance.BorderSize = 0;
             rjButton4.FlatStyle = FlatStyle.Flat;
-            rjButton4.Font = new Font("Quicksand", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rjButton4.Font = new Font("Montserrat Medium", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton4.ForeColor = Color.White;
-            rjButton4.Location = new Point(203, 474);
+            rjButton4.Image = Properties.Resources.Search_Icons_UIA;
+            rjButton4.ImageAlign = ContentAlignment.MiddleLeft;
+            rjButton4.Location = new Point(194, 458);
             rjButton4.Name = "rjButton4";
-            rjButton4.Size = new Size(137, 44);
+            rjButton4.Size = new Size(146, 27);
             rjButton4.TabIndex = 40;
             rjButton4.Text = "Elegir foto";
             rjButton4.TextColor = Color.White;

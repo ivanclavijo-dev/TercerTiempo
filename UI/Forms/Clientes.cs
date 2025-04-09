@@ -8,12 +8,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 using Logica;
 using Logica.BD;
 using Logica.Grids;
 using Persistencia.Grids;
 using UI.Paneles;
 using UI.Paneles.Avisos;
+using UI.Paneles.Clientes;
 
 namespace UI.Forms
 {
@@ -33,8 +35,6 @@ namespace UI.Forms
         OB_ClienteGrid objetoC = new OB_ClienteGrid();
 
         private Form ventanaAltaCliente;
-        private Form ventanaPagarCliente;
-
         public Clientes()
         {
             InitializeComponent();
@@ -103,52 +103,78 @@ namespace UI.Forms
             MostrarPanel(ventanaAltaCliente);
         }
 
+        private ClienteSeleccionado ObtenerClienteSeleccionado(DataGridView dgv)
+        {
+            if (dgv.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    string id = dgv.SelectedRows[0].Cells["ID"].Value?.ToString();
+                    string nombre = dgv.SelectedRows[0].Cells["Nombre"].Value?.ToString();
+                    string estadoCuota = dgv.SelectedRows[0].Cells["Estado de cuota"].Value?.ToString();
+
+                    if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(estadoCuota))
+                    {
+                        return new ClienteSeleccionado
+                        {
+                            Id = id,
+                            Nombre = nombre,
+                            EstadoCuota = estadoCuota
+                        };
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Ha ocurrido un error \nCodigo: " + e);
+                }
+            }
+
+            return null;
+        }
+
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0) // Verifica que haya una fila seleccionada
-            {
-                // Obtiene los datos de la fila seleccionada
-                string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
-                string nombre = dataGridView1.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                string estadoCuota = dataGridView1.SelectedRows[0].Cells["Estado de cuota"].Value.ToString();
+            var cliente = ObtenerClienteSeleccionado(dataGridView1);
 
-                // Abre el segundo formulario y le pasa los datos
-                if (id != null && nombre != null && estadoCuota != null)
-                {
-                    ConfirmaBajaCliente confirmaBajaCliente = new ConfirmaBajaCliente(id, nombre, estadoCuota);
-                    MostrarPanel(confirmaBajaCliente);
-                }
-                else
-                {
-                    MessageBox.Show("Ocurrio un error al intentar obtener el cliente.");
-                }
+            if (cliente != null)
+            {
+                ConfirmaBajaCliente ventana = new ConfirmaBajaCliente(cliente.Id, cliente.Nombre, cliente.EstadoCuota);
+                MostrarPanel(ventana);
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        
         private void rjButton2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
-                string nombre = dataGridView1.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                string estadoCuota = dataGridView1.SelectedRows[0].Cells["Estado de cuota"].Value.ToString();
+            var cliente = ObtenerClienteSeleccionado(dataGridView1);
 
-                if (id != null && nombre != null && estadoCuota != null)
-                {
-                    Detalle_planes ventana_planes = new Detalle_planes(id, nombre, estadoCuota);
-                    MostrarPanel(ventana_planes);
-                }
-                else
-                {
-                    MessageBox.Show("Ocurrió un error al intentar obtener el cliente.");
-                }
+            if (cliente != null)
+            {
+                Detalle_planes ventana = new Detalle_planes(cliente.Id, cliente.Nombre, cliente.EstadoCuota);
+                MostrarPanel(ventana);
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            var cliente = ObtenerClienteSeleccionado(dataGridView1);
+
+            if (cliente != null)
+            {
+                VentanaInformacionCliente ventana = new VentanaInformacionCliente(cliente.Id, cliente.Nombre);
+                MostrarPanel(ventana);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

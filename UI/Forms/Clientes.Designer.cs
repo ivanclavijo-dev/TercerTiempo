@@ -142,6 +142,7 @@
             rjTextBox1.ForeColor = Color.FromArgb(64, 64, 64);
             rjTextBox1.Location = new Point(27, 106);
             rjTextBox1.Margin = new Padding(4);
+            rjTextBox1.MaxLength = 32767;
             rjTextBox1.Multiline = false;
             rjTextBox1.Name = "rjTextBox1";
             rjTextBox1.Padding = new Padding(10, 7, 10, 7);
@@ -210,6 +211,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = Properties.Resources.info_circle;
             pictureBox4.Location = new Point(906, 111);
             pictureBox4.Name = "pictureBox4";
@@ -217,6 +219,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 35;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // Clientes
             // 

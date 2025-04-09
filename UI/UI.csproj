@@ -9,6 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Paneles\Efecto\**" />
+    <EmbeddedResource Remove="Paneles\Efecto\**" />
+    <None Remove="Paneles\Efecto\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\default_user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\default_user.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.2.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
   </ItemGroup>
@@ -18,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Paneles\Avisos\ConfirmaBajaCliente.cs">
+    <Compile Update="Paneles\Avisos\Clientes\ConfirmaBajaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -33,16 +49,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Paneles\Efecto\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Resources\default_user.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

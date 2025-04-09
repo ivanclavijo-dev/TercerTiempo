@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace UI.Paneles
         public void RedondearPictureBox(PictureBox pb)
         {
             GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(0, 0, pb.Width, pb.Height);
+            gp.AddEllipse(0, 0, pb.Width-3, pb.Height-3);
             pb.Region = new Region(gp);
         }
 
@@ -60,6 +61,30 @@ namespace UI.Paneles
             RedondearPictureBox(FotoPerfil);
         }
 
+        private void SetImagenPredeterminada()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "UI.Resources.default_user.png"; 
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream != null)
+                {
+                    FotoPerfil.Image = Image.FromStream(stream);
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        FotoPerfil.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        fotoPerfilBytes = ms.ToArray();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el recurso incrustado: " + resourceName, "Error");
+                }
+            }
+        }
+
         public void limpiar()
         {
             cedulaTextbox.Texts = "";
@@ -71,6 +96,7 @@ namespace UI.Paneles
             sexoTextbox.Text = "";
             observacionTextbox.Texts = "";
             NotificacionesChkbox.Checked = false;
+            SetImagenPredeterminada();
         }
 
         private void rjButton2_Click(object sender, EventArgs e)
@@ -317,8 +343,6 @@ namespace UI.Paneles
 
         private void rjButton3_Click(object sender, EventArgs e)
         {
-            var img = Properties.Resources.default_user;
-            MessageBox.Show(img == null ? "Es null" : "Imagen cargada");
         }
     }
 }
