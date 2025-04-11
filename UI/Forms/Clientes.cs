@@ -16,6 +16,7 @@ using Persistencia.Grids;
 using UI.Paneles;
 using UI.Paneles.Avisos;
 using UI.Paneles.Clientes;
+using UI.Properties;
 
 namespace UI.Forms
 {
@@ -147,7 +148,7 @@ namespace UI.Forms
                 MessageBox.Show("Por favor, seleccione un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        
+
         private void rjButton2_Click(object sender, EventArgs e)
         {
             var cliente = ObtenerClienteSeleccionado(dataGridView1);
@@ -176,6 +177,16 @@ namespace UI.Forms
             {
                 MessageBox.Show("Por favor, seleccione un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Resources.Redtrash27x27;
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Resources.Blacktrash22x22;
         }
     }
 }

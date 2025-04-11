@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CustomControls.RJControls;
 using Logica;
 using Logica.BD;
 using Logica.BD.Altas;
@@ -35,10 +36,18 @@ namespace UI.Paneles
                int nHeightEllipse
             );
 
+        readonly Color ColorSeleccionado = Color.FromArgb(16, 83, 233);
+        readonly Color ColorNoSeleccionado = Color.DarkGray;
+
+        private void ColorearLabel(Label label, Color color)
+        {
+            label.ForeColor = color;
+        }
+
         public void RedondearPictureBox(PictureBox pb)
         {
             GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(0, 0, pb.Width-3, pb.Height-3);
+            gp.AddEllipse(0, 0, pb.Width - 3, pb.Height - 3);
             pb.Region = new Region(gp);
         }
 
@@ -53,18 +62,24 @@ namespace UI.Paneles
         {
             consultasBD consultas = new consultasBD();
             int idNuevo = consultas.ObtenerIdDelClienteNuevo();
-            IdTextbox.PlaceholderText = "ID del Cliente: " + idNuevo;
-            IdTextbox.ForeColor = Color.FromArgb(130, 130, 130);
+            IdTextbox.Texts = idNuevo.ToString();
+            IdTextbox.ForeColor = Color.Red;
 
             cedulaTextbox.MaxLength = 8;
             telefonoTextbox.MaxLength = 9;
             RedondearPictureBox(FotoPerfil);
+
+            sexoTextbox.Items.Add("");
+            sexoTextbox.Items.Add("Masculino");
+            sexoTextbox.Items.Add("Femenino");
+            sexoTextbox.Items.Add("Otro");
+
         }
 
         private void SetImagenPredeterminada()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "UI.Resources.default_user.png"; 
+            var resourceName = "UI.Resources.default_user.png";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
@@ -93,8 +108,8 @@ namespace UI.Paneles
             telefonoTextbox.Texts = "";
             nacimientoTextbox.Texts = "";
             servicioTextbox.Texts = "";
-            sexoTextbox.Text = "";
             observacionTextbox.Texts = "";
+            sexoTextbox.SelectedIndex = 0;
             NotificacionesChkbox.Checked = false;
             SetImagenPredeterminada();
         }
@@ -123,7 +138,7 @@ namespace UI.Paneles
                 Altas altas = new Altas();
 
                 int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
-                    servicioTextbox.Texts, nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts, fotoPerfilBytes);
+                    servicioTextbox.Texts.ToUpper(), nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts.ToUpper(), fotoPerfilBytes);
 
                 int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
 
@@ -134,7 +149,7 @@ namespace UI.Paneles
                     if (resultadoIngresarCliente == 1)
                     {
                         MessageBox.Show("Se ingreso al cliente correctamente");
-                        limpiar();
+                        this.Close();
                     }
                     else if (resultadoIngresarCliente == 2)
                     {
@@ -166,11 +181,12 @@ namespace UI.Paneles
                     MessageBox.Show("Error no identificado, comunicarse con soporte.");
                 }
             }
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
 
@@ -186,17 +202,19 @@ namespace UI.Paneles
 
         private void nombreTextbox__TextChanged(object sender, EventArgs e)
         {
+            CapitalizarControl(sender);
             ActualizarLabelNombreCompleto();
         }
         private void apellidoTextbox__TextChanged(object sender, EventArgs e)
         {
+            CapitalizarControl(sender);
             ActualizarLabelNombreCompleto();
         }
 
         private void ActualizarLabelNombreCompleto()
         {
-            string nombre = Capitalizar(nombreTextbox.Texts);
-            string apellido = Capitalizar(apellidoTextbox.Texts);
+            string nombre = nombreTextbox.Texts;
+            string apellido = apellidoTextbox.Texts;
             string textoCompleto = $"Nombre: {nombre} {apellido}";
 
             // Limitar a máximo 22 caracteres
@@ -208,13 +226,43 @@ namespace UI.Paneles
             nombrelbl.Text = textoCompleto;
         }
 
-        public string Capitalizar(string texto)
+        private string Capitalizar(string texto)
         {
-            if (string.IsNullOrWhiteSpace(texto))
-                return "";
+            var sb = new StringBuilder();
+            bool nuevaPalabra = true;
 
-            texto = texto.Trim().ToLower();
-            return char.ToUpper(texto[0]) + texto.Substring(1);
+            foreach (char c in texto)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    sb.Append(c);
+                    nuevaPalabra = true;
+                }
+                else
+                {
+                    sb.Append(nuevaPalabra ? char.ToUpper(c) : char.ToLower(c));
+                    nuevaPalabra = false;
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        public void CapitalizarControl(object sender)
+        {
+            if (sender is TextBox textBox && !string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                int selectionStart = textBox.SelectionStart;
+                string originalText = textBox.Text;
+
+                string capitalizado = Capitalizar(originalText);
+
+                if (capitalizado != originalText)
+                {
+                    textBox.Text = capitalizado;
+                    textBox.SelectionStart = selectionStart;
+                }
+            }
         }
 
         private void telefonoTextbox__TextChanged(object sender, EventArgs e)
@@ -224,6 +272,8 @@ namespace UI.Paneles
 
         private void servicioTextbox__TextChanged(object sender, EventArgs e)
         {
+            servicioTextbox.Text.ToUpper();
+
             serviciolbl.Text = $"Servicio: {servicioTextbox.Texts}";
         }
 
@@ -343,6 +393,100 @@ namespace UI.Paneles
 
         private void rjButton3_Click(object sender, EventArgs e)
         {
+        }
+
+        private void cedulaTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label3, ColorSeleccionado);
+        }
+
+        private void cedulaTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label3, ColorNoSeleccionado);
+        }
+
+        private void nombreTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label4, ColorSeleccionado);
+        }
+
+        private void nombreTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label4, ColorNoSeleccionado);
+        }
+
+        private void apellidoTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label5, ColorSeleccionado);
+        }
+
+        private void apellidoTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label5, ColorNoSeleccionado);
+
+        }
+
+        private void telefonoTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label6, ColorSeleccionado);
+        }
+
+        private void telefonoTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label6, ColorNoSeleccionado);
+
+        }
+
+        private void nacimientoTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label9, ColorSeleccionado);
+
+        }
+
+        private void nacimientoTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label9, ColorNoSeleccionado);
+
+        }
+
+        private void servicioTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label7, ColorSeleccionado);
+
+        }
+
+        private void servicioTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label7, ColorNoSeleccionado);
+
+        }
+
+        private void observacionTextbox_Enter(object sender, EventArgs e)
+        {
+            ColorearLabel(label8, ColorSeleccionado);
+
+        }
+
+        private void observacionTextbox_Leave(object sender, EventArgs e)
+        {
+            ColorearLabel(label8, ColorNoSeleccionado);
+
+        }
+
+        private void sexoTextbox_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton2_MouseEnter(object sender, EventArgs e)
+        {
+            rjButton2.Image = Resources.RedTrash;
+        }
+
+        private void rjButton2_MouseLeave(object sender, EventArgs e)
+        {
+            rjButton2.Image = Resources.BlackTrash;
+
         }
     }
 }

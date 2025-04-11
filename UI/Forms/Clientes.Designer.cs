@@ -200,7 +200,7 @@
             // pictureBox3
             // 
             pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Properties.Resources.trash;
+            pictureBox3.Image = Properties.Resources.Blacktrash22x22;
             pictureBox3.Location = new Point(864, 111);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(27, 27);
@@ -208,6 +208,8 @@
             pictureBox3.TabIndex = 34;
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
+            pictureBox3.MouseEnter += pictureBox3_MouseEnter;
+            pictureBox3.MouseLeave += pictureBox3_MouseLeave;
             // 
             // pictureBox4
             // 

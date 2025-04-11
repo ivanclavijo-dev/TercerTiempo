@@ -114,6 +114,7 @@
             nacimientoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nacimientoTextbox.Location = new Point(609, 292);
             nacimientoTextbox.Margin = new Padding(4);
+            nacimientoTextbox.MaxLength = 32767;
             nacimientoTextbox.MinimumSize = new Size(50, 30);
             nacimientoTextbox.Multiline = false;
             nacimientoTextbox.Name = "nacimientoTextbox";
@@ -137,6 +138,7 @@
             cedulaTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             cedulaTextbox.Location = new Point(609, 158);
             cedulaTextbox.Margin = new Padding(4);
+            cedulaTextbox.MaxLength = 32767;
             cedulaTextbox.MinimumSize = new Size(50, 30);
             cedulaTextbox.Multiline = false;
             cedulaTextbox.Name = "cedulaTextbox";
@@ -160,6 +162,7 @@
             telefonoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             telefonoTextbox.Location = new Point(386, 292);
             telefonoTextbox.Margin = new Padding(4);
+            telefonoTextbox.MaxLength = 32767;
             telefonoTextbox.MinimumSize = new Size(50, 30);
             telefonoTextbox.Multiline = false;
             telefonoTextbox.Name = "telefonoTextbox";
@@ -183,6 +186,7 @@
             nombreTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nombreTextbox.Location = new Point(386, 212);
             nombreTextbox.Margin = new Padding(4);
+            nombreTextbox.MaxLength = 32767;
             nombreTextbox.MinimumSize = new Size(50, 30);
             nombreTextbox.Multiline = false;
             nombreTextbox.Name = "nombreTextbox";
@@ -206,6 +210,7 @@
             IdTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             IdTextbox.Location = new Point(386, 158);
             IdTextbox.Margin = new Padding(4);
+            IdTextbox.MaxLength = 32767;
             IdTextbox.MinimumSize = new Size(50, 30);
             IdTextbox.Multiline = false;
             IdTextbox.Name = "IdTextbox";
@@ -225,7 +230,7 @@
             label1.ForeColor = Color.FromArgb(16, 83, 233);
             label1.Location = new Point(386, 79);
             label1.Name = "label1";
-            label1.Size = new Size(432, 55);
+            label1.Size = new Size(435, 62);
             label1.TabIndex = 25;
             label1.Text = "Añadir Colaborador";
             // 

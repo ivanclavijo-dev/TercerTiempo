@@ -49,10 +49,18 @@
             nacimientolbl = new Label();
             serviciolbl = new Label();
             pictureBox4 = new PictureBox();
-            sexoTextbox = new CustomControls.RJControls.RJTextBox();
             FotoPerfil = new PictureBox();
             rjButton3 = new CustomControls.RJControls.RJButton();
             rjButton4 = new CustomControls.RJControls.RJButton();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            sexoTextbox = new CustomControls.RJControls.RJComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -82,11 +90,11 @@
             // 
             // IdTextbox
             // 
-            IdTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            IdTextbox.BorderColor = Color.Transparent;
+            IdTextbox.BackColor = SystemColors.Control;
+            IdTextbox.BorderColor = Color.DarkGray;
             IdTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            IdTextbox.BorderRadius = 20;
-            IdTextbox.BorderSize = 2;
+            IdTextbox.BorderRadius = 10;
+            IdTextbox.BorderSize = 1;
             IdTextbox.Enabled = false;
             IdTextbox.Font = new Font("Quicksand", 13.75F);
             IdTextbox.ForeColor = Color.FromArgb(130, 130, 130);
@@ -99,7 +107,7 @@
             IdTextbox.Padding = new Padding(20, 7, 10, 7);
             IdTextbox.PasswordChar = false;
             IdTextbox.PlaceholderColor = Color.DarkGray;
-            IdTextbox.PlaceholderText = "ID del Cliente: 123";
+            IdTextbox.PlaceholderText = "";
             IdTextbox.Size = new Size(215, 43);
             IdTextbox.TabIndex = 11;
             IdTextbox.Texts = "";
@@ -107,11 +115,11 @@
             // 
             // nombreTextbox
             // 
-            nombreTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            nombreTextbox.BorderColor = Color.Transparent;
+            nombreTextbox.BackColor = SystemColors.Control;
+            nombreTextbox.BorderColor = Color.DarkGray;
             nombreTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            nombreTextbox.BorderRadius = 20;
-            nombreTextbox.BorderSize = 2;
+            nombreTextbox.BorderRadius = 10;
+            nombreTextbox.BorderSize = 1;
             nombreTextbox.Font = new Font("Quicksand", 13.75F);
             nombreTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nombreTextbox.Location = new Point(386, 196);
@@ -123,20 +131,22 @@
             nombreTextbox.Padding = new Padding(20, 7, 10, 7);
             nombreTextbox.PasswordChar = false;
             nombreTextbox.PlaceholderColor = Color.DarkGray;
-            nombreTextbox.PlaceholderText = "Nombre";
+            nombreTextbox.PlaceholderText = "";
             nombreTextbox.Size = new Size(215, 43);
-            nombreTextbox.TabIndex = 12;
+            nombreTextbox.TabIndex = 13;
             nombreTextbox.Texts = "";
             nombreTextbox.UnderlinedStyle = false;
             nombreTextbox._TextChanged += nombreTextbox__TextChanged;
+            nombreTextbox.Enter += nombreTextbox_Enter;
+            nombreTextbox.Leave += nombreTextbox_Leave;
             // 
             // apellidoTextbox
             // 
-            apellidoTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            apellidoTextbox.BorderColor = Color.Transparent;
+            apellidoTextbox.BackColor = SystemColors.Control;
+            apellidoTextbox.BorderColor = Color.DarkGray;
             apellidoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            apellidoTextbox.BorderRadius = 20;
-            apellidoTextbox.BorderSize = 2;
+            apellidoTextbox.BorderRadius = 10;
+            apellidoTextbox.BorderSize = 1;
             apellidoTextbox.Font = new Font("Quicksand", 13.75F);
             apellidoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             apellidoTextbox.Location = new Point(609, 197);
@@ -148,20 +158,22 @@
             apellidoTextbox.Padding = new Padding(20, 7, 10, 7);
             apellidoTextbox.PasswordChar = false;
             apellidoTextbox.PlaceholderColor = Color.DarkGray;
-            apellidoTextbox.PlaceholderText = "Apellido";
+            apellidoTextbox.PlaceholderText = "";
             apellidoTextbox.Size = new Size(217, 43);
             apellidoTextbox.TabIndex = 14;
             apellidoTextbox.Texts = "";
             apellidoTextbox.UnderlinedStyle = false;
             apellidoTextbox._TextChanged += apellidoTextbox__TextChanged;
+            apellidoTextbox.Enter += apellidoTextbox_Enter;
+            apellidoTextbox.Leave += apellidoTextbox_Leave;
             // 
             // telefonoTextbox
             // 
-            telefonoTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            telefonoTextbox.BorderColor = Color.Transparent;
+            telefonoTextbox.BackColor = SystemColors.Control;
+            telefonoTextbox.BorderColor = Color.DarkGray;
             telefonoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            telefonoTextbox.BorderRadius = 20;
-            telefonoTextbox.BorderSize = 2;
+            telefonoTextbox.BorderRadius = 10;
+            telefonoTextbox.BorderSize = 1;
             telefonoTextbox.Font = new Font("Quicksand", 13.75F);
             telefonoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             telefonoTextbox.Location = new Point(386, 247);
@@ -173,24 +185,26 @@
             telefonoTextbox.Padding = new Padding(20, 7, 10, 7);
             telefonoTextbox.PasswordChar = false;
             telefonoTextbox.PlaceholderColor = Color.DarkGray;
-            telefonoTextbox.PlaceholderText = "Telefono";
+            telefonoTextbox.PlaceholderText = "";
             telefonoTextbox.Size = new Size(215, 43);
-            telefonoTextbox.TabIndex = 13;
+            telefonoTextbox.TabIndex = 15;
             telefonoTextbox.Texts = "";
             telefonoTextbox.UnderlinedStyle = false;
             telefonoTextbox._TextChanged += telefonoTextbox__TextChanged;
+            telefonoTextbox.Enter += telefonoTextbox_Enter;
+            telefonoTextbox.Leave += telefonoTextbox_Leave;
             // 
             // nacimientoTextbox
             // 
             nacimientoTextbox.AccessibleDescription = "";
-            nacimientoTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            nacimientoTextbox.BorderColor = Color.Transparent;
+            nacimientoTextbox.BackColor = SystemColors.Control;
+            nacimientoTextbox.BorderColor = Color.DarkGray;
             nacimientoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            nacimientoTextbox.BorderRadius = 20;
-            nacimientoTextbox.BorderSize = 2;
+            nacimientoTextbox.BorderRadius = 10;
+            nacimientoTextbox.BorderSize = 1;
             nacimientoTextbox.Font = new Font("Quicksand", 13.75F);
             nacimientoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
-            nacimientoTextbox.Location = new Point(609, 249);
+            nacimientoTextbox.Location = new Point(609, 248);
             nacimientoTextbox.Margin = new Padding(4);
             nacimientoTextbox.MaxLength = 32767;
             nacimientoTextbox.MinimumSize = new Size(50, 30);
@@ -199,20 +213,22 @@
             nacimientoTextbox.Padding = new Padding(20, 7, 10, 7);
             nacimientoTextbox.PasswordChar = false;
             nacimientoTextbox.PlaceholderColor = Color.DarkGray;
-            nacimientoTextbox.PlaceholderText = "Fecha de Nacimiento";
+            nacimientoTextbox.PlaceholderText = "";
             nacimientoTextbox.Size = new Size(217, 43);
             nacimientoTextbox.TabIndex = 16;
             nacimientoTextbox.Texts = "";
             nacimientoTextbox.UnderlinedStyle = false;
             nacimientoTextbox._TextChanged += nacimientoTextbox__TextChanged;
+            nacimientoTextbox.Enter += nacimientoTextbox_Enter;
+            nacimientoTextbox.Leave += nacimientoTextbox_Leave;
             // 
             // cedulaTextbox
             // 
-            cedulaTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            cedulaTextbox.BorderColor = Color.Transparent;
+            cedulaTextbox.BackColor = SystemColors.Control;
+            cedulaTextbox.BorderColor = Color.DarkGray;
             cedulaTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            cedulaTextbox.BorderRadius = 20;
-            cedulaTextbox.BorderSize = 2;
+            cedulaTextbox.BorderRadius = 10;
+            cedulaTextbox.BorderSize = 1;
             cedulaTextbox.Font = new Font("Quicksand", 13.75F);
             cedulaTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             cedulaTextbox.Location = new Point(609, 145);
@@ -224,24 +240,26 @@
             cedulaTextbox.Padding = new Padding(20, 7, 10, 7);
             cedulaTextbox.PasswordChar = false;
             cedulaTextbox.PlaceholderColor = Color.DarkGray;
-            cedulaTextbox.PlaceholderText = "Cedula";
+            cedulaTextbox.PlaceholderText = "";
             cedulaTextbox.Size = new Size(217, 43);
-            cedulaTextbox.TabIndex = 15;
+            cedulaTextbox.TabIndex = 12;
             cedulaTextbox.Texts = "";
             cedulaTextbox.UnderlinedStyle = false;
             cedulaTextbox._TextChanged += cedulaTextbox__TextChanged;
+            cedulaTextbox.Enter += cedulaTextbox_Enter;
+            cedulaTextbox.Leave += cedulaTextbox_Leave;
             // 
             // servicioTextbox
             // 
             servicioTextbox.AccessibleDescription = "servicioTextbox";
-            servicioTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            servicioTextbox.BorderColor = Color.Transparent;
+            servicioTextbox.BackColor = SystemColors.Control;
+            servicioTextbox.BorderColor = Color.DarkGray;
             servicioTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            servicioTextbox.BorderRadius = 20;
-            servicioTextbox.BorderSize = 2;
+            servicioTextbox.BorderRadius = 10;
+            servicioTextbox.BorderSize = 1;
             servicioTextbox.Font = new Font("Quicksand", 13.75F);
             servicioTextbox.ForeColor = Color.FromArgb(130, 130, 130);
-            servicioTextbox.Location = new Point(386, 301);
+            servicioTextbox.Location = new Point(387, 295);
             servicioTextbox.Margin = new Padding(4);
             servicioTextbox.MaxLength = 32767;
             servicioTextbox.MinimumSize = new Size(50, 30);
@@ -250,24 +268,26 @@
             servicioTextbox.Padding = new Padding(20, 7, 10, 7);
             servicioTextbox.PasswordChar = false;
             servicioTextbox.PlaceholderColor = Color.DarkGray;
-            servicioTextbox.PlaceholderText = "Servicio Medico";
+            servicioTextbox.PlaceholderText = "";
             servicioTextbox.Size = new Size(215, 43);
             servicioTextbox.TabIndex = 17;
             servicioTextbox.Texts = "";
             servicioTextbox.UnderlinedStyle = false;
             servicioTextbox._TextChanged += servicioTextbox__TextChanged;
+            servicioTextbox.Enter += servicioTextbox_Enter;
+            servicioTextbox.Leave += servicioTextbox_Leave;
             // 
             // observacionTextbox
             // 
             observacionTextbox.AccessibleDescription = "observacionTextbox";
-            observacionTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            observacionTextbox.BorderColor = Color.Transparent;
+            observacionTextbox.BackColor = SystemColors.Control;
+            observacionTextbox.BorderColor = Color.DarkGray;
             observacionTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            observacionTextbox.BorderRadius = 20;
-            observacionTextbox.BorderSize = 2;
+            observacionTextbox.BorderRadius = 10;
+            observacionTextbox.BorderSize = 1;
             observacionTextbox.Font = new Font("Quicksand", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            observacionTextbox.ForeColor = Color.FromArgb(64, 64, 64);
-            observacionTextbox.Location = new Point(386, 352);
+            observacionTextbox.ForeColor = Color.FromArgb(130, 130, 130);
+            observacionTextbox.Location = new Point(386, 349);
             observacionTextbox.Margin = new Padding(4);
             observacionTextbox.MaxLength = 32767;
             observacionTextbox.Multiline = true;
@@ -275,11 +295,13 @@
             observacionTextbox.Padding = new Padding(15, 10, 10, 7);
             observacionTextbox.PasswordChar = false;
             observacionTextbox.PlaceholderColor = Color.DarkGray;
-            observacionTextbox.PlaceholderText = "Observaciones";
+            observacionTextbox.PlaceholderText = "";
             observacionTextbox.Size = new Size(440, 83);
-            observacionTextbox.TabIndex = 19;
+            observacionTextbox.TabIndex = 18;
             observacionTextbox.Texts = "";
             observacionTextbox.UnderlinedStyle = false;
+            observacionTextbox.Enter += observacionTextbox_Enter;
+            observacionTextbox.Leave += observacionTextbox_Leave;
             // 
             // NotificacionesChkbox
             // 
@@ -305,7 +327,7 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Quicksand", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(419, 473);
+            rjButton1.Location = new Point(437, 473);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(260, 44);
             rjButton1.TabIndex = 21;
@@ -316,23 +338,25 @@
             // 
             // rjButton2
             // 
-            rjButton2.BackColor = Color.FromArgb(244, 54, 20);
-            rjButton2.BackgroundColor = Color.FromArgb(244, 54, 20);
-            rjButton2.BorderColor = Color.FromArgb(244, 54, 20);
+            rjButton2.BackColor = Color.Transparent;
+            rjButton2.BackgroundColor = Color.Transparent;
+            rjButton2.BorderColor = Color.Black;
             rjButton2.BorderRadius = 20;
-            rjButton2.BorderSize = 0;
+            rjButton2.BorderSize = 1;
             rjButton2.FlatAppearance.BorderSize = 0;
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.Font = new Font("Quicksand", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rjButton2.ForeColor = Color.White;
-            rjButton2.Image = (Image)resources.GetObject("rjButton2.Image");
-            rjButton2.Location = new Point(697, 473);
+            rjButton2.Image = Properties.Resources.BlackTrash;
+            rjButton2.Location = new Point(703, 473);
             rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(44, 44);
+            rjButton2.Size = new Size(47, 44);
             rjButton2.TabIndex = 22;
             rjButton2.TextColor = Color.White;
             rjButton2.UseVisualStyleBackColor = false;
             rjButton2.Click += rjButton2_Click;
+            rjButton2.MouseEnter += rjButton2_MouseEnter;
+            rjButton2.MouseLeave += rjButton2_MouseLeave;
             // 
             // pictureBox2
             // 
@@ -419,31 +443,6 @@
             pictureBox4.MouseEnter += pictureBox4_MouseEnter;
             pictureBox4.MouseLeave += pictureBox4_MouseLeave;
             // 
-            // sexoTextbox
-            // 
-            sexoTextbox.AccessibleDescription = "servicioTextbox";
-            sexoTextbox.BackColor = Color.FromArgb(232, 232, 232);
-            sexoTextbox.BorderColor = Color.Transparent;
-            sexoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
-            sexoTextbox.BorderRadius = 20;
-            sexoTextbox.BorderSize = 2;
-            sexoTextbox.Font = new Font("Quicksand", 13.75F);
-            sexoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
-            sexoTextbox.Location = new Point(609, 301);
-            sexoTextbox.Margin = new Padding(4);
-            sexoTextbox.MaxLength = 32767;
-            sexoTextbox.MinimumSize = new Size(50, 30);
-            sexoTextbox.Multiline = false;
-            sexoTextbox.Name = "sexoTextbox";
-            sexoTextbox.Padding = new Padding(20, 7, 10, 7);
-            sexoTextbox.PasswordChar = false;
-            sexoTextbox.PlaceholderColor = Color.DarkGray;
-            sexoTextbox.PlaceholderText = "Genero";
-            sexoTextbox.Size = new Size(217, 43);
-            sexoTextbox.TabIndex = 37;
-            sexoTextbox.Texts = "";
-            sexoTextbox.UnderlinedStyle = false;
-            // 
             // FotoPerfil
             // 
             FotoPerfil.Image = (Image)resources.GetObject("FotoPerfil.Image");
@@ -459,7 +458,7 @@
             rjButton3.BackColor = Color.FromArgb(16, 83, 233);
             rjButton3.BackgroundColor = Color.FromArgb(16, 83, 233);
             rjButton3.BorderColor = Color.FromArgb(16, 83, 233);
-            rjButton3.BorderRadius = 10;
+            rjButton3.BorderRadius = 20;
             rjButton3.BorderSize = 0;
             rjButton3.Cursor = Cursors.Hand;
             rjButton3.FlatAppearance.BorderSize = 0;
@@ -470,8 +469,8 @@
             rjButton3.ImageAlign = ContentAlignment.MiddleLeft;
             rjButton3.Location = new Point(43, 458);
             rjButton3.Name = "rjButton3";
-            rjButton3.Padding = new Padding(5, 0, 0, 0);
-            rjButton3.Size = new Size(146, 27);
+            rjButton3.Padding = new Padding(10, 0, 0, 0);
+            rjButton3.Size = new Size(146, 59);
             rjButton3.TabIndex = 39;
             rjButton3.Text = "Foto nueva";
             rjButton3.TextColor = Color.White;
@@ -483,7 +482,7 @@
             rjButton4.BackColor = Color.FromArgb(16, 83, 233);
             rjButton4.BackgroundColor = Color.FromArgb(16, 83, 233);
             rjButton4.BorderColor = Color.FromArgb(16, 83, 233);
-            rjButton4.BorderRadius = 10;
+            rjButton4.BorderRadius = 20;
             rjButton4.BorderSize = 0;
             rjButton4.FlatAppearance.BorderSize = 0;
             rjButton4.FlatStyle = FlatStyle.Flat;
@@ -493,12 +492,129 @@
             rjButton4.ImageAlign = ContentAlignment.MiddleLeft;
             rjButton4.Location = new Point(194, 458);
             rjButton4.Name = "rjButton4";
-            rjButton4.Size = new Size(146, 27);
+            rjButton4.Padding = new Padding(10, 0, 0, 0);
+            rjButton4.Size = new Size(146, 59);
             rjButton4.TabIndex = 40;
             rjButton4.Text = "Elegir foto";
             rjButton4.TextColor = Color.White;
             rjButton4.UseVisualStyleBackColor = false;
             rjButton4.Click += rjButton4_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.DarkGray;
+            label2.Location = new Point(404, 137);
+            label2.Name = "label2";
+            label2.Size = new Size(88, 18);
+            label2.TabIndex = 41;
+            label2.Text = "ID del Cliente";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkGray;
+            label3.Location = new Point(628, 137);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 18);
+            label3.TabIndex = 42;
+            label3.Text = "Cedula";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.DarkGray;
+            label4.Location = new Point(404, 188);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 18);
+            label4.TabIndex = 43;
+            label4.Text = "Nombre";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DarkGray;
+            label5.Location = new Point(628, 188);
+            label5.Name = "label5";
+            label5.Size = new Size(57, 18);
+            label5.TabIndex = 44;
+            label5.Text = "Apellido";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.DarkGray;
+            label6.Location = new Point(404, 239);
+            label6.Name = "label6";
+            label6.Size = new Size(59, 18);
+            label6.TabIndex = 45;
+            label6.Text = "Teléfono";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DarkGray;
+            label7.Location = new Point(404, 290);
+            label7.Name = "label7";
+            label7.Size = new Size(102, 18);
+            label7.TabIndex = 46;
+            label7.Text = "Servicio Médico";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DarkGray;
+            label8.Location = new Point(404, 341);
+            label8.Name = "label8";
+            label8.Size = new Size(97, 18);
+            label8.TabIndex = 47;
+            label8.Text = "Observaciones";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Montserrat", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.DarkGray;
+            label9.Location = new Point(628, 240);
+            label9.Name = "label9";
+            label9.Size = new Size(137, 18);
+            label9.TabIndex = 49;
+            label9.Text = "Fecha de Nacimiento";
+            // 
+            // sexoTextbox
+            // 
+            sexoTextbox.AutoCompleteMode = AutoCompleteMode.None;
+            sexoTextbox.AutoCompleteSource = AutoCompleteSource.None;
+            sexoTextbox.BackColor = SystemColors.ControlLight;
+            sexoTextbox.BorderColor = Color.MediumSlateBlue;
+            sexoTextbox.BorderRadius = 10;
+            sexoTextbox.BorderSize = 0;
+            sexoTextbox.DataSource = null;
+            sexoTextbox.DisplayMember = "";
+            sexoTextbox.DropDownStyle = ComboBoxStyle.DropDown;
+            sexoTextbox.Font = new Font("Quicksand", 13.75F);
+            sexoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
+            sexoTextbox.IconColor = Color.FromArgb(130, 130, 130);
+            sexoTextbox.ListBackColor = SystemColors.ControlLight;
+            sexoTextbox.ListTextColor = Color.Black;
+            sexoTextbox.Location = new Point(609, 295);
+            sexoTextbox.MinimumSize = new Size(200, 30);
+            sexoTextbox.Name = "sexoTextbox";
+            sexoTextbox.SelectedIndex = -1;
+            sexoTextbox.SelectedItem = null;
+            sexoTextbox.Size = new Size(217, 43);
+            sexoTextbox.TabIndex = 50;
+            sexoTextbox.Texts = "";
+            sexoTextbox.ValueMember = "";
+            sexoTextbox.OnSelectedIndexChanged += sexoTextbox_OnSelectedIndexChanged;
             // 
             // VentanaAltaClientes
             // 
@@ -506,10 +622,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(899, 546);
+            Controls.Add(sexoTextbox);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(rjButton4);
             Controls.Add(rjButton3);
             Controls.Add(FotoPerfil);
-            Controls.Add(sexoTextbox);
             Controls.Add(pictureBox4);
             Controls.Add(serviciolbl);
             Controls.Add(nacimientolbl);
@@ -564,9 +688,17 @@
         private Label nacimientolbl;
         private Label serviciolbl;
         private PictureBox pictureBox4;
-        private CustomControls.RJControls.RJTextBox sexoTextbox;
         private PictureBox FotoPerfil;
         private CustomControls.RJControls.RJButton rjButton3;
         private CustomControls.RJControls.RJButton rjButton4;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private CustomControls.RJControls.RJComboBox sexoTextbox;
     }
 }
