@@ -123,6 +123,26 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_add_square {
+            get {
+                object obj = ResourceManager.GetObject("blue-add-square", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_Edit_Pen_Icon {
+            get {
+                object obj = ResourceManager.GetObject("blue-Edit_Pen_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Camira_Icons_UIA {
             get {
                 object obj = ResourceManager.GetObject("Camira_Icons_UIA", resourceCulture);
@@ -366,6 +386,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap fi_rr_shopping_cart {
             get {
                 object obj = ResourceManager.GetObject("fi-rr-shopping-cart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_add_square {
+            get {
+                object obj = ResourceManager.GetObject("green-add-square", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

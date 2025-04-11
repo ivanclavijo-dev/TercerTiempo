@@ -12,7 +12,7 @@ namespace UI.Notificaciones
         {
             InitializeComponent();
             _formPadre = formPadre;
-            timerAnimacion.Interval = 10; // velocidad de la animación en milisegundos
+            timerAnimacion.Interval = 8; // velocidad de la animación en milisegundos
         }
 
         public Color BackColorAlertBox

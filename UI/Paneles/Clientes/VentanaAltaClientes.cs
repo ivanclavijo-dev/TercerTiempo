@@ -17,6 +17,7 @@ using Logica.BD;
 using Logica.BD.Altas;
 using Logica.MetodosAdicionales;
 using UI.Forms;
+using UI.Notificaciones;
 using UI.Paneles.Desplegable;
 using UI.Properties;
 
@@ -38,6 +39,45 @@ namespace UI.Paneles
 
         readonly Color ColorSeleccionado = Color.FromArgb(16, 83, 233);
         readonly Color ColorNoSeleccionado = Color.DarkGray;
+
+        private Form ObtenerFormularioPrincipal()
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is TercerTiempo) 
+                {
+                    return form;
+                }
+            }
+
+            return null;
+        }
+
+        public void MostrarNotificacion(string Titulo, string Cuerpo, string Tipo)
+        {
+            Form formPrincipal = ObtenerFormularioPrincipal();
+
+            NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+            noti.TitleAlertBox = Titulo;
+            noti.SubituloAlertBox = Cuerpo;
+            if(Tipo.ToLower() == "aviso")
+            {
+                noti.ColorAlertBox = Color.Orange;
+                noti.IconeAlertBox = Properties.Resources.exclamacion;
+            }
+            else if(Tipo.ToLower() == "exito")
+            {
+                noti.ColorAlertBox = Color.Green;
+                noti.IconeAlertBox = Properties.Resources.marca_de_verificacion;
+            } else if(Tipo.ToLower() == "error")
+            {
+                noti.ColorAlertBox = Color.Red;
+                noti.IconeAlertBox = Properties.Resources.cerrar;
+            }
+            noti.BackColorAlertBox = Color.WhiteSmoke;
+
+            noti.Show();
+        }
 
         private void ColorearLabel(Label label, Color color)
         {
@@ -127,11 +167,11 @@ namespace UI.Paneles
             if (cedulaTextbox.Texts == "" || nombreTextbox.Texts == "" || apellidoTextbox.Texts == "" || telefonoTextbox.Texts == "" ||
                 nacimientoTextbox.Texts == "" || servicioTextbox.Texts == "" || sexoTextbox.Texts == "")
             {
-                MessageBox.Show("Debes completar todos los campos para enviar los datos.");
+                MostrarNotificacion("Alerta", "Debes completar los campos con (*).", "aviso");
             }
             else if (!validarFecha)
             {
-                MessageBox.Show("El formato de la fecha es incorrecto.");
+                MostrarNotificacion("Error", "El formato de la fecha es incorrecto.", "error");
             }
             else
             {
@@ -144,11 +184,10 @@ namespace UI.Paneles
 
                 if (resultadoIngresarPersona == 1)
                 {
-                    MessageBox.Show("Se ingreso la persona");
-
                     if (resultadoIngresarCliente == 1)
                     {
-                        MessageBox.Show("Se ingreso al cliente correctamente");
+                        MostrarNotificacion("Cliente ingresado", "El registro se guardo correctamente.", "Exito");
+
                         this.Close();
                     }
                     else if (resultadoIngresarCliente == 2)

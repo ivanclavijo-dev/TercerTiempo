@@ -36,13 +36,11 @@ namespace UI.Paneles
 
         }
 
-
-
         private Form ObtenerFormularioPrincipal()
         {
             foreach (Form form in Application.OpenForms)
             {
-                if (form is TercerTiempo) 
+                if (form is TercerTiempo)
                 {
                     return form;
                 }
@@ -84,7 +82,7 @@ namespace UI.Paneles
 
             int id = consultasBD.ObtenerIdDelArticuloNuevo();
             labelID.Text = Convert.ToString(id);
-            
+
         }
 
         private void StockTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,9 +123,9 @@ namespace UI.Paneles
                 precioOferta = Convert.ToInt32(PrecioOfertaTextBox.Texts);
             }
 
-            if (NombreTextBox.Texts == "" || PrecioListaTextBox.Texts == "" || StockTextBox.Texts == "" ||  DescTextBox.Texts == "")
+            if (NombreTextBox.Texts == "" || PrecioListaTextBox.Texts == "" || StockTextBox.Texts == "" || DescTextBox.Texts == "")
             {
-               
+
                 Form formPrincipal = ObtenerFormularioPrincipal();
 
                 NotificacionVentana noti = new NotificacionVentana(formPrincipal);
@@ -143,7 +141,7 @@ namespace UI.Paneles
             {
                 Altas altaProducto = new Altas();
 
-             
+
 
 
                 if (altaProducto.ingresarProducto(DescTextBox.Texts, Convert.ToInt32(PrecioListaTextBox.Texts), precioOferta, NombreTextBox.Texts, Convert.ToInt32(StockTextBox.Texts)))
@@ -161,9 +159,9 @@ namespace UI.Paneles
 
                     noti.Show();
 
-                    this.Hide();      
-                    this.Close();    
-                    return;         
+                    this.Hide();
+                    this.Close();
+                    return;
                 }
                 else
                 {
@@ -195,6 +193,11 @@ namespace UI.Paneles
                 noti.Show();
 
             }
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

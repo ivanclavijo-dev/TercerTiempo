@@ -162,6 +162,7 @@
             rjButton2.BorderColor = Color.PaleVioletRed;
             rjButton2.BorderRadius = 20;
             rjButton2.BorderSize = 0;
+            rjButton2.Cursor = Cursors.Hand;
             rjButton2.FlatAppearance.BorderSize = 0;
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.Font = new Font("Quicksand", 12F, FontStyle.Bold);
@@ -186,9 +187,12 @@
             pictureBox1.TabIndex = 32;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.MouseEnter += pictureBox1_MouseEnter;
+            pictureBox1.MouseLeave += pictureBox1_MouseLeave;
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Edit_Pen_Icon;
             pictureBox2.Location = new Point(821, 111);
             pictureBox2.Name = "pictureBox2";
@@ -196,6 +200,8 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 33;
             pictureBox2.TabStop = false;
+            pictureBox2.MouseEnter += pictureBox2_MouseEnter;
+            pictureBox2.MouseLeave += pictureBox2_MouseLeave;
             // 
             // pictureBox3
             // 

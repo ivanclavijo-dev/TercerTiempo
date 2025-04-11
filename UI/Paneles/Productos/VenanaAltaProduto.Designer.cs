@@ -68,7 +68,7 @@
             label2.ForeColor = Color.FromArgb(16, 83, 233);
             label2.Location = new Point(383, 77);
             label2.Name = "label2";
-            label2.Size = new Size(483, 55);
+            label2.Size = new Size(486, 62);
             label2.TabIndex = 2;
             label2.Text = "Registrar un Producto";
             // 
@@ -83,6 +83,7 @@
             NombreTextBox.ForeColor = Color.FromArgb(130, 130, 130);
             NombreTextBox.Location = new Point(402, 150);
             NombreTextBox.Margin = new Padding(4);
+            NombreTextBox.MaxLength = 32767;
             NombreTextBox.MinimumSize = new Size(50, 30);
             NombreTextBox.Multiline = false;
             NombreTextBox.Name = "NombreTextBox";
@@ -107,6 +108,7 @@
             PrecioListaTextBox.ForeColor = Color.FromArgb(130, 130, 130);
             PrecioListaTextBox.Location = new Point(402, 201);
             PrecioListaTextBox.Margin = new Padding(4);
+            PrecioListaTextBox.MaxLength = 32767;
             PrecioListaTextBox.MinimumSize = new Size(50, 30);
             PrecioListaTextBox.Multiline = false;
             PrecioListaTextBox.Name = "PrecioListaTextBox";
@@ -131,6 +133,7 @@
             StockTextBox.ForeColor = Color.FromArgb(130, 130, 130);
             StockTextBox.Location = new Point(402, 252);
             StockTextBox.Margin = new Padding(4);
+            StockTextBox.MaxLength = 32767;
             StockTextBox.MinimumSize = new Size(50, 30);
             StockTextBox.Multiline = false;
             StockTextBox.Name = "StockTextBox";
@@ -155,6 +158,7 @@
             DescTextBox.ForeColor = Color.FromArgb(130, 130, 130);
             DescTextBox.Location = new Point(402, 303);
             DescTextBox.Margin = new Padding(4);
+            DescTextBox.MaxLength = 32767;
             DescTextBox.MinimumSize = new Size(50, 30);
             DescTextBox.Multiline = false;
             DescTextBox.Name = "DescTextBox";
@@ -204,6 +208,7 @@
             rjButton1.Text = "Ingresar Datos";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
             rjButton1.MouseClick += rjButton1_MouseClick;
             // 
             // pictureBox2
@@ -288,6 +293,7 @@
             PrecioOfertaTextBox.ForeColor = Color.FromArgb(130, 130, 130);
             PrecioOfertaTextBox.Location = new Point(620, 201);
             PrecioOfertaTextBox.Margin = new Padding(4);
+            PrecioOfertaTextBox.MaxLength = 32767;
             PrecioOfertaTextBox.MinimumSize = new Size(50, 30);
             PrecioOfertaTextBox.Multiline = false;
             PrecioOfertaTextBox.Name = "PrecioOfertaTextBox";

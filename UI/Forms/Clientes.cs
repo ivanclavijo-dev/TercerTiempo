@@ -188,5 +188,28 @@ namespace UI.Forms
         {
             pictureBox3.Image = Resources.Blacktrash22x22;
         }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Resources.blue_add_square;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Resources.add_square;
+
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Resources.blue_Edit_Pen_Icon;
+
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Resources.Edit_Pen_Icon;
+
+        }
     }
 }

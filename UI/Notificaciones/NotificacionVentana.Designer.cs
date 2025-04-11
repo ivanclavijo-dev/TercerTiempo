@@ -52,7 +52,7 @@
             // 
             labelTituloAlertBox.AutoSize = true;
             labelTituloAlertBox.Font = new Font("Quicksand SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTituloAlertBox.Location = new Point(83, 25);
+            labelTituloAlertBox.Location = new Point(82, 21);
             labelTituloAlertBox.Name = "labelTituloAlertBox";
             labelTituloAlertBox.Size = new Size(64, 28);
             labelTituloAlertBox.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             subtitleAlert.AutoSize = true;
             subtitleAlert.Font = new Font("Quicksand", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            subtitleAlert.Location = new Point(83, 53);
+            subtitleAlert.Location = new Point(83, 47);
             subtitleAlert.Name = "subtitleAlert";
             subtitleAlert.Size = new Size(43, 19);
             subtitleAlert.TabIndex = 2;

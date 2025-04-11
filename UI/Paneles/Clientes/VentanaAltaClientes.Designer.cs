@@ -306,6 +306,7 @@
             // NotificacionesChkbox
             // 
             NotificacionesChkbox.AutoSize = true;
+            NotificacionesChkbox.Cursor = Cursors.Hand;
             NotificacionesChkbox.FlatStyle = FlatStyle.System;
             NotificacionesChkbox.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             NotificacionesChkbox.ForeColor = Color.FromArgb(64, 64, 64);
@@ -323,6 +324,7 @@
             rjButton1.BorderColor = Color.FromArgb(16, 83, 233);
             rjButton1.BorderRadius = 20;
             rjButton1.BorderSize = 0;
+            rjButton1.Cursor = Cursors.Hand;
             rjButton1.FlatAppearance.BorderSize = 0;
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Quicksand", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -343,6 +345,7 @@
             rjButton2.BorderColor = Color.Black;
             rjButton2.BorderRadius = 20;
             rjButton2.BorderSize = 1;
+            rjButton2.Cursor = Cursors.Hand;
             rjButton2.FlatAppearance.BorderSize = 0;
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.Font = new Font("Quicksand", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -484,6 +487,7 @@
             rjButton4.BorderColor = Color.FromArgb(16, 83, 233);
             rjButton4.BorderRadius = 20;
             rjButton4.BorderSize = 0;
+            rjButton4.Cursor = Cursors.Hand;
             rjButton4.FlatAppearance.BorderSize = 0;
             rjButton4.FlatStyle = FlatStyle.Flat;
             rjButton4.Font = new Font("Montserrat Medium", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -518,9 +522,9 @@
             label3.ForeColor = Color.DarkGray;
             label3.Location = new Point(628, 137);
             label3.Name = "label3";
-            label3.Size = new Size(50, 18);
+            label3.Size = new Size(66, 18);
             label3.TabIndex = 42;
-            label3.Text = "Cedula";
+            label3.Text = "Cedula (*)";
             // 
             // label4
             // 
@@ -529,9 +533,9 @@
             label4.ForeColor = Color.DarkGray;
             label4.Location = new Point(404, 188);
             label4.Name = "label4";
-            label4.Size = new Size(59, 18);
+            label4.Size = new Size(75, 18);
             label4.TabIndex = 43;
-            label4.Text = "Nombre";
+            label4.Text = "Nombre (*)";
             // 
             // label5
             // 
@@ -540,9 +544,9 @@
             label5.ForeColor = Color.DarkGray;
             label5.Location = new Point(628, 188);
             label5.Name = "label5";
-            label5.Size = new Size(57, 18);
+            label5.Size = new Size(73, 18);
             label5.TabIndex = 44;
-            label5.Text = "Apellido";
+            label5.Text = "Apellido (*)";
             // 
             // label6
             // 
@@ -551,9 +555,9 @@
             label6.ForeColor = Color.DarkGray;
             label6.Location = new Point(404, 239);
             label6.Name = "label6";
-            label6.Size = new Size(59, 18);
+            label6.Size = new Size(75, 18);
             label6.TabIndex = 45;
-            label6.Text = "Teléfono";
+            label6.Text = "Teléfono (*)";
             // 
             // label7
             // 
@@ -562,9 +566,9 @@
             label7.ForeColor = Color.DarkGray;
             label7.Location = new Point(404, 290);
             label7.Name = "label7";
-            label7.Size = new Size(102, 18);
+            label7.Size = new Size(118, 18);
             label7.TabIndex = 46;
-            label7.Text = "Servicio Médico";
+            label7.Text = "Servicio Médico (*)";
             // 
             // label8
             // 
@@ -585,9 +589,9 @@
             label9.ForeColor = Color.DarkGray;
             label9.Location = new Point(628, 240);
             label9.Name = "label9";
-            label9.Size = new Size(137, 18);
+            label9.Size = new Size(153, 18);
             label9.TabIndex = 49;
-            label9.Text = "Fecha de Nacimiento";
+            label9.Text = "Fecha de Nacimiento (*)";
             // 
             // sexoTextbox
             // 
