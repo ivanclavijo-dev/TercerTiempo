@@ -116,6 +116,8 @@ namespace UI.Paneles
             sexoTextbox.Items.Add("Femenino");
             sexoTextbox.Items.Add("Otro");
 
+            observacionTextbox.Location = new Point(386, 196);
+            label8.Location = new Point(404, 188);
         }
 
         private void SetImagenPredeterminada()
@@ -254,6 +256,13 @@ namespace UI.Paneles
         private void cedulaTextbox__TextChanged(object sender, EventArgs e)
         {
             cedulalbl.Text = $"Cédula: {cedulaTextbox.Texts}";
+            if (cedulaTextbox.Texts.Length == 8)
+            {
+                pictureBox3.Image = Resources.import;
+            } else
+            {
+                pictureBox3.Image = Resources.darkgray_import;
+            }
         }
 
         private void nombreTextbox__TextChanged(object sender, EventArgs e)

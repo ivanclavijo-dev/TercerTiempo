@@ -139,6 +139,7 @@
             nombreTextbox.TabIndex = 13;
             nombreTextbox.Texts = "";
             nombreTextbox.UnderlinedStyle = false;
+            nombreTextbox.Visible = false;
             nombreTextbox._TextChanged += nombreTextbox__TextChanged;
             nombreTextbox.Enter += nombreTextbox_Enter;
             nombreTextbox.Leave += nombreTextbox_Leave;
@@ -167,6 +168,7 @@
             apellidoTextbox.TabIndex = 14;
             apellidoTextbox.Texts = "";
             apellidoTextbox.UnderlinedStyle = false;
+            apellidoTextbox.Visible = false;
             apellidoTextbox._TextChanged += apellidoTextbox__TextChanged;
             apellidoTextbox.Enter += apellidoTextbox_Enter;
             apellidoTextbox.Leave += apellidoTextbox_Leave;
@@ -195,6 +197,7 @@
             telefonoTextbox.TabIndex = 15;
             telefonoTextbox.Texts = "";
             telefonoTextbox.UnderlinedStyle = false;
+            telefonoTextbox.Visible = false;
             telefonoTextbox._TextChanged += telefonoTextbox__TextChanged;
             telefonoTextbox.Enter += telefonoTextbox_Enter;
             telefonoTextbox.Leave += telefonoTextbox_Leave;
@@ -224,6 +227,7 @@
             nacimientoTextbox.TabIndex = 16;
             nacimientoTextbox.Texts = "";
             nacimientoTextbox.UnderlinedStyle = false;
+            nacimientoTextbox.Visible = false;
             nacimientoTextbox._TextChanged += nacimientoTextbox__TextChanged;
             nacimientoTextbox.Enter += nacimientoTextbox_Enter;
             nacimientoTextbox.Leave += nacimientoTextbox_Leave;
@@ -280,6 +284,7 @@
             servicioTextbox.TabIndex = 17;
             servicioTextbox.Texts = "";
             servicioTextbox.UnderlinedStyle = false;
+            servicioTextbox.Visible = false;
             servicioTextbox._TextChanged += servicioTextbox__TextChanged;
             servicioTextbox.Enter += servicioTextbox_Enter;
             servicioTextbox.Leave += servicioTextbox_Leave;
@@ -450,6 +455,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 36;
             pictureBox4.TabStop = false;
+            pictureBox4.Visible = false;
             pictureBox4.Click += pictureBox4_Click;
             pictureBox4.MouseEnter += pictureBox4_MouseEnter;
             pictureBox4.MouseLeave += pictureBox4_MouseLeave;
@@ -546,6 +552,7 @@
             label4.Size = new Size(75, 18);
             label4.TabIndex = 43;
             label4.Text = "Nombre (*)";
+            label4.Visible = false;
             // 
             // label5
             // 
@@ -557,6 +564,7 @@
             label5.Size = new Size(73, 18);
             label5.TabIndex = 44;
             label5.Text = "Apellido (*)";
+            label5.Visible = false;
             // 
             // label6
             // 
@@ -568,6 +576,7 @@
             label6.Size = new Size(75, 18);
             label6.TabIndex = 45;
             label6.Text = "Teléfono (*)";
+            label6.Visible = false;
             // 
             // label7
             // 
@@ -579,6 +588,7 @@
             label7.Size = new Size(118, 18);
             label7.TabIndex = 46;
             label7.Text = "Servicio Médico (*)";
+            label7.Visible = false;
             // 
             // label8
             // 
@@ -602,6 +612,7 @@
             label9.Size = new Size(153, 18);
             label9.TabIndex = 49;
             label9.Text = "Fecha de Nacimiento (*)";
+            label9.Visible = false;
             // 
             // sexoTextbox
             // 
@@ -629,12 +640,13 @@
             sexoTextbox.TabIndex = 50;
             sexoTextbox.Texts = "";
             sexoTextbox.ValueMember = "";
+            sexoTextbox.Visible = false;
             sexoTextbox.OnSelectedIndexChanged += sexoTextbox_OnSelectedIndexChanged;
             // 
             // pictureBox3
             // 
             pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Properties.Resources.import;
+            pictureBox3.Image = Properties.Resources.darkgray_import;
             pictureBox3.Location = new Point(793, 154);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(27, 27);

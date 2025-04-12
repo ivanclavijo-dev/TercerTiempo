@@ -293,6 +293,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap darkgray_import {
+            get {
+                object obj = ResourceManager.GetObject("darkgray-import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_Pen_Icon {
             get {
                 object obj = ResourceManager.GetObject("Edit_Pen_Icon", resourceCulture);
