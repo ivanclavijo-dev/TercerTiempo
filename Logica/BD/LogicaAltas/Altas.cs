@@ -48,7 +48,7 @@ namespace Logica.BD.Altas
 
                 if (existencia)
                 {
-                    return 3; // Ya existe la persona
+                    return 3; // Ya existe el registro en la tabla persona
                 }
 
                 bool resultado = altaPersona.IngresarPersona(cedula, nombre, apellido, telefono, servicio_medico, fecha_nacimiento, notis, sexo, foto_perfil);
@@ -57,41 +57,34 @@ namespace Logica.BD.Altas
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return 2;
             }
         }
 
-        // El metodo de ingresar cliente devuelve 1 = Creado correctamente, 2 = Error al crear, 3 = El cliente ya existe en la tabla
+        // El metodo de ingresar cliente devuelve 1 = Creado correctamente, 2 = No existe el registro en persona, 3 = El cliente ya existe en la tabla, 4 = Error tecnico (excepcion)
 
         public int ingresarCliente(string observacion, int cedula)
         {
             try
             {
-                bool existencia = validarExistencias.validarCliente(cedula);
-
-                if (existencia)
+                bool existeCliente = validarExistencias.validarCliente(cedula);
+                if (existeCliente)
                 {
-                    return 3; 
+                    return 3; // Cliente ya existe
+                }
+
+                bool existePersona = validarExistencias.validarPersona(cedula);
+                if (!existePersona)
+                {
+                    return 2; // No existe la persona asociada
                 }
 
                 bool resultado = altacliente.IngresarCliente(observacion, cedula);
-
-                if (resultado)
-                {
-                    Console.WriteLine("Se ingresó el cliente");
-                    return 1; 
-                }
-                else
-                {
-                    Console.WriteLine("Error al ingresar al cliente");
-                    return 2;
-                }
+                return resultado ? 1 : 4; // Exito o error técnico al insertar
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine($"Error inesperado: {e.Message}");
-                return 2; 
+                return 4; // Error técnico inesperado
             }
         }
     }

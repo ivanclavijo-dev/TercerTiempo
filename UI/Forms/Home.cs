@@ -135,13 +135,6 @@ namespace UI.Forms
                 series.Points[1].LegendText = "19 a 30";
                 series.Points[2].LegendText = ">30";
             }
-
-
-
-
-
-
-
         }
 
         private void label2_Click_1(object sender, EventArgs e)

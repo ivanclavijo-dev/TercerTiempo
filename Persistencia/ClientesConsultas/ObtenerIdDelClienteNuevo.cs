@@ -18,7 +18,7 @@ namespace Persistencia.ClientesConsultas
 
             MySqlConnection conn = conexion.AbrirConexion();
             {
-                string consulta = "SELECT MAX(idCliente) +1 AS valor_maximo\r\nFROM cliente;\r\n";
+                string consulta = "SELECT IFNULL(MAX(idCliente), 0) + 1 AS valor_maximo FROM cliente;";
                 using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
                 {
 

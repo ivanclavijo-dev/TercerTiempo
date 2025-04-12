@@ -3,6 +3,7 @@ using Persistencia.ArticulosConsultas;
 using Persistencia.ClientesConsultas;
 using Persistencia.Empleado;
 using Persistencia.Estadisticas;
+using Persistencia.PersonaConsultas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -111,6 +112,16 @@ namespace Logica.BD
             public Cliente ObtenerClientePorId(int id)
             {
                 return obtenerCliente.ObtenerClienteProducto(id);
+            }
+        }
+
+        public class PersonaDatos
+        {
+            private ConsultarDatos obtenerPersona = new ConsultarDatos();
+
+            public Persona ObtenerPersonaPorCedula(string cedula)
+            {
+                return obtenerPersona.ObtenerPorCedula(cedula);
             }
         }
     }

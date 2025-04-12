@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using UI.Properties;
 
 namespace UI.Notificaciones
 {
@@ -13,6 +15,33 @@ namespace UI.Notificaciones
             InitializeComponent();
             _formPadre = formPadre;
             timerAnimacion.Interval = 8; // velocidad de la animación en milisegundos
+            labelTituloAlertBox.BackColor = Color.Transparent;
+            subtitleAlert.BackColor = Color.Transparent;
+        }
+
+        public void NotiAlerta(string Titulo, string Cuerpo)
+        {
+            TitleAlertBox = Titulo;
+            SubituloAlertBox = Cuerpo;
+            this.BackgroundImage = Resources.orange_Solid_Toast;
+            fotoAlertBox.Image = Resources.orange_Icon_2;
+            linAlertBox.BackColor = Color.White;
+        }
+        public void NotiError(string Titulo, string Cuerpo)
+        {
+            TitleAlertBox = Titulo;
+            SubituloAlertBox = Cuerpo;
+            this.BackgroundImage = Resources.red_Solid_Toast;
+            fotoAlertBox.Image = Resources.red_Icon_2;
+            linAlertBox.BackColor = Color.White;
+        }
+        public void NotiExito(string Titulo, string Cuerpo)
+        {
+            TitleAlertBox = Titulo;
+            SubituloAlertBox = Cuerpo;
+            this.BackgroundImage = Resources.green_Solid_Toast;
+            fotoAlertBox.Image = Resources.green_Icon_2;
+            linAlertBox.BackColor = Color.White;
         }
 
         public Color BackColorAlertBox
@@ -93,6 +122,12 @@ namespace UI.Notificaciones
 
                 this.Close();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            timerAnimacion.Stop();
+            this.Close();
         }
     }
 }

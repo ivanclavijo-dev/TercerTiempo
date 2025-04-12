@@ -61,10 +61,12 @@
             label8 = new Label();
             label9 = new Label();
             sexoTextbox = new CustomControls.RJControls.RJComboBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)FotoPerfil).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -120,6 +122,7 @@
             nombreTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
             nombreTextbox.BorderRadius = 10;
             nombreTextbox.BorderSize = 1;
+            nombreTextbox.Enabled = false;
             nombreTextbox.Font = new Font("Quicksand", 13.75F);
             nombreTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nombreTextbox.Location = new Point(386, 196);
@@ -147,6 +150,7 @@
             apellidoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
             apellidoTextbox.BorderRadius = 10;
             apellidoTextbox.BorderSize = 1;
+            apellidoTextbox.Enabled = false;
             apellidoTextbox.Font = new Font("Quicksand", 13.75F);
             apellidoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             apellidoTextbox.Location = new Point(609, 197);
@@ -174,6 +178,7 @@
             telefonoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
             telefonoTextbox.BorderRadius = 10;
             telefonoTextbox.BorderSize = 1;
+            telefonoTextbox.Enabled = false;
             telefonoTextbox.Font = new Font("Quicksand", 13.75F);
             telefonoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             telefonoTextbox.Location = new Point(386, 247);
@@ -202,6 +207,7 @@
             nacimientoTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
             nacimientoTextbox.BorderRadius = 10;
             nacimientoTextbox.BorderSize = 1;
+            nacimientoTextbox.Enabled = false;
             nacimientoTextbox.Font = new Font("Quicksand", 13.75F);
             nacimientoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             nacimientoTextbox.Location = new Point(609, 248);
@@ -257,6 +263,7 @@
             servicioTextbox.BorderFocusColor = Color.FromArgb(16, 83, 233);
             servicioTextbox.BorderRadius = 10;
             servicioTextbox.BorderSize = 1;
+            servicioTextbox.Enabled = false;
             servicioTextbox.Font = new Font("Quicksand", 13.75F);
             servicioTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             servicioTextbox.Location = new Point(387, 295);
@@ -307,6 +314,7 @@
             // 
             NotificacionesChkbox.AutoSize = true;
             NotificacionesChkbox.Cursor = Cursors.Hand;
+            NotificacionesChkbox.Enabled = false;
             NotificacionesChkbox.FlatStyle = FlatStyle.System;
             NotificacionesChkbox.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             NotificacionesChkbox.ForeColor = Color.FromArgb(64, 64, 64);
@@ -436,7 +444,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.info_circle;
-            pictureBox4.Location = new Point(829, 257);
+            pictureBox4.Location = new Point(793, 257);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(27, 27);
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -478,6 +486,7 @@
             rjButton3.Text = "Foto nueva";
             rjButton3.TextColor = Color.White;
             rjButton3.UseVisualStyleBackColor = false;
+            rjButton3.Visible = false;
             rjButton3.Click += rjButton3_Click;
             // 
             // rjButton4
@@ -502,6 +511,7 @@
             rjButton4.Text = "Elegir foto";
             rjButton4.TextColor = Color.White;
             rjButton4.UseVisualStyleBackColor = false;
+            rjButton4.Visible = false;
             rjButton4.Click += rjButton4_Click;
             // 
             // label2
@@ -604,6 +614,7 @@
             sexoTextbox.DataSource = null;
             sexoTextbox.DisplayMember = "";
             sexoTextbox.DropDownStyle = ComboBoxStyle.DropDown;
+            sexoTextbox.Enabled = false;
             sexoTextbox.Font = new Font("Quicksand", 13.75F);
             sexoTextbox.ForeColor = Color.FromArgb(130, 130, 130);
             sexoTextbox.IconColor = Color.FromArgb(130, 130, 130);
@@ -620,12 +631,25 @@
             sexoTextbox.ValueMember = "";
             sexoTextbox.OnSelectedIndexChanged += sexoTextbox_OnSelectedIndexChanged;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = Properties.Resources.import;
+            pictureBox3.Location = new Point(793, 154);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(27, 27);
+            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.TabIndex = 51;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
             // VentanaAltaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(899, 546);
+            Controls.Add(pictureBox3);
             Controls.Add(sexoTextbox);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -666,6 +690,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)FotoPerfil).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -704,5 +729,6 @@
         private Label label8;
         private Label label9;
         private CustomControls.RJControls.RJComboBox sexoTextbox;
+        private PictureBox pictureBox3;
     }
 }

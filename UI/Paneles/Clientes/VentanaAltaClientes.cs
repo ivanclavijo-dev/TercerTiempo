@@ -40,43 +40,45 @@ namespace UI.Paneles
         readonly Color ColorSeleccionado = Color.FromArgb(16, 83, 233);
         readonly Color ColorNoSeleccionado = Color.DarkGray;
 
+        public enum TipoNotificacion
+        {
+            Exito,
+            Alerta,
+            Error
+        }
+
+        public void MostrarNotificacion(TipoNotificacion tipo, string titulo, string mensaje)
+        {
+            Form formPrincipal = ObtenerFormularioPrincipal();
+            NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+
+            switch (tipo)
+            {
+                case TipoNotificacion.Exito:
+                    noti.NotiExito(titulo, mensaje);
+                    break;
+                case TipoNotificacion.Alerta:
+                    noti.NotiAlerta(titulo, mensaje);
+                    break;
+                case TipoNotificacion.Error:
+                    noti.NotiError(titulo, mensaje);
+                    break;
+            }
+
+            noti.Show();
+        }
+
         private Form ObtenerFormularioPrincipal()
         {
             foreach (Form form in Application.OpenForms)
             {
-                if (form is TercerTiempo) 
+                if (form is TercerTiempo)
                 {
                     return form;
                 }
             }
 
             return null;
-        }
-
-        public void MostrarNotificacion(string Titulo, string Cuerpo, string Tipo)
-        {
-            Form formPrincipal = ObtenerFormularioPrincipal();
-
-            NotificacionVentana noti = new NotificacionVentana(formPrincipal);
-            noti.TitleAlertBox = Titulo;
-            noti.SubituloAlertBox = Cuerpo;
-            if(Tipo.ToLower() == "aviso")
-            {
-                noti.ColorAlertBox = Color.Orange;
-                noti.IconeAlertBox = Properties.Resources.exclamacion;
-            }
-            else if(Tipo.ToLower() == "exito")
-            {
-                noti.ColorAlertBox = Color.Green;
-                noti.IconeAlertBox = Properties.Resources.marca_de_verificacion;
-            } else if(Tipo.ToLower() == "error")
-            {
-                noti.ColorAlertBox = Color.Red;
-                noti.IconeAlertBox = Properties.Resources.cerrar;
-            }
-            noti.BackColorAlertBox = Color.WhiteSmoke;
-
-            noti.Show();
         }
 
         private void ColorearLabel(Label label, Color color)
@@ -167,60 +169,75 @@ namespace UI.Paneles
             if (cedulaTextbox.Texts == "" || nombreTextbox.Texts == "" || apellidoTextbox.Texts == "" || telefonoTextbox.Texts == "" ||
                 nacimientoTextbox.Texts == "" || servicioTextbox.Texts == "" || sexoTextbox.Texts == "")
             {
-                MostrarNotificacion("Alerta", "Debes completar los campos con (*).", "aviso");
+                // CAMPOS VACIOS    
+                MostrarNotificacion(TipoNotificacion.Alerta, "Aviso", "Debes completar los campos con (*).");
             }
             else if (!validarFecha)
             {
-                MostrarNotificacion("Error", "El formato de la fecha es incorrecto.", "error");
+                // FECHA MAL INGRESADA
+                MostrarNotificacion(TipoNotificacion.Error, "Error", "El formato de la fecha es incorrecto.");
             }
             else
             {
-                Altas altas = new Altas();
-
-                int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
-                    servicioTextbox.Texts.ToUpper(), nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts.ToUpper(), fotoPerfilBytes);
-
-                int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
-
-                if (resultadoIngresarPersona == 1)
-                {
-                    if (resultadoIngresarCliente == 1)
-                    {
-                        MostrarNotificacion("Cliente ingresado", "El registro se guardo correctamente.", "Exito");
-
-                        this.Close();
-                    }
-                    else if (resultadoIngresarCliente == 2)
-                    {
-                        MessageBox.Show("Error al ingresar al cliente");
-                    }
-                    else if (resultadoIngresarCliente == 3)
-                    {
-                        MessageBox.Show("El cliente ya existe. No puedes registrarlo denuevo.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error no identificado, comunicarse con soporte.");
-                    }
-                }
-                else if (resultadoIngresarPersona == 2)
-                {
-                    MessageBox.Show("Error al ingresar la persona");
-                }
-                else if (resultadoIngresarPersona == 3)
-                {
-                    MessageBox.Show("La persona ya esta ingresada en el sistema. Compruebe la cedula ingresada.");
-                }
-                else if (resultadoIngresarPersona == 4)
-                {
-                    MessageBox.Show("El formato de la fecha ingresada esta mal.");
-                }
-                else
-                {
-                    MessageBox.Show("Error no identificado, comunicarse con soporte.");
-                }
+                // INGRESO LOS DATOS
+                IngresarDatos();
             }
 
+        }
+
+        private Altas altas = new Altas();
+
+        public void IngresarDatosCliente()
+        {
+            int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
+
+            if (resultadoIngresarCliente == 1)
+            {
+                MostrarNotificacion(TipoNotificacion.Exito, "Cliente ingresado", "El registro se guardó correctamente.");
+                this.Close();
+            }
+            else if (resultadoIngresarCliente == 2)
+            {
+                MostrarNotificacion(TipoNotificacion.Error, "Error", "La persona no existe. No se puede registrar el cliente.");
+            }
+            else if (resultadoIngresarCliente == 3)
+            {
+                MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya existe en la base de datos.");
+            }
+            else if (resultadoIngresarCliente == 4)
+            {
+                MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Ocurrió un problema al registrar el cliente.");
+            }
+        }
+
+        public void IngresarDatos()
+        {
+
+            int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
+                servicioTextbox.Texts.ToUpper(), nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts.ToUpper(), fotoPerfilBytes);
+
+            if (resultadoIngresarPersona == 1)
+            {
+                // Persona creada correctamente
+                IngresarDatosCliente();
+            }
+            else if (resultadoIngresarPersona == 3)
+            {
+                // Persona ya existía → Intentamos registrarla como cliente
+                IngresarDatosCliente();
+            }
+            else if (resultadoIngresarPersona == 2)
+            {
+                MostrarNotificacion(TipoNotificacion.Error, "Error", "No se pudo registrar los datos de la persona.");
+            }
+            else if (resultadoIngresarPersona == 4)
+            {
+                MostrarNotificacion(TipoNotificacion.Alerta, "Aviso", "El formato de la fecha ingresada está mal.");
+            }
+            else
+            {
+                MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Comuniquese con soporte.");
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -526,6 +543,62 @@ namespace UI.Paneles
         {
             rjButton2.Image = Resources.BlackTrash;
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (cedulaTextbox.Texts.Length == 8)
+            {
+                var personaLogica = new Logica.BD.consultasBD.PersonaDatos();
+                var persona = personaLogica.ObtenerPersonaPorCedula(cedulaTextbox.Texts);
+
+                if (persona != null)
+                {
+                    nombreTextbox.Texts = persona.Nombre;
+                    apellidoTextbox.Texts = persona.Apellido;
+                    telefonoTextbox.Texts = persona.Telefono;
+                    nacimientoTextbox.Texts = persona.FechaNacimiento.ToString("yyyy-MM-dd");
+                    servicioTextbox.Texts = persona.ServicioMedico;
+                    NotificacionesChkbox.Checked = persona.Notificaciones;
+                    sexoTextbox.Texts = persona.Sexo;
+
+                    if (persona.FotoPerfil != null)
+                    {
+                        using (var ms = new MemoryStream(persona.FotoPerfil))
+                        {
+                            FotoPerfil.Image = Image.FromStream(ms);
+                            fotoPerfilBytes = persona.FotoPerfil;
+                        }
+                    }
+
+                    // Actualizar labels visuales
+                    ActualizarLabelNombreCompleto();
+                    telefonolbl.Text = $"Teléfono: {telefonoTextbox.Texts}";
+                    serviciolbl.Text = $"Servicio: {servicioTextbox.Texts}";
+                    nacimientolbl.Text = $"Nacimiento: {nacimientoTextbox.Texts}";
+                } else
+                {
+                    string cedulaActual = cedulaTextbox.Texts;
+                    limpiar();
+                    sexoTextbox.Texts = "";
+                    cedulaTextbox.Texts = cedulaActual;
+
+                    nombreTextbox.Enabled = true;
+                    apellidoTextbox.Enabled = true;
+                    telefonoTextbox.Enabled = true;
+                    nacimientoTextbox.Enabled = true;
+                    servicioTextbox.Enabled = true;
+                    NotificacionesChkbox.Enabled = true;
+                    sexoTextbox.Enabled = true;
+
+                    rjButton3.Visible = true;
+                    rjButton4.Visible = true;
+
+                }
+            } else
+            {
+                MostrarNotificacion(TipoNotificacion.Alerta, "Aviso", "Al parecer la cédula esta incompleta.");
+            }
         }
     }
 }
