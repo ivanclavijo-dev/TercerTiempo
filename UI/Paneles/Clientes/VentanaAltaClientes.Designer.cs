@@ -43,11 +43,6 @@
             rjButton1 = new CustomControls.RJControls.RJButton();
             rjButton2 = new CustomControls.RJControls.RJButton();
             pictureBox2 = new PictureBox();
-            cedulalbl = new Label();
-            nombrelbl = new Label();
-            telefonolbl = new Label();
-            nacimientolbl = new Label();
-            serviciolbl = new Label();
             pictureBox4 = new PictureBox();
             FotoPerfil = new PictureBox();
             rjButton3 = new CustomControls.RJControls.RJButton();
@@ -61,12 +56,17 @@
             label8 = new Label();
             label9 = new Label();
             sexoTextbox = new CustomControls.RJControls.RJComboBox();
-            pictureBox3 = new PictureBox();
+            serviciolbl = new Label();
+            sexolbl = new Label();
+            telefonolbl = new Label();
+            nacimientolbl = new Label();
+            edadlbl = new Label();
+            nombrelbl = new Label();
+            cedulalbl = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)FotoPerfil).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -139,7 +139,6 @@
             nombreTextbox.TabIndex = 13;
             nombreTextbox.Texts = "";
             nombreTextbox.UnderlinedStyle = false;
-            nombreTextbox.Visible = false;
             nombreTextbox._TextChanged += nombreTextbox__TextChanged;
             nombreTextbox.Enter += nombreTextbox_Enter;
             nombreTextbox.Leave += nombreTextbox_Leave;
@@ -168,7 +167,6 @@
             apellidoTextbox.TabIndex = 14;
             apellidoTextbox.Texts = "";
             apellidoTextbox.UnderlinedStyle = false;
-            apellidoTextbox.Visible = false;
             apellidoTextbox._TextChanged += apellidoTextbox__TextChanged;
             apellidoTextbox.Enter += apellidoTextbox_Enter;
             apellidoTextbox.Leave += apellidoTextbox_Leave;
@@ -197,7 +195,6 @@
             telefonoTextbox.TabIndex = 15;
             telefonoTextbox.Texts = "";
             telefonoTextbox.UnderlinedStyle = false;
-            telefonoTextbox.Visible = false;
             telefonoTextbox._TextChanged += telefonoTextbox__TextChanged;
             telefonoTextbox.Enter += telefonoTextbox_Enter;
             telefonoTextbox.Leave += telefonoTextbox_Leave;
@@ -227,7 +224,6 @@
             nacimientoTextbox.TabIndex = 16;
             nacimientoTextbox.Texts = "";
             nacimientoTextbox.UnderlinedStyle = false;
-            nacimientoTextbox.Visible = false;
             nacimientoTextbox._TextChanged += nacimientoTextbox__TextChanged;
             nacimientoTextbox.Enter += nacimientoTextbox_Enter;
             nacimientoTextbox.Leave += nacimientoTextbox_Leave;
@@ -284,7 +280,6 @@
             servicioTextbox.TabIndex = 17;
             servicioTextbox.Texts = "";
             servicioTextbox.UnderlinedStyle = false;
-            servicioTextbox.Visible = false;
             servicioTextbox._TextChanged += servicioTextbox__TextChanged;
             servicioTextbox.Enter += servicioTextbox_Enter;
             servicioTextbox.Leave += servicioTextbox_Leave;
@@ -319,7 +314,6 @@
             // 
             NotificacionesChkbox.AutoSize = true;
             NotificacionesChkbox.Cursor = Cursors.Hand;
-            NotificacionesChkbox.Enabled = false;
             NotificacionesChkbox.FlatStyle = FlatStyle.System;
             NotificacionesChkbox.Font = new Font("Quicksand", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             NotificacionesChkbox.ForeColor = Color.FromArgb(64, 64, 64);
@@ -386,66 +380,6 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
-            // cedulalbl
-            // 
-            cedulalbl.AutoSize = true;
-            cedulalbl.BackColor = Color.FromArgb(16, 83, 233);
-            cedulalbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            cedulalbl.ForeColor = Color.White;
-            cedulalbl.Location = new Point(61, 232);
-            cedulalbl.Name = "cedulalbl";
-            cedulalbl.Size = new Size(92, 30);
-            cedulalbl.TabIndex = 24;
-            cedulalbl.Text = "Cedula:";
-            // 
-            // nombrelbl
-            // 
-            nombrelbl.AutoSize = true;
-            nombrelbl.BackColor = Color.FromArgb(16, 83, 233);
-            nombrelbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            nombrelbl.ForeColor = Color.White;
-            nombrelbl.Location = new Point(61, 270);
-            nombrelbl.Name = "nombrelbl";
-            nombrelbl.Size = new Size(104, 30);
-            nombrelbl.TabIndex = 25;
-            nombrelbl.Text = "Nombre:";
-            // 
-            // telefonolbl
-            // 
-            telefonolbl.AutoSize = true;
-            telefonolbl.BackColor = Color.FromArgb(16, 83, 233);
-            telefonolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            telefonolbl.ForeColor = Color.White;
-            telefonolbl.Location = new Point(61, 308);
-            telefonolbl.Name = "telefonolbl";
-            telefonolbl.Size = new Size(109, 30);
-            telefonolbl.TabIndex = 26;
-            telefonolbl.Text = "Teléfono:";
-            // 
-            // nacimientolbl
-            // 
-            nacimientolbl.AutoSize = true;
-            nacimientolbl.BackColor = Color.FromArgb(16, 83, 233);
-            nacimientolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            nacimientolbl.ForeColor = Color.White;
-            nacimientolbl.Location = new Point(61, 346);
-            nacimientolbl.Name = "nacimientolbl";
-            nacimientolbl.Size = new Size(140, 30);
-            nacimientolbl.TabIndex = 27;
-            nacimientolbl.Text = "Nacimiento:";
-            // 
-            // serviciolbl
-            // 
-            serviciolbl.AutoSize = true;
-            serviciolbl.BackColor = Color.FromArgb(16, 83, 233);
-            serviciolbl.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            serviciolbl.ForeColor = Color.White;
-            serviciolbl.Location = new Point(61, 384);
-            serviciolbl.Name = "serviciolbl";
-            serviciolbl.Size = new Size(102, 30);
-            serviciolbl.TabIndex = 28;
-            serviciolbl.Text = "Servicio:";
-            // 
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.info_circle;
@@ -455,7 +389,6 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 36;
             pictureBox4.TabStop = false;
-            pictureBox4.Visible = false;
             pictureBox4.Click += pictureBox4_Click;
             pictureBox4.MouseEnter += pictureBox4_MouseEnter;
             pictureBox4.MouseLeave += pictureBox4_MouseLeave;
@@ -552,7 +485,6 @@
             label4.Size = new Size(75, 18);
             label4.TabIndex = 43;
             label4.Text = "Nombre (*)";
-            label4.Visible = false;
             // 
             // label5
             // 
@@ -564,7 +496,6 @@
             label5.Size = new Size(73, 18);
             label5.TabIndex = 44;
             label5.Text = "Apellido (*)";
-            label5.Visible = false;
             // 
             // label6
             // 
@@ -576,7 +507,6 @@
             label6.Size = new Size(75, 18);
             label6.TabIndex = 45;
             label6.Text = "Teléfono (*)";
-            label6.Visible = false;
             // 
             // label7
             // 
@@ -588,7 +518,6 @@
             label7.Size = new Size(118, 18);
             label7.TabIndex = 46;
             label7.Text = "Servicio Médico (*)";
-            label7.Visible = false;
             // 
             // label8
             // 
@@ -612,14 +541,13 @@
             label9.Size = new Size(153, 18);
             label9.TabIndex = 49;
             label9.Text = "Fecha de Nacimiento (*)";
-            label9.Visible = false;
             // 
             // sexoTextbox
             // 
             sexoTextbox.AutoCompleteMode = AutoCompleteMode.None;
             sexoTextbox.AutoCompleteSource = AutoCompleteSource.None;
             sexoTextbox.BackColor = SystemColors.ControlLight;
-            sexoTextbox.BorderColor = Color.MediumSlateBlue;
+            sexoTextbox.BorderColor = Color.Transparent;
             sexoTextbox.BorderRadius = 10;
             sexoTextbox.BorderSize = 0;
             sexoTextbox.DataSource = null;
@@ -640,20 +568,91 @@
             sexoTextbox.TabIndex = 50;
             sexoTextbox.Texts = "";
             sexoTextbox.ValueMember = "";
-            sexoTextbox.Visible = false;
             sexoTextbox.OnSelectedIndexChanged += sexoTextbox_OnSelectedIndexChanged;
             // 
-            // pictureBox3
+            // serviciolbl
             // 
-            pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Properties.Resources.darkgray_import;
-            pictureBox3.Location = new Point(793, 154);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(27, 27);
-            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox3.TabIndex = 51;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
+            serviciolbl.AutoSize = true;
+            serviciolbl.BackColor = Color.FromArgb(16, 83, 233);
+            serviciolbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            serviciolbl.ForeColor = Color.White;
+            serviciolbl.Location = new Point(70, 407);
+            serviciolbl.Name = "serviciolbl";
+            serviciolbl.Size = new Size(152, 25);
+            serviciolbl.TabIndex = 58;
+            serviciolbl.Text = "Servicio Médico: ";
+            // 
+            // sexolbl
+            // 
+            sexolbl.AutoSize = true;
+            sexolbl.BackColor = Color.FromArgb(16, 83, 233);
+            sexolbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            sexolbl.ForeColor = Color.White;
+            sexolbl.Location = new Point(70, 287);
+            sexolbl.Name = "sexolbl";
+            sexolbl.Size = new Size(76, 25);
+            sexolbl.TabIndex = 57;
+            sexolbl.Text = "Genero:";
+            // 
+            // telefonolbl
+            // 
+            telefonolbl.AutoSize = true;
+            telefonolbl.BackColor = Color.FromArgb(16, 83, 233);
+            telefonolbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            telefonolbl.ForeColor = Color.White;
+            telefonolbl.Location = new Point(70, 377);
+            telefonolbl.Name = "telefonolbl";
+            telefonolbl.Size = new Size(87, 25);
+            telefonolbl.TabIndex = 56;
+            telefonolbl.Text = "Teléfono:";
+            // 
+            // nacimientolbl
+            // 
+            nacimientolbl.AutoSize = true;
+            nacimientolbl.BackColor = Color.FromArgb(16, 83, 233);
+            nacimientolbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            nacimientolbl.ForeColor = Color.White;
+            nacimientolbl.Location = new Point(70, 347);
+            nacimientolbl.Name = "nacimientolbl";
+            nacimientolbl.Size = new Size(113, 25);
+            nacimientolbl.TabIndex = 55;
+            nacimientolbl.Text = "Nacimiento:";
+            // 
+            // edadlbl
+            // 
+            edadlbl.AutoSize = true;
+            edadlbl.BackColor = Color.FromArgb(16, 83, 233);
+            edadlbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            edadlbl.ForeColor = Color.White;
+            edadlbl.Location = new Point(70, 317);
+            edadlbl.Name = "edadlbl";
+            edadlbl.Size = new Size(59, 25);
+            edadlbl.TabIndex = 54;
+            edadlbl.Text = "Edad:";
+            // 
+            // nombrelbl
+            // 
+            nombrelbl.AutoSize = true;
+            nombrelbl.BackColor = Color.FromArgb(16, 83, 233);
+            nombrelbl.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            nombrelbl.ForeColor = Color.White;
+            nombrelbl.Location = new Point(70, 257);
+            nombrelbl.Name = "nombrelbl";
+            nombrelbl.Size = new Size(84, 25);
+            nombrelbl.TabIndex = 53;
+            nombrelbl.Text = "Nombre:";
+            // 
+            // cedulalbl
+            // 
+            cedulalbl.AutoSize = true;
+            cedulalbl.BackColor = Color.FromArgb(16, 83, 233);
+            cedulalbl.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cedulalbl.ForeColor = Color.White;
+            cedulalbl.Location = new Point(70, 227);
+            cedulalbl.Name = "cedulalbl";
+            cedulalbl.Size = new Size(75, 25);
+            cedulalbl.TabIndex = 52;
+            cedulalbl.Text = "Cédula:";
             // 
             // VentanaAltaClientes
             // 
@@ -661,7 +660,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(899, 546);
-            Controls.Add(pictureBox3);
+            Controls.Add(serviciolbl);
+            Controls.Add(sexolbl);
+            Controls.Add(telefonolbl);
+            Controls.Add(nacimientolbl);
+            Controls.Add(edadlbl);
+            Controls.Add(nombrelbl);
+            Controls.Add(cedulalbl);
             Controls.Add(sexoTextbox);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -675,11 +680,6 @@
             Controls.Add(rjButton3);
             Controls.Add(FotoPerfil);
             Controls.Add(pictureBox4);
-            Controls.Add(serviciolbl);
-            Controls.Add(nacimientolbl);
-            Controls.Add(telefonolbl);
-            Controls.Add(nombrelbl);
-            Controls.Add(cedulalbl);
             Controls.Add(pictureBox2);
             Controls.Add(rjButton2);
             Controls.Add(rjButton1);
@@ -702,7 +702,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)FotoPerfil).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -723,11 +722,6 @@
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton rjButton2;
         private PictureBox pictureBox2;
-        private Label cedulalbl;
-        private Label nombrelbl;
-        private Label telefonolbl;
-        private Label nacimientolbl;
-        private Label serviciolbl;
         private PictureBox pictureBox4;
         private PictureBox FotoPerfil;
         private CustomControls.RJControls.RJButton rjButton3;
@@ -741,6 +735,12 @@
         private Label label8;
         private Label label9;
         private CustomControls.RJControls.RJComboBox sexoTextbox;
-        private PictureBox pictureBox3;
+        private Label serviciolbl;
+        private Label sexolbl;
+        private Label telefonolbl;
+        private Label nacimientolbl;
+        private Label edadlbl;
+        private Label nombrelbl;
+        private Label cedulalbl;
     }
 }

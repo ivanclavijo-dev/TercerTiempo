@@ -18,5 +18,26 @@ namespace Logica.BD.LogicaModificaciones
            
         }
 
+
+        // devuelve 1 = modificado correctamente, 2 = error al modificar, -1 = error inesperado
+        public int modificarPersona(int cedula, bool notificaciones, byte[] fotoPerfil)
+        {
+            ModificarPersona modificarPersona = new ModificarPersona();
+            try
+            {
+                if (modificarPersona.modificarPersonaFotoYNotificaciones(cedula, notificaciones, fotoPerfil))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            catch (Exception ex) 
+            {
+                return -1;
+            }
+        }
     }
 }

@@ -11,15 +11,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using CustomControls.RJControls;
+using Entidades;
 using Logica;
 using Logica.BD;
 using Logica.BD.Altas;
+using Logica.BD.LogicaConsultas;
+using Logica.BD.LogicaModificaciones;
 using Logica.MetodosAdicionales;
 using UI.Forms;
 using UI.Notificaciones;
 using UI.Paneles.Desplegable;
 using UI.Properties;
+using static Logica.BD.consultasBD;
 
 namespace UI.Paneles
 {
@@ -112,12 +117,10 @@ namespace UI.Paneles
             RedondearPictureBox(FotoPerfil);
 
             sexoTextbox.Items.Add("");
-            sexoTextbox.Items.Add("Masculino");
-            sexoTextbox.Items.Add("Femenino");
-            sexoTextbox.Items.Add("Otro");
+            sexoTextbox.Items.Add("MASCULINO");
+            sexoTextbox.Items.Add("FEMENINO");
+            sexoTextbox.Items.Add("OTRO");
 
-            observacionTextbox.Location = new Point(386, 196);
-            label8.Location = new Point(404, 188);
         }
 
         private void SetImagenPredeterminada()
@@ -158,6 +161,19 @@ namespace UI.Paneles
             SetImagenPredeterminada();
         }
 
+        public void limpiarMenosCedula()
+        {
+            nombreTextbox.Texts = "";
+            apellidoTextbox.Texts = "";
+            telefonoTextbox.Texts = "";
+            nacimientoTextbox.Texts = "";
+            servicioTextbox.Texts = "";
+            observacionTextbox.Texts = "";
+            sexoTextbox.SelectedIndex = 0;
+            NotificacionesChkbox.Checked = false;
+            SetImagenPredeterminada();
+        }
+
         private void rjButton2_Click(object sender, EventArgs e)
         {
             limpiar();
@@ -181,65 +197,105 @@ namespace UI.Paneles
             }
             else
             {
-                // INGRESO LOS DATOS
-                IngresarDatos();
+                if (clienteNuevo)
+                {
+                    IngresarNuevoClienteYPersona();
+                } else if (personaYaRegistrada)
+                {
+                    IngresarCliente();
+                }
             }
 
         }
 
         private Altas altas = new Altas();
+        private Modificaciones modificaciones = new Modificaciones();
+        private ConsultarExistencia ConsultarExistencia = new ConsultarExistencia();
 
-        public void IngresarDatosCliente()
+        // Es el ingreso cuando no existe como cliente ni persona
+        public void IngresarNuevoClienteYPersona()
         {
-            int resultadoIngresarCliente = altas.ingresarCliente(observacionTextbox.Texts, Convert.ToInt32(cedulaTextbox.Texts));
+            int resultadoIngresarPersona = altas.ingresarPersona(
+                Convert.ToInt32(cedulaTextbox.Texts),
+                nombreTextbox.Texts,
+                apellidoTextbox.Texts,
+                telefonoTextbox.Texts,
+                servicioTextbox.Texts.ToUpper(),
+                nacimientoTextbox.Texts,
+                NotificacionesChkbox.Checked,
+                sexoTextbox.Texts.ToUpper(),
+                fotoPerfilBytes);
 
-            if (resultadoIngresarCliente == 1)
+            switch (resultadoIngresarPersona) 
             {
-                MostrarNotificacion(TipoNotificacion.Exito, "Cliente ingresado", "El registro se guardó correctamente.");
-                this.Close();
-            }
-            else if (resultadoIngresarCliente == 2)
-            {
-                MostrarNotificacion(TipoNotificacion.Error, "Error", "La persona no existe. No se puede registrar el cliente.");
-            }
-            else if (resultadoIngresarCliente == 3)
-            {
-                MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya existe en la base de datos.");
-            }
-            else if (resultadoIngresarCliente == 4)
-            {
-                MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Ocurrió un problema al registrar el cliente.");
+                case 1:
+                    // Tengo que ingresar a la persona como cliente
+                    IngresarCliente();
+                    break;
+                case 2:
+                    // Error al ingresar los datos en Persona
+                    MostrarNotificacion(TipoNotificacion.Error, "Error", "No se pudieron registrar los datos personales.");
+                    break;
+                case 3:
+
+                    break;
+                default:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error técnico : Persona", "Comuniquese con soporte.");
+                    break;
             }
         }
 
-        public void IngresarDatos()
+        // Es el ingreso cuando existe como persona 
+        public void IngresarCliente()
         {
 
-            int resultadoIngresarPersona = altas.ingresarPersona(Convert.ToInt32(cedulaTextbox.Texts), nombreTextbox.Texts, apellidoTextbox.Texts, telefonoTextbox.Texts,
-                servicioTextbox.Texts.ToUpper(), nacimientoTextbox.Texts, NotificacionesChkbox.Checked, sexoTextbox.Texts.ToUpper(), fotoPerfilBytes);
+            int resultadoIngresarCliente = altas.ingresarCliente(
+                observacionTextbox.Texts,
+                Convert.ToInt32(cedulaTextbox.Texts)
+            );
 
-            if (resultadoIngresarPersona == 1)
+            switch (resultadoIngresarCliente)
             {
-                // Persona creada correctamente
-                IngresarDatosCliente();
+                case 1:
+                    int resultadoActualizarPersona = modificaciones.modificarPersona(Convert.ToInt32(cedulaTextbox.Texts), NotificacionesChkbox.Checked, fotoPerfilBytes);
+
+                    switch (resultadoActualizarPersona)
+                    {
+                        case 1:
+
+                            break;
+                        case 2:
+                            MostrarNotificacion(TipoNotificacion.Error, "Error : Persona", "No se pudieron actualizar los datos personales.");
+                            break;
+                        case -1:
+                            MostrarNotificacion(TipoNotificacion.Error, "Error técnico : Persona", "Comunicarse con soporte.");
+                            break;
+                        default:
+                            break;
+                    }
+
+                    MostrarNotificacion(TipoNotificacion.Exito, "Cliente ingresado", "El registro se guardó correctamente.");
+                    this.Close();
+                    break;
+
+                case 2:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error", "La persona no existe. No se puede registrar el cliente.");
+                    break;
+
+                case 3:
+                    MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya existe en la base de datos.");
+                    break;
+
+                case 4:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Ocurrió un problema al registrar el cliente.");
+                    break;
+
+                default:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error técnico : Cliente", "Comuniquese con soporte.");
+                    break;
             }
-            else if (resultadoIngresarPersona == 3)
-            {
-                // Persona ya existía → Intentamos registrarla como cliente
-                IngresarDatosCliente();
-            }
-            else if (resultadoIngresarPersona == 2)
-            {
-                MostrarNotificacion(TipoNotificacion.Error, "Error", "No se pudo registrar los datos de la persona.");
-            }
-            else if (resultadoIngresarPersona == 4)
-            {
-                MostrarNotificacion(TipoNotificacion.Alerta, "Aviso", "El formato de la fecha ingresada está mal.");
-            }
-            else
-            {
-                MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Comuniquese con soporte.");
-            }
+
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -253,16 +309,112 @@ namespace UI.Paneles
 
         }
 
+        public void MostrarDatosPersonales(int cedula)
+        {
+            PersonaLogica personaLogica = new PersonaLogica();
+            Persona persona = personaLogica.obtenerPersonaPorCedula(cedula);
+
+            if (persona != null)
+            {
+                nombreTextbox.Texts = persona.Nombre;
+                apellidoTextbox.Texts = persona.Apellido;
+                telefonoTextbox.Texts = persona.Telefono;
+                nacimientoTextbox.Texts = persona.FechaNacimiento.ToString("yyyy-MM-dd");
+                servicioTextbox.Texts = persona.ServicioMedico;
+                NotificacionesChkbox.Checked = persona.Notificaciones;
+
+                // Asignar sexo según índice del ComboBox
+                switch (persona.Sexo.Trim().ToUpper())
+                {
+                    case "MASCULINO":
+                        sexoTextbox.SelectedIndex = 1;
+                        break;
+                    case "FEMENINO":
+                        sexoTextbox.SelectedIndex = 2;
+                        break;
+                    case "OTRO":
+                        sexoTextbox.SelectedIndex = 3;
+                        break;
+                    default:
+                        sexoTextbox.SelectedIndex = 0;
+                        break;
+                }
+
+                // Cargar imagen si existe
+                if (persona.FotoPerfil != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(persona.FotoPerfil))
+                    {
+                        FotoPerfil.Image = Image.FromStream(ms);
+                    }
+                }
+            }
+        }
+
+        private bool personaYaRegistrada = false;
+        private bool clienteNuevo = false;
+
         private void cedulaTextbox__TextChanged(object sender, EventArgs e)
         {
             cedulalbl.Text = $"Cédula: {cedulaTextbox.Texts}";
+
             if (cedulaTextbox.Texts.Length == 8)
             {
-                pictureBox3.Image = Resources.import;
+                int resultado = ConsultarExistencia.VerificarPersonaYCliente(Convert.ToInt32(cedulaTextbox.Texts));
+
+                switch (resultado)
+                {
+                    case 1:
+                        MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya está registrado.");
+                        rjButton1.BackColor = Color.Silver;
+                        rjButton1.Enabled = false;
+                        break;
+                    case 2:
+                        MostrarDatosPersonales(Convert.ToInt32(cedulaTextbox.Texts));
+                        personaYaRegistrada = true;
+                        rjButton3.Visible = true;
+                        rjButton4.Visible = true;
+                        break;
+                    case 3:
+                        clienteNuevo = true;
+
+                        rjButton3.Visible = true;
+                        rjButton4.Visible = true;
+
+                        nombreTextbox.Enabled = true;
+                        apellidoTextbox.Enabled = true;
+                        telefonoTextbox.Enabled = true;
+                        nacimientoTextbox.Enabled = true;
+                        servicioTextbox.Enabled = true;
+                        sexoTextbox.Enabled = true;
+                        break;
+                    case -1:
+                        MessageBox.Show("");
+                        MostrarNotificacion(TipoNotificacion.Error, "Error técnico", "Ocurrió un error al verificar los datos.");
+                        break;
+                }
             } else
             {
-                pictureBox3.Image = Resources.darkgray_import;
+                limpiarMenosCedula();
+                rjButton1.BackColor = Color.FromArgb(16, 83, 233);
+                rjButton1.Enabled = true;
+
+                rjButton3.Visible = false;
+                rjButton4.Visible = false;
+
+                nombreTextbox.Enabled = false;
+                apellidoTextbox.Enabled = false;
+                telefonoTextbox.Enabled = false;
+                nacimientoTextbox.Enabled = false;
+                servicioTextbox.Enabled = false;
+                sexoTextbox.Enabled = false;
             }
+        }
+
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void nombreTextbox__TextChanged(object sender, EventArgs e)
@@ -509,6 +661,7 @@ namespace UI.Paneles
         }
 
         private void nacimientoTextbox_Leave(object sender, EventArgs e)
+
         {
             ColorearLabel(label9, ColorNoSeleccionado);
 
@@ -540,7 +693,8 @@ namespace UI.Paneles
 
         private void sexoTextbox_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string genero = sexoTextbox.SelectedItem.ToString();
+            sexolbl.Text = $"Sexo: {genero}";
         }
 
         private void rjButton2_MouseEnter(object sender, EventArgs e)
@@ -554,60 +708,5 @@ namespace UI.Paneles
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            if (cedulaTextbox.Texts.Length == 8)
-            {
-                var personaLogica = new Logica.BD.consultasBD.PersonaDatos();
-                var persona = personaLogica.ObtenerPersonaPorCedula(cedulaTextbox.Texts);
-
-                if (persona != null)
-                {
-                    nombreTextbox.Texts = persona.Nombre;
-                    apellidoTextbox.Texts = persona.Apellido;
-                    telefonoTextbox.Texts = persona.Telefono;
-                    nacimientoTextbox.Texts = persona.FechaNacimiento.ToString("yyyy-MM-dd");
-                    servicioTextbox.Texts = persona.ServicioMedico;
-                    NotificacionesChkbox.Checked = persona.Notificaciones;
-                    sexoTextbox.Texts = persona.Sexo;
-
-                    if (persona.FotoPerfil != null)
-                    {
-                        using (var ms = new MemoryStream(persona.FotoPerfil))
-                        {
-                            FotoPerfil.Image = Image.FromStream(ms);
-                            fotoPerfilBytes = persona.FotoPerfil;
-                        }
-                    }
-
-                    // Actualizar labels visuales
-                    ActualizarLabelNombreCompleto();
-                    telefonolbl.Text = $"Teléfono: {telefonoTextbox.Texts}";
-                    serviciolbl.Text = $"Servicio: {servicioTextbox.Texts}";
-                    nacimientolbl.Text = $"Nacimiento: {nacimientoTextbox.Texts}";
-                } else
-                {
-                    string cedulaActual = cedulaTextbox.Texts;
-                    limpiar();
-                    sexoTextbox.Texts = "";
-                    cedulaTextbox.Texts = cedulaActual;
-
-                    nombreTextbox.Enabled = true;
-                    apellidoTextbox.Enabled = true;
-                    telefonoTextbox.Enabled = true;
-                    nacimientoTextbox.Enabled = true;
-                    servicioTextbox.Enabled = true;
-                    NotificacionesChkbox.Enabled = true;
-                    sexoTextbox.Enabled = true;
-
-                    rjButton3.Visible = true;
-                    rjButton4.Visible = true;
-
-                }
-            } else
-            {
-                MostrarNotificacion(TipoNotificacion.Alerta, "Aviso", "Al parecer la cédula esta incompleta.");
-            }
-        }
     }
 }

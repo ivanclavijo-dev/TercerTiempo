@@ -13,6 +13,7 @@ namespace Entidades
         public bool Notificaciones { get; set; }
         public byte[] FotoPerfil { get; set; }
         public string Sexo { get; set; }
+        public Persona DatosPersonales { get; set; }
 
     }
 }

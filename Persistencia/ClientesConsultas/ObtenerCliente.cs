@@ -19,7 +19,6 @@ namespace Persistencia.ClientesConsultas
 
             MySqlConnection conn = conexion.AbrirConexion();
 
-            // Actualizamos la consulta para usar las tablas 'colaborador' y 'persona'
             string query = @"
                 SELECT 
                     c.idCliente, 

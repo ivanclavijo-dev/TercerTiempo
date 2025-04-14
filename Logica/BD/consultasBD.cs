@@ -3,7 +3,7 @@ using Persistencia.ArticulosConsultas;
 using Persistencia.ClientesConsultas;
 using Persistencia.Empleado;
 using Persistencia.Estadisticas;
-using Persistencia.PersonaConsultas;
+using Persistencia.PersonasConsultas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -115,13 +115,13 @@ namespace Logica.BD
             }
         }
 
-        public class PersonaDatos
+        public class PersonaLogica
         {
-            private ConsultarDatos obtenerPersona = new ConsultarDatos();
+            private ObtenerPersona ObtenerPersona = new ObtenerPersona();
 
-            public Persona ObtenerPersonaPorCedula(string cedula)
+            public Persona obtenerPersonaPorCedula(int cedula)
             {
-                return obtenerPersona.ObtenerPorCedula(cedula);
+                return ObtenerPersona.ObtenerPersonaPorCedula(cedula);
             }
         }
     }
