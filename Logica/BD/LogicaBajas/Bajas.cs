@@ -10,16 +10,23 @@ namespace Logica.BD.LogicaBajas
 {
     public class Bajas
     {
-        public bool eliminarCliente(int id)
+        public int eliminarCliente(int id)
         {
             BajaClientes bajas = new BajaClientes();
 
-            if (bajas.EliminarCliente(id)) 
+            try
             {
-                return true;
-            } else
+                if (bajas.EliminarCliente(id))
+                {
+                    return 1;
+                } else
+                {
+                    return 2;
+                }
+            }
+            catch (Exception ex) 
             {
-                return false;
+                return -1;
             }
         }
 

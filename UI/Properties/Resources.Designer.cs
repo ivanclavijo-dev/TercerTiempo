@@ -313,6 +313,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EliminarCliente {
+            get {
+                object obj = ResourceManager.GetObject("EliminarCliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exclamacion {
             get {
                 object obj = ResourceManager.GetObject("exclamacion", resourceCulture);
@@ -636,6 +646,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap pngwing_com {
             get {
                 object obj = ResourceManager.GetObject("pngwing.com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReactivarCliente {
+            get {
+                object obj = ResourceManager.GetObject("ReactivarCliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -140,7 +140,7 @@ namespace UI.Forms
 
             if (cliente != null)
             {
-                ConfirmaBajaCliente ventana = new ConfirmaBajaCliente(cliente.Id, cliente.Nombre, cliente.EstadoCuota);
+                ConfirmaBajaCliente ventana = new ConfirmaBajaCliente(cliente.Id);
                 MostrarPanel(ventana);
             }
             else

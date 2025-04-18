@@ -22,6 +22,7 @@ using Logica.BD.LogicaModificaciones;
 using Logica.MetodosAdicionales;
 using UI.Forms;
 using UI.Notificaciones;
+using UI.Paneles.Avisos.Clientes;
 using UI.Paneles.Desplegable;
 using UI.Properties;
 using static Logica.BD.consultasBD;
@@ -354,6 +355,11 @@ namespace UI.Paneles
         private bool personaYaRegistrada = false;
         private bool clienteNuevo = false;
 
+        private void MostrarPanel(Form form)
+        {
+            UI.Helpers.ModalOverlayHelper.MostrarConOverlay(form);
+        }
+
         private void cedulaTextbox__TextChanged(object sender, EventArgs e)
         {
             cedulalbl.Text = $"Cédula: {cedulaTextbox.Texts}";
@@ -361,13 +367,21 @@ namespace UI.Paneles
             if (cedulaTextbox.Texts.Length == 8)
             {
                 int resultado = ConsultarExistencia.VerificarPersonaYCliente(Convert.ToInt32(cedulaTextbox.Texts));
+                bool resultado2 = ConsultarExistencia.ClienteDadoDeBaja(Convert.ToInt32(cedulaTextbox.Texts));
 
                 switch (resultado)
                 {
                     case 1:
-                        MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya está registrado.");
-                        rjButton1.BackColor = Color.Silver;
-                        rjButton1.Enabled = false;
+                        if (resultado2)
+                        {
+                            ReactivarCliente reactivarCliente = new ReactivarCliente(cedulaTextbox.Texts);
+                            MostrarPanel(reactivarCliente);
+                        } else
+                        {
+                            MostrarNotificacion(TipoNotificacion.Alerta, "¡CUIDADO!", "El cliente ya está registrado.");
+                            rjButton1.BackColor = Color.LightGray;
+                            rjButton1.Enabled = false;
+                        }
                         break;
                     case 2:
                         MostrarDatosPersonales(Convert.ToInt32(cedulaTextbox.Texts));

@@ -39,5 +39,23 @@ namespace Logica.BD.LogicaModificaciones
                 return -1;
             }
         }
+
+        public int reactivarCliente(int cedula)
+        {
+            ModificarEstadoCliente modificarEstadoCliente = new ModificarEstadoCliente();
+            try
+            {
+                if (modificarEstadoCliente.modificarEstadoCliente(cedula))
+                {
+                    return 1;
+                } else
+                {
+                    return 2;
+                }
+            } catch (Exception ex)
+            {
+                return -1;
+            }
+        }
     }
 }

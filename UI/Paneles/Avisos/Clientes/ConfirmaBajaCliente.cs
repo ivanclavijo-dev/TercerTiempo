@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Logica;
 using Logica.BD.LogicaBajas;
 using UI.Forms;
+using UI.Notificaciones;
 
 namespace UI.Paneles.Avisos
 {
@@ -27,33 +28,55 @@ namespace UI.Paneles.Avisos
              int nHeightEllipse
           );
 
-        public ConfirmaBajaCliente(string id, string nombre, string estadoCuota)
+        private string id_cliente;
+
+        public ConfirmaBajaCliente(string id)
         {
             InitializeComponent();
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
-            idCliente.Text = id;
-            nombreCliente.Text = nombre;
-            estadoCuotaCliente.Text = estadoCuota;
+            id_cliente = id;    
+        }
 
-            if (estadoCuota == "Vigente")
+        public enum TipoNotificacion
+        {
+            Exito,
+            Alerta,
+            Error
+        }
+
+        private Form ObtenerFormularioPrincipal()
+        {
+            foreach (Form form in Application.OpenForms)
             {
-                estadoCuotaCliente.ForeColor = Color.FromArgb(56, 224, 56);
-            }
-            else if (estadoCuota == "Por vencer")
-            {
-                estadoCuotaCliente.ForeColor = Color.FromArgb(240, 165, 45);
-            }
-            else if (estadoCuota == "Vencido")
-            {
-                estadoCuotaCliente.ForeColor = Color.FromArgb(244, 54, 20);
-            }
-            else if (estadoCuota == "Pendiente")
-            {
-                estadoCuotaCliente.ForeColor = Color.Silver;
+                if (form is TercerTiempo)
+                {
+                    return form;
+                }
             }
 
+            return null;
+        }
 
+        public void MostrarNotificacion(TipoNotificacion tipo, string titulo, string mensaje)
+        {
+            Form formPrincipal = ObtenerFormularioPrincipal();
+            NotificacionVentana noti = new NotificacionVentana(formPrincipal);
+
+            switch (tipo)
+            {
+                case TipoNotificacion.Exito:
+                    noti.NotiExito(titulo, mensaje);
+                    break;
+                case TipoNotificacion.Alerta:
+                    noti.NotiAlerta(titulo, mensaje);
+                    break;
+                case TipoNotificacion.Error:
+                    noti.NotiError(titulo, mensaje);
+                    break;
+            }
+
+            noti.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -69,17 +92,20 @@ namespace UI.Paneles.Avisos
         private void rjButton1_Click(object sender, EventArgs e)
         {
             Bajas bajas = new Bajas();
-            bool resultadoBaja = bajas.eliminarCliente(Convert.ToInt32(idCliente.Text));
+            int resultadoBaja = bajas.eliminarCliente(Convert.ToInt32(id_cliente));
 
-            if (resultadoBaja)
+            switch(resultadoBaja)
             {
-                MessageBox.Show("Se elimino el cliente correctamente");
-                this.Close();
-
-            }
-            else
-            {
-                MessageBox.Show("Error al eliminar el cliente.");
+                case 1:
+                    MostrarNotificacion(TipoNotificacion.Exito, "Cliente eliminado", "El registro se eliminó correctamente");
+                    this.Close();
+                    break;
+                case 2:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error al eliminar", "No se pudo eliminar el registro");
+                    break;
+                case -1:
+                    MostrarNotificacion(TipoNotificacion.Error, "Error inesperado", "Contacte con soporte");
+                    break;
             }
         }
 

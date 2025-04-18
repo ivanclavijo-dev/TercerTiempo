@@ -19,7 +19,9 @@ namespace Logica.BD.LogicaConsultas
                 if (validar.validarPersona(cedula))
                 {
                     if (validar.validarCliente(cedula))
+                    {
                         return 1; // Ya existe como persona y cliente
+                    }
                     else
                         return 2; // Solo existe como persona
                 }
@@ -31,6 +33,20 @@ namespace Logica.BD.LogicaConsultas
             catch (Exception ex)
             {
                 return -1; // Error inesperado
+            }
+        }
+
+        public bool ClienteDadoDeBaja(int cedula)
+        {
+            try
+            {
+                if(validar.validarClienteEnBaja(cedula))
+                {
+                    return true;
+                } else { return false; }
+            } catch
+            {
+                return false;
             }
         }
     }

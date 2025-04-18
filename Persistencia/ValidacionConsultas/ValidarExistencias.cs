@@ -28,6 +28,22 @@ namespace Persistencia.ValidacionConsultas
             }
         }
 
+        public bool validarClienteEnBaja(int cedula)
+        {
+            MySqlConnection conn = conexion.AbrirConexion();
+            {
+                string consulta = "SELECT COUNT(*) FROM cliente WHERE cedula_cliente = '" + cedula + "' AND estado_cliente = '0';";
+                using (MySqlCommand cmd = new MySqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Cedula", cedula);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
         public bool validarPersona(int cedula)
         {
             MySqlConnection conn = conexion.AbrirConexion();
